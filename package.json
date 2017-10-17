@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ALaaRBK/Refugees-Foreign-Helper-/issues"
   },
-  "homepage": "https://github.com/ALaaRBK/Refugees-Foreign-Helper-#readme"
+  "homepage": "https://github.com/ALaaRBK/Refugees-Foreign-Helper-#readme",
+  "devDependencies": {
+    "@angular/cli": "^1.4.7"
+  },
+  "dependencies": {
+    "@angular/compiler-cli": "^4.4.5"
+  }
 }
