@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-  username ;
+    username ;
 	password;
 	constructor(private http: Http,private router:Router){ 
 
@@ -24,7 +24,6 @@ export class SignupComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://127.0.0.1:3000/signup', {password : this.password , username : this.username}, {headers: headers})
 		.map((res) => {
-			console.log(res)
 			if(res){
 				this.router.navigateByUrl('/login');
 			}else{
