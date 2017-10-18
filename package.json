@@ -20,6 +20,12 @@
     "@angular/cli": "^1.4.7"
   },
   "dependencies": {
-    "@angular/compiler-cli": "^4.4.5"
+    "@angular/compiler-cli": "^4.4.5",
+    "@angular/core": "^4.4.5",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "serve-favicon": "^2.4.5",
+    "typescript": "^2.5.3"
   }
 }
