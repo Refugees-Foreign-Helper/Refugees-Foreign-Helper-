@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/ALaaRBK/Refugees-Foreign-Helper-#readme",
   "devDependencies": {
-    "@angular/cli": "^1.4.7"
+    "@angular/cli": "^1.4.7",
+    "request": "^2.83.0"
   },
   "dependencies": {
     "@angular/compiler-cli": "^4.4.5"
