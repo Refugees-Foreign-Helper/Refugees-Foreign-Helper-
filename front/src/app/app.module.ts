@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/index';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
+import { PostComponent } from './post/post.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
-  { path: 'login',      component: LoginComponent },
-  {path:'main',component:MainComponent}
+  { path: 'login',  component: LoginComponent },
+  {path:'main', component:MainComponent},
+  {path:'post', component:PostComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     MainComponent,
-    SignupComponent
+    SignupComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [
   AppComponent, 
-  MainComponent]
+  MainComponent,
+  PostComponent]
 })
 export class AppModule { 
 }
