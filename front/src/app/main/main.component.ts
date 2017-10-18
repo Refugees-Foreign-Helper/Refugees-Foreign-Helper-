@@ -22,7 +22,10 @@ export class MainComponent implements OnInit {
 	headers.append('Content-Type' , 'appllication/json');
 
 	return this.http.post('http://127.0.0.1:3000/post',{location : this.location , description: this.description, image:this.image, contactInfo:this.contactInfo},{headers: headers})
-		.map(res => res.json());
+		.map(res => {console.log(res)
+
+    }
+      
   }
 
 }

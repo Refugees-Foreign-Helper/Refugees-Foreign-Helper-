@@ -57,27 +57,32 @@ connect.connect(function (err) {
 	password varchar(255)
 	)`
 
-	// var roomTable = `CREATE TABLE IF NOT EXISTS rooms(
-	// id INT AUTO_INCREMENT PRIMARY KEY,
-	// discribtion varchar(20)
-	// imag varchar(20)
-	// )`
+	var roomTable = `CREATE TABLE IF NOT EXISTS rooms(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	location varchar(60),
+	discribtion varchar(255),
+	contactInfo varchar(100),
+	imag varchar(60)
+	)`
 	connect.query(userTable,function(err,result){
 		if(err){
 			console.log(err)
 		}
-		console.log('table1 created ! :)')
+		console.log('users table created ! :)')
 	})
-	// connect.query(roomTable,function(err,result){
-	// 	if(err){
-	// 		console.log(err)
-	// 	}
-	// 	console.log('table2 created ! :)')
-	// })
+	connect.query(roomTable,function(err,result){
+		if(err){
+			console.log(err)
+		}
+		console.log('roomtable created ! :)')
+	})
 });
 // -----------------Sign Up ----and ------Login------------------------------------
 // ----------------------sign up----------------------------------------
 var result='false';
+app.get('/',function(req,res){
+	console.log(req.body)
+})
 app.post('/signup',function (req,res) {
 	var username=  "'"+req.body.username+"'";
 	var password="'"+req.body.password+"'";
@@ -93,12 +98,12 @@ app.post('/signup',function (req,res) {
 			var data = "INSERT INTO users (username,password) VALUES ("+username+","+password+")";
 			result='true'
 			connect.query(data)
-			res.send(result)
+			res.send(data)
 
 		}else{
 			result='false'
 			console.log('username already exist :(')
-			res.send(result)
+			res.send(data)
 
 		}
 	})
@@ -114,22 +119,25 @@ console.log(req.body.username);
 var username=  "'"+req.body.username+"'";
 var password= "'"+req.body.password+"'";
 
-var login = 'SELECT * FROM users WHERE username='+username+',password='+password;
+var login = 'SELECT * FROM users WHERE username='+username+'AND password='+password;
 
 connect.query(login,function(err,checkeduser){
-	if(checkeduser!==[]){//user exists
+	console.log(checkeduser)
+	if(checkeduser.length<1){//user exists
 		result='true';
-		
+		console.log("user",username)
 		res.send(result)
 	}else{
 		result='false'
-		res.send(result)
+		res.send(checkeduser)
 	}
 })
-
-
-
 	
+})
+
+//----------------creat save inside roomtable---------------
+app.post('/post',function(req,res){
+
 })
 
 

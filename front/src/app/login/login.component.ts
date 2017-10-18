@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://127.0.0.1:3000/login', {password : this.password , username : this.username}, {headers: headers})
 		.map((res) => {
-			//console.log(res)
 			if(res){
+			console.log("rearea",res)
 				this.router.navigateByUrl('/main');
 			}else{
 				alert('wrong password or username stupid!!!')
