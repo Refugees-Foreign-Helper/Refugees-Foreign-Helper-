@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, AfterViewChecked} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Router} from '@angular/router';
@@ -8,7 +9,7 @@ import {Router} from '@angular/router';
 	moduleId: module.id,
 	templateUrl: './login.component.html' 
 })
-
+@Injectable()
 export class LoginComponent implements OnInit {
 	ngOnInit(){
 
@@ -19,27 +20,19 @@ export class LoginComponent implements OnInit {
 
 	}
 	login() {
-		console.log(this.password)
 
-
-		let headers = new Headers();
-		headers.append('Content-Type' , 'appllication/json');
-        // ;
-		return this.http.post('/login',{username : this.username , password: this.password},{headers: headers})
+	let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/login', {password : this.password , username : this.username}, {headers: headers})
 		.map((res) => {
-			//res.json()
 			if(res){
 				this.router.navigateByUrl('/main');
 			}else{
 				alert('wrong password or username stupid!!!')
 				this.router.navigateByUrl('/');
 			}
-		});
+		}).subscribe();
 		
 	}
 
-	// login(){ 
-		
-	// 	return this.
-	// }
 }
