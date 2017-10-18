@@ -38,4 +38,5 @@ const appRoutes: Routes = [
   AppComponent, 
   MainComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
