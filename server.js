@@ -77,7 +77,18 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
+var user = ""; //store the current user in it 
 app.post('/login',function(req,res){
+
+var createSession = function(req, res, newUser) {
+    console.log('hanan',newUser.username)
+    return req.session.regenerate(function() {
+        user = newUser;
+        
+        req.session.user = newUser;
+        res.send(newUser);
+    });
+};
 
 
     var username= req.body.username;
@@ -90,35 +101,35 @@ app.post('/login',function(req,res){
         if(checkeduser.length<1){//user not exists
 
         }else{
-            req.session.username = username;
-            res.send(checkeduser);
+            createSession(req,res,checkeduser[0])
+            
         }
     });
     
 });
 
 //----------------creat save inside roomtable---------------
-// app.post('/post',function() {
-//     // var location = req.body.location;
-//     // var description = req.body.description;
-//     // var contactInfo = req.body.contactInfo;
-//     // console.log(req.session.username)
-// 	// var users = 'SELECT * FROM users WHERE username=\''+username+'\'';
-// 	// var post = 'INSERT INTO rooms (location,description,contactInfo) VALUES (\''+location+'\',\''+description+'\',\''+description+'\'';
+app.post('/post',function(req,res) {
+    var username=user.username;
+    var location = req.body.location;
+    var discribtion = req.body.description;
+    var contactInfo = req.body.contactInfo;
+   
+	var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\')';
 
-// 	// connect.query(post,function(err,data){
+	connect.query(post)
 
-//  //        if(data.length < 1){//user not exists
+})
 
-//  //        }else{
+//---------return all roomdata to the client side---------
 
-//  //            res.send(data);
-//  //        }
-//  //    });
+app.get('/main',function(req,res) {
+    var rooms = 'SELECT * FROM rooms';
+    connect.query(rooms,function (err,roomstable) {
+        res.send(roomstable)
+    });
 
-// })
-
-
+});
 
 
 
