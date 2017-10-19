@@ -30,9 +30,12 @@ var connect = mysql.createConnection({
 // ---------------------create table and connection--------------------------------
 connect.connect(function () {
 
-    var userTable = 'CREATE TABLE IF NOT EXISTS users(id INT AUTO_INCREMENT PRIMARY KEY,username varchar(255),password varchar(255))';
+    var userTable = 'CREATE TABLE IF NOT EXISTS users( \
+    id INT AUTO_INCREMENT PRIMARY KEY, \
+    username varchar(255),password varchar(255))';
 
-    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),imag varchar(60))';
+
+    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),imag varchar(60),userID int,FOREIGN KEY (userID) REFERENCES users(id))';
 
     connect.query(userTable);
     connect.query(roomTable);
@@ -87,7 +90,7 @@ app.post('/login',function(req,res){
         if(checkeduser.length<1){//user not exists
 
         }else{
-
+            req.session.username = username;
             res.send(checkeduser);
         }
     });
@@ -95,7 +98,25 @@ app.post('/login',function(req,res){
 });
 
 //----------------creat save inside roomtable---------------
+// app.post('/post',function() {
+//     // var location = req.body.location;
+//     // var description = req.body.description;
+//     // var contactInfo = req.body.contactInfo;
+//     // console.log(req.session.username)
+// 	// var users = 'SELECT * FROM users WHERE username=\''+username+'\'';
+// 	// var post = 'INSERT INTO rooms (location,description,contactInfo) VALUES (\''+location+'\',\''+description+'\',\''+description+'\'';
 
+// 	// connect.query(post,function(err,data){
+
+//  //        if(data.length < 1){//user not exists
+
+//  //        }else{
+
+//  //            res.send(data);
+//  //        }
+//  //    });
+
+// })
 
 
 

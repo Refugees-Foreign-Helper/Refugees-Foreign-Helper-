@@ -27,7 +27,7 @@ constructor(private http: Http) { }
      ,{headers: headers})
     .map((res) => {
       if(res){
-      
+      console.log("response from post",res);
       }else{
         
       }
