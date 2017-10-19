@@ -4,6 +4,9 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 //Components
 import { AppComponent } from './app.component';
@@ -13,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { PostComponent } from './post/post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -32,23 +36,25 @@ const appRoutes: Routes = [
     SignupComponent,
     PostComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    BootstrapCompComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AlertModule.forRoot(),
-     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true })
+    BrowserModule,
+    RouterModule.forRoot(
+    appRoutes,
+     { enableTracing: true })
   ],
   providers: [],
   bootstrap: [
   AppComponent, 
   MainComponent,
   PostComponent,
-  NavbarComponent
+  NavbarComponent,
+  ProfileComponent
   ]
 })
 export class AppModule { 
