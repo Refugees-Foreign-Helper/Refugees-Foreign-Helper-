@@ -11,12 +11,17 @@ import { LoginComponent } from './login/index';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
 import { PostComponent } from './post/post.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login',  component: LoginComponent },
   {path:'main', component:MainComponent},
-  {path:'post', component:PostComponent}
+  {path:'post', component:PostComponent},
+  {path:'navbar', component:NavbarComponent},
+  {path:'profile', component:ProfileComponent}
+
 ];
 
 @NgModule({
@@ -25,7 +30,9 @@ const appRoutes: Routes = [
     LoginComponent,
     MainComponent,
     SignupComponent,
-    PostComponent
+    PostComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,9 @@ const appRoutes: Routes = [
   bootstrap: [
   AppComponent, 
   MainComponent,
-  PostComponent]
+  PostComponent,
+  NavbarComponent
+  ]
 })
 export class AppModule { 
 }
