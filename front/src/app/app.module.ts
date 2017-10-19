@@ -10,11 +10,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/index';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
+import { PostComponent } from './post/post.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
-  { path: 'login',      component: LoginComponent },
-  {path:'main',component:MainComponent}
+  { path: 'login',  component: LoginComponent },
+  {path:'main', component:MainComponent},
+  {path:'post', component:PostComponent},
+  {path:'navbar', component:NavbarComponent},
+  {path:'profile', component:ProfileComponent}
+
 ];
 
 @NgModule({
@@ -22,7 +29,10 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     MainComponent,
-    SignupComponent
+    SignupComponent,
+    PostComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +46,10 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [
   AppComponent, 
-  MainComponent]
+  MainComponent,
+  PostComponent,
+  NavbarComponent
+  ]
 })
-export class AppModule { }
+export class AppModule { 
+}

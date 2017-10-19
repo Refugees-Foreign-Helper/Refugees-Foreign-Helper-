@@ -1,28 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
+
+
 export class MainComponent implements OnInit {
+	posts=[{location : "paris",description : "jafar",contactInfo : "areej zfft" },
+	{location : "paris",description : "jafar",contactInfo : "areej zfft" },
+	{location : "paris",description : "jafar",contactInfo : "areej zfft" }
+	];
   ngOnInit() {
+  	  let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+  	return this.http.get('http://127.0.0.1:3000/main',{headers: headers}).map((res) => {
+  		//console.log(res);
+  		//this.posts = res;
+  	})
   }
-  constructor(private http: Http) { }
-  description;
-  location;
-  image;
-  contactInfo;
+  constructor(private http : Http) {}
 
-  submit(){
-  	console.log(this.location)
-    let headers = new Headers();
-	headers.append('Content-Type' , 'appllication/json');
-
-	return this.http.post('/main',{location : this.location , description: this.description, image:this.image, contactInfo:this.contactInfo},{headers: headers})
-		.map(res => res.json());
-  }
-
+ 
 }
+
+
+
+
+
+
+
+
+

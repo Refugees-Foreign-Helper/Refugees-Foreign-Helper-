@@ -15,7 +15,7 @@
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
-    "@angular/core": "^4.2.4",
+    "@angular/core": "^4.4.5",
     "@angular/forms": "^4.2.4",
     "@angular/http": "^4.2.4",
     "@angular/platform-browser": "^4.2.4",
@@ -47,6 +47,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.3.3"
+    "typescript": "^2.3.4"
   }
 }

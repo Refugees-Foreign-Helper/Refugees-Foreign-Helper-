@@ -22,4 +22,16 @@ describe('SignupComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+ // it('should have a defined component', () => {
+ //      expect(component).toBeDefined();
+ //  });
 });
+
+// describe("A spy, when configured to fake a return value", function() {
+//   var username = "alaa";
+//   it("tracks that the spy was called", function() {
+//     expect(SignupComponent).toEqual("alaa");;
+//   });
+
+// }

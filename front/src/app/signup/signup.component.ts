@@ -13,29 +13,24 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-  username ;
+    username ;
 	password;
 	constructor(private http: Http,private router:Router){ 
 
 	}
 	signup() {
-		// var username = $("#username").val();
-		// var password = $("#password").val();
-		console.log(this.password)
-
-
-		let headers = new Headers();
-		headers.append('Content-Type' , 'appllication/json');
-
-		return this.http.post('/signup',{username : this.username , password: this.password},{headers: headers})
+		
+	let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://127.0.0.1:3000/signup', {password : this.password , username : this.username}, {headers: headers})
 		.map((res) => {
-            if(res){
-             this.router.navigateByUrl('/login');
-            }else{
-              alert('User already exists')	
-            }
-			
-		});
+			if(res){
+				this.router.navigateByUrl('/login');
+			}else{
+				alert('account is already exist !!')
+				this.router.navigateByUrl('/');
+			}
+		}).subscribe();
 	}
 
 }
