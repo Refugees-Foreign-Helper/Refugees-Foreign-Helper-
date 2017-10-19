@@ -12,9 +12,20 @@ import 'rxjs/add/operator/map';
 
 
 export class MainComponent implements OnInit {
+	posts=[{location : "paris",description : "jafar",contactInfo : "areej zfft" },
+	{location : "paris",description : "jafar",contactInfo : "areej zfft" },
+	{location : "paris",description : "jafar",contactInfo : "areej zfft" }
+	];
   ngOnInit() {
+  	  let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+  	return this.http.get('http://127.0.0.1:3000/main',{headers: headers}).map((res) => {
+  		//console.log(res);
+  		//this.posts = res;
+  	})
   }
-  constructor() { }
+  constructor(private http : Http) {}
+
  
 }
 

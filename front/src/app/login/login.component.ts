@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
 				alert('wrong password or username stupid!!!')
 				this.router.navigateByUrl('/');
 			}
+
 		}).subscribe();
+
 		
 	}
 
