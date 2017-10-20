@@ -35,7 +35,7 @@ connect.connect(function () {
     username varchar(255),password varchar(255))';
 
 
-    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),imag varchar(60),userID int,FOREIGN KEY (userID) REFERENCES users(id))';
+    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),imag varchar(60),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
     connect.query(userTable);
     connect.query(roomTable);
@@ -115,14 +115,13 @@ app.post('/post',function(req,res) {
     var discribtion = req.body.description;
     var contactInfo = req.body.contactInfo;
    
-	var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\')';
+	var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\')';
 
 	connect.query(post)
 
 })
 
 //---------return all roomdata to the client side---------
-
 app.get('/main',function(req,res) {
     var rooms = 'SELECT * FROM rooms';
     connect.query(rooms,function (err,roomstable) {
