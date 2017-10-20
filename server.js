@@ -64,6 +64,7 @@ connect.connect(function (err) {
 	contactInfo varchar(100),
 	imag varchar(60)
 	)`
+	
 	connect.query(userTable,function(err,result){
 		if(err){
 			console.log(err)
@@ -80,9 +81,12 @@ connect.connect(function (err) {
 // -----------------Sign Up ----and ------Login------------------------------------
 // ----------------------sign up----------------------------------------
 var result='false';
-app.get('/',function(req,res){
+
+app.get('/main',function(req,res){
+	res.end('hello ')
 	console.log(req.body)
 })
+
 app.post('/signup',function (req,res) {
 	var username=  "'"+req.body.username+"'";
 	var password="'"+req.body.password+"'";
@@ -90,6 +94,7 @@ app.post('/signup',function (req,res) {
 	// console.log('username',username)
 
 	var signup = 'SELECT * FROM users WHERE username='+username;
+
 	
      
 	connect.query(signup,function (err,checkeduser) {
@@ -98,6 +103,7 @@ app.post('/signup',function (req,res) {
 			var data = "INSERT INTO users (username,password) VALUES ("+username+","+password+")";
 			result='true'
 			connect.query(data)
+
 			res.send(data)
 
 		}else{
@@ -123,12 +129,10 @@ var login = 'SELECT * FROM users WHERE username='+username+'AND password='+passw
 
 connect.query(login,function(err,checkeduser){
 	console.log(checkeduser)
-	if(checkeduser.length<1){//user exists
-		result='true';
-		console.log("user",username)
-		res.send(result)
+	if(checkeduser.length<1){//user not exists
+		result='false';
 	}else{
-		result='false'
+		result='true'
 		res.send(checkeduser)
 	}
 })

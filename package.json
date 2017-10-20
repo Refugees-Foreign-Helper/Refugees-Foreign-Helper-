@@ -18,6 +18,8 @@
   "homepage": "https://github.com/ALaaRBK/Refugees-Foreign-Helper-#readme",
   "devDependencies": {
     "@angular/cli": "^1.4.7",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
     "request": "^2.83.0"
   },
   "dependencies": {
