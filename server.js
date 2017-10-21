@@ -77,18 +77,15 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
-var user = ""; //store the current user in it 
+var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
-
-var createSession = function(req, res, newUser) {
-    console.log('hanan',newUser.username)
-    return req.session.regenerate(function() {
-        user = newUser;
-        
-        req.session.user = newUser;
-        res.send(newUser);
-    });
-};
+    var createSession = function(req, res, newUser) {
+        return req.session.regenerate(function() {
+            user = newUser;
+            req.session.user = newUser;
+            res.send(newUser);
+        });
+    };
 
 
     var username= req.body.username;
@@ -101,7 +98,7 @@ var createSession = function(req, res, newUser) {
         if(checkeduser.length<1){//user not exists
 
         }else{
-            createSession(req,res,checkeduser[0])
+            createSession(req,res,checkeduser[0]);
             
         }
     });
@@ -115,18 +112,19 @@ app.post('/post',function(req,res) {
     var discribtion = req.body.discribtion;
     var contactInfo = req.body.contactInfo;
    
-	var post = 'INSERT INTO rooms (location,discribtion,contactInfo) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\')';
+    var post = 'INSERT INTO rooms (location,discribtion,contactInfo) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\')';
 
-	connect.query(post)
+    connect.query(post);
+    res.send(username);
 
-})
+});
 
 //---------return all roomdata to the client side---------
 
 app.get('/main',function(req,res) {
     var rooms = 'SELECT * FROM rooms';
     connect.query(rooms,function (err,roomstable) {
-        res.send(roomstable)
+        res.send(roomstable);
     });
 
 });
