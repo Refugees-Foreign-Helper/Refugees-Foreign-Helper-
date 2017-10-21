@@ -30,7 +30,9 @@
   "dependencies": {
     "@angular/compiler-cli": "^4.4.5",
     "@angular/core": "^4.4.5",
+    "bootstrap": "^4.0.0-alpha.6",
     "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
     "serve-favicon": "^2.4.5",
