@@ -16,7 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { PostComponent } from './post/post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
+//import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     PostComponent,
     NavbarComponent,
     ProfileComponent,
-    BootstrapCompComponent
+  //  BootstrapCompComponent
   ],
   imports: [
     BrowserModule,
@@ -58,4 +58,5 @@ const appRoutes: Routes = [
   ]
 })
 export class AppModule { 
+
 }
