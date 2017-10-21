@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   	setInterval(() => {
      let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-    return this.http.get('http://127.0.0.1:3000/main',{headers: headers})
+    return this.http.get('/main',{headers: headers})
     .map((res) => {
       if(res){
          this.posts = res.json();
@@ -30,9 +30,7 @@ export class MainComponent implements OnInit {
   }, 5000);
   }
   constructor(private http : Http) {}
-mains(){
-    
-}
+
 
 
 
