@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
@@ -23,7 +24,7 @@ constructor(private http: Http) { }
   submit(){
   let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://127.0.0.1:3000/post', {location : this.location , description: this.description, image:this.image, contactInfo:this.contactInfo}
+    return this.http.post('http://127.0.0.1:3000/post', {location : this.location , discribtion: this.description, image:this.image, contactInfo:this.contactInfo}
      ,{headers: headers})
     .map((res) => {
       if(res){

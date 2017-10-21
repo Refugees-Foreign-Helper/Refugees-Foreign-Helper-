@@ -14,13 +14,15 @@ export class LoginComponent implements OnInit {
 	ngOnInit(){
 
 	}
+	public x : "alaa";
 	username ;
 	password;
 	constructor(private http: Http, private router:Router){ 
 
 	}
-	login() {
 
+	login() {
+		
 	let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://127.0.0.1:3000/login', {password : this.password , username : this.username}, {headers: headers})
