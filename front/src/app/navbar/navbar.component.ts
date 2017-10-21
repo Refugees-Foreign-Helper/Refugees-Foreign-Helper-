@@ -1,4 +1,7 @@
+// import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import {toggle} from '../login/login.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-treger = false;
+  show = toggle;
   constructor() { }
 
   ngOnInit() {
+  	
   }
 
 }
+
+

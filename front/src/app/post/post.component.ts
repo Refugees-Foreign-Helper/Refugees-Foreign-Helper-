@@ -24,7 +24,7 @@ constructor(private http: Http) { }
   submit(){
   let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://127.0.0.1:3000/post', {location : this.location , discribtion: this.description, image:this.image, contactInfo:this.contactInfo}
+    return this.http.post('/post', {location : this.location , discribtion: this.description, image:this.image, contactInfo:this.contactInfo}
      ,{headers: headers})
     .map((res) => {
       if(res){

@@ -4,6 +4,8 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Router} from '@angular/router';
 
+
+export let toggle;
 @Component ({
 	selector: 'app-login',
 	moduleId: module.id,
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
 	ngOnInit(){
 
 	}
-	public x : "alaa";
+	// public x : "alaa";
 	username ;
 	password;
 	constructor(private http: Http, private router:Router){ 
@@ -25,10 +27,12 @@ export class LoginComponent implements OnInit {
 		
 	let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://127.0.0.1:3000/login', {password : this.password , username : this.username}, {headers: headers})
+    return this.http.post('/login', {password : this.password , username : this.username}, {headers: headers})
 		.map((res) => {
 			if(res){
-				console.log("rearea",res)
+				//console.log("rearea",res)
+				toggle=false;
+				console.log("showHidda",toggle);
 				this.router.navigateByUrl('/main');
 			}else{
 				alert('wrong password or username stupid!!!')
@@ -39,5 +43,9 @@ export class LoginComponent implements OnInit {
 
 		
 	}
+
+	// test(){
+	// 	return x;
+	// }
 
 }
