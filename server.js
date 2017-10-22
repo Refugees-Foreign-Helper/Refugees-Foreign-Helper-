@@ -27,8 +27,8 @@ var connect = mysql.createConnection({
     password:'hbpfE6sY22',
     database:'sql12199746'
 });
-
-// ---------------------create table and connection--------------------------------
+// --------------------------Data base side----------------------------------------
+// ---------------------create tables and connection--------------------------------
 connect.connect(function () {
 
     var userTable = 'CREATE TABLE IF NOT EXISTS users( \
@@ -41,14 +41,16 @@ connect.connect(function () {
     connect.query(userTable);
     connect.query(roomTable);
 });
+
+
 // -----------------Sign Up ----and ------Login------------------------------------
-// ----------------------sign up----------------------------------------
 
 // app.get('/main',function(req,res){
 //     res.end('hello ');
 
 // });
 
+// ----------------------sign up----------------------------------------
 app.post('/signup',function (req,res) {
 
     // console.log(req.body.username+'')
@@ -78,6 +80,7 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
+
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
     // console.log('hanan',user.username,user.id)
@@ -112,7 +115,7 @@ app.post('/login',function(req,res){
     
 });
 
-//----------------creat save inside roomtable---------------
+//----------------create and save inside roomtable---------------
 app.post('/post',function(req,res) {
     var username=user.username;
     var location = req.body.location;
@@ -127,7 +130,7 @@ app.post('/post',function(req,res) {
 
 });
 
-//---------return all roomdata to the client side---------
+//-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
     var rooms = 'SELECT * FROM rooms';
@@ -137,11 +140,15 @@ app.get('/main',function(req,res) {
 
 });
 
+//-----return all roomdata to the client side in the profile page for one user-------
 
 app.get('/profile',function(req,res) {
-    var userr = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
-    connect.query(userr,function (err,info) {
-        res.send(info);
+    var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
+    console.log(user.username)
+    connect.query(userroom,function (err,info) {
+        str = JSON.stringify(info)
+        console.log('information for'+str)
+        res.send(str);
     });
 
 });

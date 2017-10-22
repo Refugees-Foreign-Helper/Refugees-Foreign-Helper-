@@ -14,11 +14,11 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
    let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-    return this.http.get('/main',{headers: headers})
+    return this.http.get('/profile',{headers: headers})
     .map((res) => {
       if(res){
          this.userData = res.json();
-         
+
       console.log("response from post",res.json());
       }else{
         
