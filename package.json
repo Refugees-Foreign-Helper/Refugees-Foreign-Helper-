@@ -30,6 +30,7 @@
   "dependencies": {
     "@angular/compiler-cli": "^4.4.5",
     "@angular/core": "^4.4.5",
+    "bcrypt": "^1.0.3",
     "bootstrap": "^4.0.0-alpha.6",
     "express-session": "^1.15.6",
     "font-awesome": "^4.7.0",

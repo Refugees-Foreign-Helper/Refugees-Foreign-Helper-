@@ -1,10 +1,10 @@
 var mysql= require('mysql');
-var md5= require('md5');
 var express= require('express');
 var app= express();
 var morgan=require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var bcrypt=require('bcrypt');
 // var path = require('path');
 var port=process.env.PORT || 3000;
 
@@ -33,7 +33,11 @@ connect.connect(function () {
 
     var userTable = 'CREATE TABLE IF NOT EXISTS users( \
     id INT AUTO_INCREMENT PRIMARY KEY, \
-    username varchar(255),password varchar(255))';
+    username varchar(255) NOT NULL UNIQUE,\
+    password varchar(255),\
+    Nationallity varchar(60),\
+    Birthday DATE ,\
+    Location varchar(60))';
 
 
     var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
@@ -45,27 +49,29 @@ connect.connect(function () {
 
 // -----------------Sign Up ----and ------Login------------------------------------
 
-// app.get('/main',function(req,res){
-//     res.end('hello ');
 
-// });
 
 // ----------------------sign up----------------------------------------
 app.post('/signup',function (req,res) {
-
+    var password='';
     // console.log(req.body.username+'')
     var username= req.body.username;
-    var password=md5(req.body.password);
-
+    // var password=md5(req.body.password);
+    bcrypt.hash(req.body.password,3,function (err,hash) {
+    password=hash;
+    })
+    var Nationallity=req.body.Nationallity;
+    var Birthday=req.body.Birthday;
+    var location=req.body.location;
 
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
     
      
     connect.query(signup,function (err,checkeduser) {
-        if(checkeduser.length<1){
+        if(checkeduser.length<1){// user not exist
 
-            var data = 'INSERT INTO users (username,password) VALUES (\''+username+'\',\''+password+'\')';
+            var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\')';
 
             connect.query(data);
             res.send(checkeduser);
@@ -83,6 +89,9 @@ app.post('/signup',function (req,res) {
 
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
+    var username= req.body.username;
+    var password1;
+    var results;
     // console.log('hanan',user.username,user.id)
     var createSession = function(req, res, newUser) {
         return req.session.regenerate(function() {
@@ -91,27 +100,48 @@ app.post('/login',function(req,res){
             req.session.user = newUser;
             console.log('user',user)
             res.send(newUser);
-
         });
     };
 
-
-    var username= req.body.username;
-    var password= md5(req.body.password);
     
+   // var password= md5(req.body.password);
     
-    var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password+'\'';
 
-    connect.query(login,function(err,checkeduser){
+
+    connect.query('SELECT password FROM users WHERE username=\''+username+'\'', function (err,result) {
+        results=result[0].password;
+        console.log('hahaha',results)
+        compare()
+    });
+
+function compare() {
+
+    bcrypt.compare(req.body.password,results,function (err,match) {   
+        if(err){
+            console.log(err)
+        }
+    if(match){
+        console.log(true)
+         createSession(req,res,results[0]);
+    }else{
+        console.log(false)
+    }
+    
+    })
+
+}
+    // var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password1+'\'';
+
+    // connect.query(login,function(err,checkeduser){
         
 
-        if(checkeduser.length<1){//user not exists
+        // if(checkeduser.length<1){//user not exists
 
-        }else{
-            createSession(req,res,checkeduser[0]);
+        // }else{
+           
             
-        }
-    });
+        // }
+    // });
     
 });
 
