@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import {Router} from '@angular/router';
 
 
-export let toggle;
+export let toggle = true;
 @Component ({
 	selector: 'app-login',
 	moduleId: module.id,

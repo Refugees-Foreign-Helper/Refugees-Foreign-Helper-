@@ -43,25 +43,26 @@
         </div>
       </div>
       
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+      <div *ngFor="let data of userData">
+
+   <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">1 min</span>
-        <h4>John Doe</h4><br>
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>{{data.userName}}</h4><br>
         <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-half">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" style="width:100%" alt="Nature" class="w3-margin-bottom">
-          </div>
-        </div>
+        <p>
+        Location : {{data.location}} <br>
+        Description : {{data.discribtion}} <br>
+        Contact Info : {{data.contactInfo}} <br>
+
+      </p> 
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>
+      </div>  
+</div>
+
       
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+<!--       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">16 min</span>
         <h4>Jane Doe</h4><br>
@@ -69,9 +70,9 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  
+      </div>  --> 
 
-      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+ <!--      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
         <h4>Angie Jane</h4><br>
@@ -81,13 +82,13 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> 
+      </div>  -->
       
     <!-- End Middle Column -->
     </div>
     
     <!-- Right Column -->
-    <div class="w3-col m2">
+   <!--  <div class="w3-col m2">
       <div class="w3-card-2 w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Upcoming Events:</p>
@@ -114,19 +115,19 @@
           </div>
         </div>
       </div>
-      <br>
+      <br> -->
       
-      <div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
+   <!--    <div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
         <p>ADS</p>
       </div>
-      <br>
+      <br> -->
       
       <div class="w3-card-2 w3-round w3-white w3-padding-32 w3-center">
         <p><i class="fa fa-bug w3-xxlarge"></i></p>
       </div>
       
     <!-- End Right Column -->
-    </div>
+   <!--  </div> -->
     
   <!-- End Grid -->
   </div>
