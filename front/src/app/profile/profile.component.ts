@@ -18,7 +18,8 @@ export class ProfileComponent implements OnInit {
     .map((res) => {
       if(res){
          this.userData = res.json();
-      // console.log("response from post",res.json());
+         
+      console.log("response from post",res.json());
       }else{
         
       }

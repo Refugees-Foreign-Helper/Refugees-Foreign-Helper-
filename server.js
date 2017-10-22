@@ -1,4 +1,5 @@
 var mysql= require('mysql');
+var md5= require('md5');
 var express= require('express');
 var app= express();
 var morgan=require('morgan');
@@ -52,7 +53,7 @@ app.post('/signup',function (req,res) {
 
     // console.log(req.body.username+'')
     var username= req.body.username;
-    var password=req.body.password;
+    var password=md5(req.body.password);
 
 
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
@@ -93,7 +94,7 @@ app.post('/login',function(req,res){
 
 
     var username= req.body.username;
-    var password= req.body.password;
+    var password= md5(req.body.password);
     
     
     var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password+'\'';
@@ -137,6 +138,17 @@ app.get('/main',function(req,res) {
 });
 
 
+app.get('/profile',function(req,res) {
+    var userr = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
+    connect.query(userr,function (err,info) {
+        res.send(info);
+    });
+
+});
+
+//----- how to delete in sql---------
+// DELETE FROM table_name
+// WHERE condition;
 
 
 // -------------------------------------------------------------------------------
