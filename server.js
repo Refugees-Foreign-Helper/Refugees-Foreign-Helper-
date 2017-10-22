@@ -35,7 +35,7 @@ connect.connect(function () {
     username varchar(255),password varchar(255))';
 
 
-    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,FOREIGN KEY (userID) REFERENCES users(id))';
+    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
     connect.query(userTable);
     connect.query(roomTable);
@@ -79,11 +79,15 @@ app.post('/signup',function (req,res) {
 // ---------------------login-----------------------------------------
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
+    // console.log('hanan',user.username,user.id)
     var createSession = function(req, res, newUser) {
         return req.session.regenerate(function() {
+           //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
             user = newUser;
             req.session.user = newUser;
+            console.log('user',user)
             res.send(newUser);
+
         });
     };
 
@@ -91,9 +95,11 @@ app.post('/login',function(req,res){
     var username= req.body.username;
     var password= req.body.password;
     
+    
     var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password+'\'';
 
     connect.query(login,function(err,checkeduser){
+        
 
         if(checkeduser.length<1){//user not exists
 
@@ -111,8 +117,9 @@ app.post('/post',function(req,res) {
     var location = req.body.location;
     var discribtion = req.body.discribtion;
     var contactInfo = req.body.contactInfo;
+   // console.log('username',user.username,user.id)
    
-    var post = 'INSERT INTO rooms (location,discribtion,contactInfo) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\')';
+    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\')';
 
     connect.query(post);
     res.send(username);
