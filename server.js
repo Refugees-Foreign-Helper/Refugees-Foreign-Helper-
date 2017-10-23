@@ -138,6 +138,17 @@ app.get('/main',function(req,res) {
 });
 
 
+app.get('/profile',function(req,res) {
+    var userr = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
+    connect.query(userr,function (err,info) {
+        res.send(info);
+    });
+
+});
+
+//----- how to delete in sql---------
+// DELETE FROM table_name
+// WHERE condition;
 
 
 // -------------------------------------------------------------------------------
