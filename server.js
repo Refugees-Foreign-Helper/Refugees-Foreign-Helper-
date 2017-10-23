@@ -36,7 +36,7 @@ connect.connect(function () {
     username varchar(255) NOT NULL UNIQUE,\
     password varchar(255),\
     Nationallity varchar(60),\
-    Birthday DATE ,\
+    Birthday varchar(60) ,\
     Location varchar(60))';
 
 
@@ -60,10 +60,10 @@ app.post('/signup',function (req,res) {
     bcrypt.hash(req.body.password,3,function (err,hash) {
     password=hash;
     })
-    var Nationallity=req.body.Nationallity;
-    var Birthday=req.body.Birthday;
+    var Nationallity=req.body.nationality;
+    var Birthday=req.body.birthday;
     var location=req.body.location;
-
+    console.log('b-day',Birthday)
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
     
@@ -92,13 +92,13 @@ app.post('/login',function(req,res){
     var username= req.body.username;
     var password1;
     var results;
-    // console.log('hanan',user.username,user.id)
+     console.log('hanan',username,user.id)
     var createSession = function(req, res, newUser) {
         return req.session.regenerate(function() {
            //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
             user = newUser;
             req.session.user = newUser;
-            console.log('user',user)
+            console.log('user123',newUser)
             res.send(newUser);
         });
     };
@@ -108,15 +108,15 @@ app.post('/login',function(req,res){
     
 
 
-    connect.query('SELECT password FROM users WHERE username=\''+username+'\'', function (err,result) {
-        results=result[0].password;
-        console.log('hahaha',results)
+    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
+        results=result;
+        console.log('hahaha',result[0])
         compare()
     });
 
 function compare() {
 
-    bcrypt.compare(req.body.password,results,function (err,match) {   
+    bcrypt.compare(req.body.password,results[0].password,function (err,match) {   
         if(err){
             console.log(err)
         }
@@ -152,7 +152,7 @@ app.post('/post',function(req,res) {
     var discribtion = req.body.discribtion;
     var contactInfo = req.body.contactInfo;
    // console.log('username',user.username,user.id)
-   
+   console.log('hhhhhhh',user.id,user.username)
     var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\')';
 
     connect.query(post);
@@ -174,11 +174,17 @@ app.get('/main',function(req,res) {
 
 app.get('/profile',function(req,res) {
     var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
+    var userinfo= 'SELECT * FROM users WHERE userName=\''+user.username+'\'';
+    var userinformation1;
     console.log(user.username)
+    connect.query(userinfo,function(err,userinfomation){
+        userinfomation1=JSON.stringify(userinfomation)
+        console.log(userinfomation1)
+    })
     connect.query(userroom,function (err,info) {
         str = JSON.stringify(info)
-        console.log('information for'+str)
-        res.send(str);
+        var total=str+userinfomation1
+        res.send(total);
     });
 
 });
