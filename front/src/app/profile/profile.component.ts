@@ -9,6 +9,11 @@ import 'rxjs/add/operator/map';
 })
 export class ProfileComponent implements OnInit {
   userData;
+  currentUser;
+  nationality;
+  location;
+  birthday;
+  postdata;
   constructor(private http : Http) { }
 
   ngOnInit() {
@@ -17,8 +22,15 @@ export class ProfileComponent implements OnInit {
     return this.http.get('/profile',{headers: headers})
     .map((res) => {
       if(res){  
-       console.log("ttttttt",res.json());
+
          this.userData = res.json();
+         this.postdata = this.userData[0];
+         this.currentUser=this.userData[1][0].username;
+         this.nationality=this.userData[1][0].Nationallity;
+         this.location=this.userData[1][0].Location;
+         this.birthday = this.userData[1][0].Birthday 
+
+         // console.log("ttttttt",this.nationality);
 
    
       }else{
