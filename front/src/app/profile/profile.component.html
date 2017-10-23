@@ -7,12 +7,12 @@
       
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-         <h4 class="w3-center">My Profile</h4>
+         <h4 class="w3-center">{{currentUser}}</h4>
          <p class="w3-center"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> nationality</p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> location</p>
-         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> birthday</p>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{nationality}}</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{location}}</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{birthday}}</p>
         </div>
       </div>
       <br>          
@@ -43,7 +43,7 @@
         </div>
       </div>
       
-      <div *ngFor="let data of userData">
+      <div *ngFor="let data of postdata">
 
    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
