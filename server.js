@@ -199,7 +199,7 @@ app.get('/profile',function(req,res) {
        var total=[];
        var str = info
 
-      total.push(str)
+
        total.push(userinfomation1)
        res.send(total);
    });
@@ -219,14 +219,19 @@ app.post('/postcomment',function(req,res){
     var roomId= req.body.roomid;
     var Comment=req.body.commet;
 
+
    var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+
     connect.query(Comment2);
     var allcomments='SELECT * FROM comments WHERE roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
         res.send(allcommentss)
     });
     
-})
+
+});
+
+
 
 
 
@@ -234,6 +239,7 @@ app.post('/postcomment',function(req,res){
 //----- how to delete in sql---------
 // DELETE FROM table_name
 // WHERE condition;
+
 
 
 // -------------------------------------------------------------------------------
