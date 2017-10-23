@@ -98,7 +98,7 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
-
+var flag = false;
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
     var username= req.body.username;
@@ -136,6 +136,7 @@ function compare() {
         }
     if(match){
         console.log(true)
+        flag != flag;
          createSession(req,res,results[0]);
     }else{
         console.log(false)
@@ -158,6 +159,11 @@ function compare() {
     // });
     
 });
+
+app.get('/show',function(req,res){
+    console.log('flag',flag)
+    res.send(flag)
+})
 
 //----------------create and save inside roomtable---------------
 app.post('/post',function(req,res) {
@@ -199,7 +205,7 @@ app.get('/profile',function(req,res) {
        var total=[];
        var str = info
 
-      total.push(str)
+
        total.push(userinfomation1)
        res.send(total);
    });
@@ -219,14 +225,19 @@ app.post('/postcomment',function(req,res){
     var roomId= req.body.roomid;
     var Comment=req.body.commet;
 
+
    var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+
     connect.query(Comment2);
     var allcomments='SELECT * FROM comments WHERE roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
         res.send(allcommentss)
     });
     
-})
+
+});
+
+
 
 
 
@@ -234,6 +245,7 @@ app.post('/postcomment',function(req,res){
 //----- how to delete in sql---------
 // DELETE FROM table_name
 // WHERE condition;
+
 
 
 // -------------------------------------------------------------------------------
