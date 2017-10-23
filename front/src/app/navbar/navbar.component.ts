@@ -1,6 +1,8 @@
 // import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {toggle} from '../login/login.component';
+import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -9,11 +11,23 @@ import {toggle} from '../login/login.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  show = toggle;
-  constructor() { }
+  show = false;
+  constructor(private http : Http) { }
 
   ngOnInit() {
-  	
+  	setInterval(() => {
+     let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.get('/show',{headers: headers})
+    .map((res) => {
+      if(res){
+         this.show = res.json();
+      // console.log("response from post",res.json());
+      }else{
+        
+      }
+    }).subscribe();
+  }, 5000);
   }
 
 }
