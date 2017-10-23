@@ -21,14 +21,19 @@ export class NavbarComponent implements OnInit {
     return this.http.get('/show',{headers: headers})
     .map((res) => {
       if(res){
-         console.log(res.json())
-         // this.show = res.json();
-      // console.log("response from post",res.json());
+         this.show = res.json();
       }else{
         
       }
     }).subscribe();
   }, 5000);
+  }
+
+  logout(){
+     let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.get('/logout',{headers: headers})
+    .map((res) => { }).subscribe();
   }
 
 }
