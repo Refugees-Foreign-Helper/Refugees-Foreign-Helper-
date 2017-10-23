@@ -33,7 +33,11 @@ connect.connect(function () {
 
     var userTable = 'CREATE TABLE IF NOT EXISTS users( \
     id INT AUTO_INCREMENT PRIMARY KEY, \
-    username varchar(255),password varchar(255))';
+    username varchar(255) NOT NULL UNIQUE,\
+    password varchar(255),\
+    Nationallity varchar(60),\
+    Birthday DATE ,\
+    Location varchar(60))';
 
 
     var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
@@ -45,10 +49,7 @@ connect.connect(function () {
 
 // -----------------Sign Up ----and ------Login------------------------------------
 
-// app.get('/main',function(req,res){
-//     res.end('hello ');
 
-// });
 
 // ----------------------sign up----------------------------------------
 app.post('/signup',function (req,res) {
@@ -56,7 +57,9 @@ app.post('/signup',function (req,res) {
     // console.log(req.body.username+'')
     var username= req.body.username;
     var password=md5(req.body.password);
-
+    var Nationallity=req.body.Nationallity;
+    var Birthday=req.body.Birthday;
+    var location=req.body.location;
 
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
@@ -65,7 +68,7 @@ app.post('/signup',function (req,res) {
     connect.query(signup,function (err,checkeduser) {
         if(checkeduser.length<1){
 
-            var data = 'INSERT INTO users (username,password) VALUES (\''+username+'\',\''+password+'\')';
+            var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\')';
 
             connect.query(data);
             res.send(checkeduser);
