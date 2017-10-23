@@ -98,7 +98,7 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
-
+var flag = false;
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
     var username= req.body.username;
@@ -136,6 +136,7 @@ function compare() {
         }
     if(match){
         console.log(true)
+        flag != flag;
          createSession(req,res,results[0]);
     }else{
         console.log(false)
@@ -158,6 +159,11 @@ function compare() {
     // });
     
 });
+
+app.get('/show',function(req,res){
+    console.log('flag',flag)
+    res.send(flag)
+})
 
 //----------------create and save inside roomtable---------------
 app.post('/post',function(req,res) {
