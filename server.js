@@ -39,10 +39,20 @@ connect.connect(function () {
     Birthday varchar(60) ,\
     Location varchar(60))';
 
+// check it tomorrow??
+    var commentTable = 'CREATE TABLE IF NOT EXISTS comments( \
+    id INT AUTO_INCREMENT PRIMARY KEY, \
+    comment varchar(255) ,\
+    userID int ,\
+    roomID int ,\
+    FOREIGN KEY (userID) REFERENCES users(id) ,\
+    FOREIGN KEY (roomID) REFERENCES rooms(id))';
+
 
     var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
     connect.query(userTable);
+    connect.query(commentTable);
     connect.query(roomTable);
 });
 
@@ -103,9 +113,12 @@ app.post('/login',function(req,res){
         });
     };
 
-    
+   // ------this password will encrypted with md5 library -------
+   // some information about md5: md5 is A cryptographic hash function is a fully defined, deterministic function which uses no secret key.
+   // It takes as input a message of arbitrary length (a stream of bits, any bits) and produces a fixed-size output. (since the function can accept many more distinct inputs than it can produce distinct outputs), but we require that it is unfeasible to find even one collision.
+
    // var password= md5(req.body.password);
-    
+   //------------------------------------------------------------ 
 
 
     connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
@@ -138,7 +151,7 @@ function compare() {
         // if(checkeduser.length<1){//user not exists
 
         // }else{
-           
+           //createSession(req,res,checkeduser[0]);
             
         // }
     // });
@@ -188,6 +201,15 @@ app.get('/profile',function(req,res) {
     });
 
 });
+// -----------------delete room -----------------------------------------------
+app.post('/deleteroom',function(req,res){
+    var roomId=req.body.id // I will recieve it from client side
+
+    var deleteroom= 'DELETE FROM rooms WHERE id=\''+roomId +'\'';
+    connect.query(deleteroom);
+})
+
+
 
 //----- how to delete in sql---------
 // DELETE FROM table_name
