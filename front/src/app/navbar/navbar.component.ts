@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  show = false;
+  show ;
   constructor(private http : Http) { }
 
   ngOnInit() {
@@ -21,7 +21,8 @@ export class NavbarComponent implements OnInit {
     return this.http.get('/show',{headers: headers})
     .map((res) => {
       if(res){
-         this.show = res.json();
+         console.log(res.json())
+         // this.show = res.json();
       // console.log("response from post",res.json());
       }else{
         
