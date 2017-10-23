@@ -136,7 +136,7 @@ function compare() {
         }
     if(match){
         console.log(true)
-        flag != flag;
+        flag = !flag;
          createSession(req,res,results[0]);
     }else{
         console.log(false)
