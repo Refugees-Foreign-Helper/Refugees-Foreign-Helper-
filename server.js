@@ -205,7 +205,7 @@ app.get('/profile',function(req,res) {
        var total=[];
        var str = info
 
-
+       total.push(str);
        total.push(userinfomation1)
        res.send(total);
    });
