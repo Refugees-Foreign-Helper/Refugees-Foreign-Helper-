@@ -21,6 +21,7 @@ app.use(session({
 
 
 
+
 var connect = mysql.createConnection({
     host: 'sql12.freesqldatabase.com',
     user:'sql12199746',
@@ -31,7 +32,7 @@ var connect = mysql.createConnection({
 // ---------------------create tables and connection--------------------------------
 connect.connect(function () {
 
-    var userTable = 'CREATE TABLE IF NOT EXISTS users( \
+   var userTable = 'CREATE TABLE IF NOT EXISTS users( \
     id INT AUTO_INCREMENT PRIMARY KEY, \
     username varchar(255) NOT NULL UNIQUE,\
     password varchar(255),\
@@ -49,15 +50,16 @@ connect.connect(function () {
     FOREIGN KEY (roomID) REFERENCES rooms(id))';
 
 
-    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
+   var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
-    connect.query(userTable);
+   connect.query(userTable);
     connect.query(commentTable);
     connect.query(roomTable);
 });
 
 
 // -----------------Sign Up ----and ------Login------------------------------------
+
 
 
 
@@ -76,22 +78,22 @@ app.post('/signup',function (req,res) {
     console.log('b-day',Birthday)
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
-    
-     
+   
+   
     connect.query(signup,function (err,checkeduser) {
         if(checkeduser.length<1){// user not exist
 
-            var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\')';
+           var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\')';
 
-            connect.query(data);
+           connect.query(data);
             res.send(checkeduser);
 
-        }else{
+       }else{
 
 
-            res.send(checkeduser);
+           res.send(checkeduser);
 
-        }
+       }
     });
 });
 
@@ -113,22 +115,22 @@ app.post('/login',function(req,res){
         });
     };
 
-   // ------this password will encrypted with md5 library -------
+  // ------this password will encrypted with md5 library -------
    // some information about md5: md5 is A cryptographic hash function is a fully defined, deterministic function which uses no secret key.
    // It takes as input a message of arbitrary length (a stream of bits, any bits) and produces a fixed-size output. (since the function can accept many more distinct inputs than it can produce distinct outputs), but we require that it is unfeasible to find even one collision.
 
-   // var password= md5(req.body.password);
+  // var password= md5(req.body.password);
    //------------------------------------------------------------ 
 
 
-    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
+   connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
         results=result;
         compare()
     });
 
 function compare() {
 
-    bcrypt.compare(req.body.password,results[0].password,function (err,match) {   
+   bcrypt.compare(req.body.password,results[0].password,function (err,match) {  
         if(err){
             console.log(err)
         }
@@ -139,20 +141,20 @@ function compare() {
         console.log(false)
     }
     
-    })
+   })
 
 }
     // var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password1+'\'';
 
-    // connect.query(login,function(err,checkeduser){
+   // connect.query(login,function(err,checkeduser){
         
 
-        // if(checkeduser.length<1){//user not exists
+       // if(checkeduser.length<1){//user not exists
 
-        // }else{
+       // }else{
            //createSession(req,res,checkeduser[0]);
             
-        // }
+       // }
     // });
     
 });
@@ -167,7 +169,7 @@ app.post('/post',function(req,res) {
    console.log('hhhhhhh',user.id,user.username)
     var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\')';
 
-    connect.query(post);
+   connect.query(post);
     res.send(username);
 
 });
@@ -197,7 +199,7 @@ app.get('/profile',function(req,res) {
        var total=[];
        var str = info
 
-       total.push(str)
+
        total.push(userinfomation1)
        res.send(total);
    });
@@ -207,7 +209,7 @@ app.get('/profile',function(req,res) {
 app.post('/deleteroom',function(req,res){
     var roomId=req.body.id // I will recieve it from client side
 
-    var deleteroom= 'DELETE FROM rooms WHERE id=\''+roomId +'\'';
+   var deleteroom= 'DELETE FROM rooms WHERE id=\''+roomId +'\'';
     connect.query(deleteroom);
 })
 
@@ -217,17 +219,30 @@ app.post('/postcomment',function(req,res){
     var roomId= req.body.roomid;
     var Comment=req.body.commet;
 
-    var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+
+   var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+
     connect.query(Comment2);
     var allcomments='SELECT * FROM comments WHERE roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
         res.send(allcommentss)
     });
     
+
 });
+
+
+
+
+
+
+//----- how to delete in sql---------
+// DELETE FROM table_name
+// WHERE condition;
+
+
 
 // -------------------------------------------------------------------------------
 app.listen(port,function(){
 
 });
-

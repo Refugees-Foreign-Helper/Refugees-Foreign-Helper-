@@ -16,10 +16,11 @@ export class ProfileComponent implements OnInit {
    headers.append('Content-Type', 'application/json');
     return this.http.get('/profile',{headers: headers})
     .map((res) => {
-      if(res){
+      if(res){  
+       console.log("ttttttt",res.json());
          this.userData = res.json();
 
-      console.log("response from post",res.json());
+   
       }else{
         
       }
