@@ -3,6 +3,7 @@ var request = require('request');
 var mysql= require('mysql');
 
 it('Main page content', function(done) {
+    this.timeout(4000);
     request('http://localhost:3000/main' , function(error, response, body) {
         expect(response.body.length>1).to.equal(true);
         done();
@@ -10,6 +11,7 @@ it('Main page content', function(done) {
 });
 
     it('Main page status', function(done) {
+        this.timeout(4500);
     request('http://localhost:3000/main' , function(error, response, body) {
         expect(response.statusCode).to.equal(200);
         done();
@@ -17,6 +19,7 @@ it('Main page content', function(done) {
 });
 
     it('About page content ', function(done) {
+        this.timeout(3000);
     request('http://localhost:3000/login' , function(error, response, body) {
         expect(response.statusCode).to.equal(404);
         done();
@@ -24,6 +27,7 @@ it('Main page content', function(done) {
 });
 
     it('About page content ', function(done) {
+        this.timeout(3000);
     request('http://localhost:3000/login' , function(error, response, body) {
         expect(response.client._httpMessage.method).to.equal('GET');
 
@@ -61,7 +65,7 @@ describe("users table", function () {
             var signup = 'SELECT * FROM users WHERE username="alaa" ';
             connect.query(signup,function(err,allusers){
                 console.dir(allusers);
-                expect(allusers).to.equal()
+                expect(allusers.length).to.equal(1)
                 done();
             })
         });
