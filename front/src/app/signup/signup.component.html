@@ -29,5 +29,9 @@
 
    Nationality :<input [(ngModel)]="nationality" id = "nationality" type="text" name="nationality">	<br><br>	
    Location :<input [(ngModel)]="location" id = "location" type="text" name="location">	<br>	
+   Upload your photo:<input  type="file" id="image" (change)="ima($event)">
+
 <button (click)="signup()"> Signup </button>
 </form>
+
+
