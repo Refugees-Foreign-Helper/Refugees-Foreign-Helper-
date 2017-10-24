@@ -185,19 +185,22 @@ app.get('/main',function(req,res) {
 //-----return all roomdata to the client side in the profile page for one user-------
 
 app.get('/profile',function(req,res) {
-    var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
-    var userinfo= 'SELECT * FROM users WHERE userName=\''+user.username+'\'';
-    var userinformation1;
-    console.log(user.username)
-    connect.query(userinfo,function(err,userinfomation){
-        userinfomation1=JSON.stringify(userinfomation)
-        console.log(userinfomation1)
-    })
-    connect.query(userroom,function (err,info) {
-        str = JSON.stringify(info)
-        var total=str+userinfomation1
-        res.send(total);
-    });
+   var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
+   var userinfo= 'SELECT * FROM users WHERE userName=\''+user.username+'\'';
+   var userinformation1;
+   console.log(user.username)
+   connect.query(userinfo,function(err,userinfomation){
+       userinfomation1=userinfomation
+       console.log(userinfomation1)
+   })
+   connect.query(userroom,function (err,info) {
+       var total=[];
+       var str = info
+
+       total.push(str)
+       total.push(userinfomation1)
+       res.send(total);
+   });
 
 });
 // -----------------delete room -----------------------------------------------
@@ -208,14 +211,22 @@ app.post('/deleteroom',function(req,res){
     connect.query(deleteroom);
 })
 
-// --------------delete comment-------------------------
-// app.post('/postcomment',function(req,res){
-//     var userId= req.body.userid;
-//     var roomId= req.body.roomid;
-//     var Comment=req.body.commet;
+// --------------post comment and send all the comment-------------------------
+app.post('/postcomment',function(req,res){
+    var userId= req.body.userid;
+    var roomId= req.body.roomid;
+    var Comment=req.body.commet;
 
-//     var Comment2=''
-// })
+    var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+    connect.query(Comment2);
+    var allcomments='SELECT * FROM comments WHERE roomID=\''+roomId+'\'';
+    connect.query(allcomments,function(err,allcommentss){
+        res.send(allcommentss)
+    });
+    
+})
+
+
 
 //----- how to delete in sql---------
 // DELETE FROM table_name
