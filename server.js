@@ -162,7 +162,8 @@ function compare() {
 
 //--------------------logout-----------------------------------
 //Logout function destroys the open session.
-app.post('/logout',function (req,res) {
+app.get('/logout',function (req,res) {
+    flag = !flag
     req.session.destroy();
     res.end();
 });
