@@ -20,8 +20,6 @@ app.use(session({
 }));
 
 
-
-
 var connect = mysql.createConnection({
     host: 'sql12.freesqldatabase.com',
     user:'sql12199746',
@@ -38,6 +36,7 @@ connect.connect(function () {
     password varchar(255),\
     Nationallity varchar(60),\
     Birthday varchar(60) ,\
+    imag longtext,\
     Location varchar(60))';
 
 // check it tomorrow??
@@ -50,7 +49,7 @@ connect.connect(function () {
     FOREIGN KEY (roomID) REFERENCES rooms(id))';
 
 
-   var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
+   var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),imag longtext,discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
    connect.query(userTable);
     connect.query(commentTable);
@@ -68,6 +67,7 @@ app.post('/signup',function (req,res) {
     var password='';
     // console.log(req.body.username+'')
     var username= req.body.username;
+    var Image=req.body.image;
     // var password=md5(req.body.password);
     bcrypt.hash(req.body.password,3,function (err,hash) {
     password=hash;
@@ -75,6 +75,7 @@ app.post('/signup',function (req,res) {
     var Nationallity=req.body.nationality;
     var Birthday=req.body.birthday;
     var location=req.body.location;
+    // var Image = req.body.image
     console.log('b-day',Birthday)
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
@@ -83,7 +84,7 @@ app.post('/signup',function (req,res) {
     connect.query(signup,function (err,checkeduser) {
         if(checkeduser.length<1){// user not exist
 
-           var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\')';
+           var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location,Image) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\',\''+Image+'\')';
 
            connect.query(data);
             res.send(checkeduser);
@@ -115,17 +116,17 @@ app.post('/login',function(req,res){
         });
     };
 
-  // ------this password will encrypted with md5 library -------
-   // some information about md5: md5 is A cryptographic hash function is a fully defined, deterministic function which uses no secret key.
-   // It takes as input a message of arbitrary length (a stream of bits, any bits) and produces a fixed-size output. (since the function can accept many more distinct inputs than it can produce distinct outputs), but we require that it is unfeasible to find even one collision.
-
   // var password= md5(req.body.password);
-   //------------------------------------------------------------ 
-
 
    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
         results=result;
-        compare()
+        console.log("hhhhh",typeof result)
+        if(result.length>2){
+          compare();  
+        }else{
+            console.log('not found')
+        }
+        
     });
 
 function compare() {
@@ -179,9 +180,10 @@ app.post('/post',function(req,res) {
     var location = req.body.location;
     var discribtion = req.body.discribtion;
     var contactInfo = req.body.contactInfo;
+    var Image = req.body.image
    // console.log('username',user.username,user.id)
    console.log('hhhhhhh',user.id,user.username)
-    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\')';
+    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName,imag) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\',\''+Image+'\')';
 
    connect.query(post);
     res.send(username);
