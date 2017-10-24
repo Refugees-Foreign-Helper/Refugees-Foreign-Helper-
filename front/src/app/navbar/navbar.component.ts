@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  show = false;
+  show ;
   constructor(private http : Http) { }
 
   ngOnInit() {
@@ -22,12 +22,18 @@ export class NavbarComponent implements OnInit {
     .map((res) => {
       if(res){
          this.show = res.json();
-      // console.log("response from post",res.json());
       }else{
         
       }
     }).subscribe();
   }, 5000);
+  }
+
+  logout(){
+     let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.get('/logout',{headers: headers})
+    .map((res) => { }).subscribe();
   }
 
 }
