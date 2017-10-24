@@ -209,13 +209,13 @@ app.post('/deleteroom',function(req,res){
 })
 
 // --------------delete comment-------------------------
-app.post('/postcomment',function(req,res){
-    var userId= req.body.userid;
-    var roomId= req.body.roomid;
-    var Comment=req.body.commet;
+// app.post('/postcomment',function(req,res){
+//     var userId= req.body.userid;
+//     var roomId= req.body.roomid;
+//     var Comment=req.body.commet;
 
-    var Comment2=''
-})
+//     var Comment2=''
+// })
 
 //----- how to delete in sql---------
 // DELETE FROM table_name
