@@ -15,22 +15,32 @@
         (click) = "main"
       	>Home</a></li>
       <li><a href="#"  
+        [hidden]= "!show" 
       	routerLink="/profile" 
       	routerLinkActive="active" >Profile</a></li>
+   
+
       <!-- <li><a href="#">Page 2</a></li> -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"
+        [hidden]= "show"
         routerLink='/signup'
         routerLinkActive="active"
       	><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"
+            [hidden]= "show"
       	    routerLink="login"
             routerLinkActive="active"><span class="glyphicon glyphicon-log-in" 
       	></span> Login</a>
       </li>
+         <li><a href="#"
+          (click)="logout()"
+        [hidden]= "!show"
+        routerLink='/login'
+        routerLinkActive="active"
+        ><span class="glyphicon glyphicon-user"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
-
 <router-outlet></router-outlet>
