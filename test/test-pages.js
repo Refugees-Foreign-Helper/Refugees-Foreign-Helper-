@@ -44,3 +44,26 @@ it('Main page content', function(done) {
         });
     })
 });
+
+
+
+
+describe("users table", function () {
+    describe("user table in Database", function () {
+        it("should get stuff from users table in the database", function (done) {
+             this.timeout(3000);
+            var connect = mysql.createConnection({
+                        host: 'sql12.freesqldatabase.com',
+                        user:'sql12199746',
+                        password:'hbpfE6sY22',
+                        database:'sql12199746'
+                    });
+            var signup = 'SELECT * FROM users WHERE username="alaa" ';
+            connect.query(signup,function(err,allusers){
+                console.dir(allusers);
+                expect(allusers).to.equal()
+                done();
+            })
+        });
+    });
+});   
