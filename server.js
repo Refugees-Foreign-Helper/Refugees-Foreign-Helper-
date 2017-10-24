@@ -123,7 +123,6 @@ app.post('/login',function(req,res){
 
     connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
         results=result;
-        console.log('hahaha',result[0])
         compare()
     });
 
