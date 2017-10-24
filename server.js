@@ -224,14 +224,7 @@ app.post('/postcomment',function(req,res){
         res.send(allcommentss)
     });
     
-})
-
-
-
-//----- how to delete in sql---------
-// DELETE FROM table_name
-// WHERE condition;
-
+});
 
 // -------------------------------------------------------------------------------
 app.listen(port,function(){
