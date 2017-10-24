@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   location;
   birthday;
   postdata;
+  profile;
   constructor(private http : Http) { }
 
   ngOnInit() {
@@ -28,7 +29,9 @@ export class ProfileComponent implements OnInit {
          this.currentUser=this.userData[1][0].username;
          this.nationality=this.userData[1][0].Nationallity;
          this.location=this.userData[1][0].Location;
-         this.birthday = this.userData[1][0].Birthday 
+         this.birthday = this.userData[1][0].Birthday;
+         this.profile=this.userData[1][0].imag;
+
 
          // console.log("ttttttt",this.nationality);
 
