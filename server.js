@@ -210,9 +210,10 @@ app.post('/post',function(req,res) {
 //-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
-    var rooms = 'SELECT * FROM rooms';
-    connect.query(rooms,function (err,roomstable) {
-        res.send(roomstable);
+    var rooms = 'SELECT rooms.id,rooms.location,rooms.imag,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms INNER JOIN users';
+    connect.query(rooms,function (err,allposts) {
+        console.log('allposts',allposts)
+        res.send(allposts);
     });
 
 });
