@@ -8,7 +8,7 @@
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">{{currentUser}}</h4>
-         <p class="w3-center"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <p class="w3-center"><img src="{{profile}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{nationality}}</p>
          <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{location}}</p>
@@ -43,9 +43,8 @@
         </div>
       </div>
       
-      <div *ngFor="let data of postdata">
 
-   <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+   <!-- <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">16 min</span>
         <h4>{{data.userName}}</h4><br>
@@ -59,7 +58,7 @@
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>  
-</div>
+</div> -->
 
       
 <!--       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
@@ -72,17 +71,21 @@
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>  --> 
 
- <!--      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+      <!-- <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br> -->
+      <div *ngFor="let data of postdata">
+        <img src="{{profile}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
-        <h4>Angie Jane</h4><br>
+        <h4>{{data.userName}}</h4><br>
         <hr class="w3-clear">
-        <p>Have you seen this?</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" style="width:100%" class="w3-margin-bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>
+          Location : {{data.location}} <br>
+          Description : {{data.discribtion}} <br>
+         Contact Info : {{data.contactInfo}} <br>
+        </p>
+        <img src="{{data.imag}}" style="width:100%" class="w3-margin-bottom">
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  -->
+      </div> 
       
     <!-- End Middle Column -->
     </div>
