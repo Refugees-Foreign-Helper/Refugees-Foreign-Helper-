@@ -28,6 +28,7 @@ export class MainComponent implements OnInit {
     .map((res) => {
       if(res){
          this.posts = res.json();
+         console.log(this.posts)
       // console.log("response from post",res.json());
       }else{
         
