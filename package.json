@@ -24,6 +24,7 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
+    "karma-chai": "^0.1.0",
     "mocha": "^4.0.1",
     "request": "^2.83.0"
   },
@@ -32,13 +33,16 @@
     "@angular/core": "^4.4.5",
     "bcrypt": "^1.0.3",
     "bootstrap": "^4.0.0-alpha.6",
+    "chia": "0.0.1",
     "express-session": "^1.15.6",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "md5": "^2.2.1",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
+    "restify-cookies": "^0.2.2",
     "serve-favicon": "^2.4.5",
+    "set-cookie": "0.0.4",
     "typescript": "^2.5.3"
   }
 }

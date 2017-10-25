@@ -5,9 +5,13 @@ var morgan=require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var bcrypt=require('bcrypt');
+var setCookie = require('set-cookie');
+var CookieParser = require('restify-cookies');
+
 // var path = require('path');
 var port=process.env.PORT || 3000;
 
+app.use(CookieParser.parse);
 app.use(bodyParser.json());
 app.use(express.static(__dirname+'/front/dist/'));
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -43,11 +47,11 @@ connect.connect(function () {
     var commentTable = 'CREATE TABLE IF NOT EXISTS comments( \
     id INT AUTO_INCREMENT PRIMARY KEY, \
     comment varchar(255) ,\
-    userID int ,\
+    username varchar(255) ,\
     roomID int ,\
-    FOREIGN KEY (userID) REFERENCES users(id) ,\
     FOREIGN KEY (roomID) REFERENCES rooms(id))';
 
+// FOREIGN KEY (usernmae) REFERENCES users(id) ,\
 
    var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),imag longtext,discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
@@ -84,7 +88,7 @@ app.post('/signup',function (req,res) {
     connect.query(signup,function (err,checkeduser) {
         if(checkeduser.length<1){// user not exist
 
-           var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location,Image) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\',\''+Image+'\')';
+           var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location,imag) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\',\''+Image+'\')';
 
            connect.query(data);
             res.send(checkeduser);
@@ -100,19 +104,32 @@ app.post('/signup',function (req,res) {
 
 // ---------------------login-----------------------------------------
 var flag = false;
+var x;
 var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
     var username= req.body.username;
     var password1;
     var results;
+    var cookies = req.cookies;
      console.log('hanan',username,user.id)
     var createSession = function(req, res, newUser) {
         return req.session.regenerate(function() {
            //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
+           
+
+           bcrypt.hash(req.body.password,3,function (err,hash) {
+            console.log(hash)
+             x={'infog':['u',username,'p',hash]}
+             // console.log('this is xxxxx',x)
+             // password1=hash;
+              })
+
+           
+
             user = newUser;
             req.session.user = newUser;
             console.log('user123',newUser)
-            res.send(newUser);
+            res.send(x);
         });
     };
 
@@ -165,6 +182,7 @@ function compare() {
 app.get('/logout',function (req,res) {
     flag = !flag
     req.session.destroy();
+    res.clearCookie('info');
     res.end();
 });
 
@@ -202,6 +220,7 @@ app.get('/main',function(req,res) {
 //-----return all roomdata to the client side in the profile page for one user-------
 
 app.get('/profile',function(req,res) {
+    console.log('hanan test',req.body.length)
    var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
    var userinfo= 'SELECT * FROM users WHERE userName=\''+user.username+'\'';
    var userinformation1;
@@ -230,24 +249,30 @@ app.post('/deleteroom',function(req,res){
 
 // --------------post comment and send all the comment-------------------------
 app.post('/postcomment',function(req,res){
-    var userId= req.body.userid;
+    var username= user.username;
     var roomId= req.body.roomid;
     var Comment=req.body.commet;
+    console.log('room id',roomId,Comment,username)
 
 
-   var Comment2='INSERT INTO comments (comment,userID,roomID) VALUES (\''+Comment+'\',\''+userId+'\',\''+roomId+'\')';
+   var Comment2='INSERT INTO comments (comment,username,roomID) VALUES (\''+Comment+'\',\''+username+'\',\''+roomId+'\')';
 
     connect.query(Comment2);
-    var allcomments='SELECT * FROM comments WHERE roomID=\''+roomId+'\'';
+    var allcomments='SELECT *,imag FROM comments,users WHERE comments.username=users.username AND comments.roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
+        // console.log('newtable',allcommentss)
         res.send(allcommentss)
     });
     
 
 });
 
+app.get('/',function (req,res) {
+    var coco=req.cookies.info.split(',');
+    console.log('username ',coco[1]);
+    console.log('password ',coco[3]);
 
-
+})
 
 
 
