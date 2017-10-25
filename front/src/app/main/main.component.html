@@ -1,20 +1,54 @@
 <app-post></app-post>
 <div *ngFor="let post of posts ;index as i">
 
+
    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
+
+        <img src="{{post.imag}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
         <h4>{{post.userName}}</h4><br>
         <hr class="w3-clear">
         <p>
-		   	Location : {{post.location}} <br>
-		    Description : {{post.discribtion}} <br>
-		    Contact Info : {{post.contactInfo}} <br>
+          Location : {{post.location}}  <br>
+          Description : {{post.discribtion}} <br>
+         Contact Info : {{post.contactInfo}} <br>
+        </p>
+        <img src="{{post.imag}}" style="width:25%" class="w3-margin-bottom">
 
- 	    </p> 
-        <input type="text" name="type your comment" id="{{i}}">
+      <!-- comment tag start hear  -->
+      <div *ngFor="let com of comments;index as j" [hidden]="i != comID">
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container" >
+    <div class="row"  style="height:5% , width:4%">
+        <div class="col-sm-8" >
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src={{com.imag}} class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>{{com.username}}</b></a>
+                        </div>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>{{com.comment}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- end for comment filed  -->
+
+
+        <input type="text" name="type your comment" id="{{i}}" placeholder="write a comment here...">
         <button type="button"
         (click)="commentFun(i,post.id)" 
-        class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  
+        class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>  
+</div>
 </div>

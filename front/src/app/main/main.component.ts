@@ -16,9 +16,12 @@ declare var $ :any;
 export class MainComponent implements OnInit {
 	posts;
   comment;
+  comments;
   id;
+  comID;
+  flag;
   ngOnInit() {
-  	setInterval(() => {
+  	//setInterval(() => {
      let headers = new Headers();
    headers.append('Content-Type', 'application/json');
     return this.http.get('/main',{headers: headers})
@@ -30,18 +33,21 @@ export class MainComponent implements OnInit {
         
       }
     }).subscribe();
-  }, 5000);
+ // }, 5000);
   }
 
-  commentFun(commentIndex,roomId){
-    this.comment=$("#"+commentIndex).val();
+  commentFun(postIndex,roomId){
+    this.comment=$("#"+postIndex).val();
     this.id=roomId;
+    this.comID=postIndex;
+    console.log(this.comment)
     let headers = new Headers();
    headers.append('Content-Type', 'application/json');
     return this.http.post('/postcomment',{commet:this.comment,roomid:this.id},{headers: headers})
     .map((res) => {
       if(res){
-         console.log(res.json());
+        this.comments=res.json()
+        
       }else{
         
       }
