@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
-// import { LoginComponent } from '../login/login.component';
 import 'rxjs/add/operator/map';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   moduleId: module.id,
@@ -14,6 +15,8 @@ import 'rxjs/add/operator/map';
 
 export class MainComponent implements OnInit {
 	posts;
+  comment;
+  id;
   ngOnInit() {
   	setInterval(() => {
      let headers = new Headers();
@@ -28,6 +31,21 @@ export class MainComponent implements OnInit {
       }
     }).subscribe();
   }, 5000);
+  }
+
+  commentFun(commentIndex,roomId){
+    this.comment=$("#"+commentIndex).val();
+    this.id=roomId;
+    let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.post('/postcomment',{commet:this.comment,roomid:this.id},{headers: headers})
+    .map((res) => {
+      if(res){
+         console.log(res.json());
+      }else{
+        
+      }
+    }).subscribe(); 
   }
   constructor(private http : Http) {}
 
