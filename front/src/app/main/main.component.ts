@@ -18,6 +18,8 @@ export class MainComponent implements OnInit {
   comment;
   comments;
   id;
+  comID;
+  flag;
   ngOnInit() {
   	//setInterval(() => {
      let headers = new Headers();
@@ -34,20 +36,22 @@ export class MainComponent implements OnInit {
  // }, 5000);
   }
 
-  commentFun(commentIndex,roomId){
-    this.comment=$("#"+commentIndex).val();
+  commentFun(postIndex,roomId){
+    this.comment=$("#"+postIndex).val();
     this.id=roomId;
+    this.comID=postIndex;
     console.log(this.comment)
-   //  let headers = new Headers();
-   // headers.append('Content-Type', 'application/json');
-   //  return this.http.post('/postcomment',{commet:this.comment,roomid:this.id},{headers: headers})
-   //  .map((res) => {
-   //    if(res){
-   //       // console.log(res.json());
-   //    }else{
+    let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.post('/postcomment',{commet:this.comment,roomid:this.id},{headers: headers})
+    .map((res) => {
+      if(res){
+        this.comments=res.json()
         
-   //    }
-   //  }).subscribe(); 
+      }else{
+        
+      }
+    }).subscribe(); 
   }
   constructor(private http : Http) {}
 
