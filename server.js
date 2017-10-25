@@ -120,8 +120,7 @@ app.post('/login',function(req,res){
 
    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
         results=result;
-        console.log("hhhhh",typeof result)
-        if(result.length>2){
+        if(result[0]!==undefined){
           compare();  
         }else{
             console.log('not found')
