@@ -1,6 +1,5 @@
 <app-post></app-post>
-{{x}}
-<div *ngFor="let post of posts">
+<div *ngFor="let post of posts ;index as i">
 
    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
@@ -13,7 +12,9 @@
 		    Contact Info : {{post.contactInfo}} <br>
 
  	    </p> 
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <input type="text" name="type your comment" id="{{i}}">
+        <button type="button"
+        (click)="commentFun(i,post.id)" 
+        class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
       </div>  
 </div>
