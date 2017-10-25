@@ -3,7 +3,7 @@
 
    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
+        <span class="w3-right w3-opacity"><!-- 16 min --></span>
         <h4>{{post.userName}}</h4><br>
         <hr class="w3-clear">
         <p>
@@ -12,6 +12,35 @@
 		    Contact Info : {{post.contactInfo}} <br>
 
  	    </p> 
+      <!-- comment tag start hear  -->
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="row"  style="height:5% , width:4%">
+        <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a>
+                        </div>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end for comment filed  -->
+
+
         <input type="text" name="type your comment" id="{{i}}">
         <button type="button"
         (click)="commentFun(i,post.id)" 
