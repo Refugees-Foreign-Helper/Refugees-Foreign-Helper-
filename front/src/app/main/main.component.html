@@ -16,7 +16,7 @@
         <img src="{{post.imag}}" style="width:25%" class="w3-margin-bottom">
 
       <!-- comment tag start hear  -->
-      <div *ngFor="let com of comments;index as j" >
+      <div *ngFor="let com of comments;index as j" [hidden]="i != comID">
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <div class="container" >
     <div class="row"  style="height:5% , width:4%">
@@ -46,8 +46,9 @@
 <!-- end for comment filed  -->
 
 
-        <input type="text" name="type your comment" id="{{i}}">
+        <input type="text" name="type your comment" id="{{i}}" placeholder="write a comment here...">
         <button type="button"
         (click)="commentFun(i,post.id)" 
         class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>  
+</div>
 </div>
