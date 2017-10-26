@@ -55,18 +55,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
+    AppComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-root',
+            template: __webpack_require__("../../../../../src/app/app.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-root',
-        template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
-], AppComponent);
 
 // export class AppComponent implements AfterViewInit{
 // 	@ViewChild(LoginComponent)
@@ -90,19 +90,22 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__post_post_component__ = __webpack_require__("../../../../../src/app/post/post.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__ = __webpack_require__("../../../../../src/app/speech-recognition.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__post_post_component__ = __webpack_require__("../../../../../src/app/post/post.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__language_language_component__ = __webpack_require__("../../../../../src/app/language/language.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -116,50 +119,152 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 var appRoutes = [
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__login_index__["a" /* LoginComponent */] },
-    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */] },
-    { path: 'post', component: __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */] },
-    { path: 'navbar', component: __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */] }
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */] },
+    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */] },
+    { path: 'post', component: __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */] },
+    { path: 'navbar', component: __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */] },
+    { path: 'language', component: __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */] }
 ];
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
+            ],
+            providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
+            bootstrap: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */]
+            ]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__login_index__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
-        ],
-        providers: [],
-        bootstrap: [
-            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */]
-        ]
-    })
-], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                       placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" name=\"btnActivateSpeechSearchMovie\" id=\"btnActivateSpeechSearchMovie\" (click)=\"activateSpeechSearchMovie()\"\n                                [disabled]=\"!showSearchButton\">\n                            Enable Speech Search\n                        </button>\n                        <button\n                        (click)=\"stop()\">stop</button>\n                        <select id=\"language\">\n                 \n                        \t<option value='ar'>arabic</option>\n                        \t<option value='en-us'>English US</option>\n                        </select>\n                        \t\n                        \t\n                       \n                    </div>\n                    <br />\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LanguageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__ = __webpack_require__("../../../../../src/app/speech-recognition.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LanguageComponent = /** @class */ (function () {
+    function LanguageComponent(speechRecognitionService) {
+        this.speechRecognitionService = speechRecognitionService;
+        this.showSearchButton = true;
+        this.speechData = "";
+    }
+    LanguageComponent.prototype.ngOnInit = function () {
+        console.log("hello");
+    };
+    LanguageComponent.prototype.ngOnDestroy = function () {
+        this.speechRecognitionService.DestroySpeechObject();
+    };
+    LanguageComponent.prototype.activateSpeechSearchMovie = function () {
+        var _this = this;
+        this.showSearchButton = false;
+        this.speechRecognitionService.record()
+            .subscribe(
+        //listener
+        function (value) {
+            _this.speechData = value;
+            console.log(value);
+        }, 
+        //errror
+        function (err) {
+            console.log(err);
+            if (err.error == "no-speech") {
+                console.log("--restatring service--");
+                _this.activateSpeechSearchMovie();
+            }
+        }, 
+        //completion
+        function () {
+            _this.showSearchButton = true;
+            console.log("--complete--");
+            _this.activateSpeechSearchMovie();
+        });
+    };
+    LanguageComponent.prototype.stop = function () {
+        this.speechRecognitionService.stop();
+    };
+    LanguageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-language',
+            template: __webpack_require__("../../../../../src/app/language/language.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object])
+    ], LanguageComponent);
+    return LanguageComponent;
+    var _a;
+}());
+
+//# sourceMappingURL=language.component.js.map
 
 /***/ }),
 
@@ -207,7 +312,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var toggle = true;
-var LoginComponent = (function () {
+var LoginComponent = /** @class */ (function () {
     function LoginComponent(http, router) {
         this.http = http;
         this.router = router;
@@ -232,18 +337,18 @@ var LoginComponent = (function () {
             }
         }).subscribe();
     };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("../../../../../src/app/login/login.component.html")
+        }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    ], LoginComponent);
     return LoginComponent;
+    var _a, _b;
 }());
-LoginComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-login',
-        template: __webpack_require__("../../../../../src/app/login/login.component.html")
-    }),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
-], LoginComponent);
 
-var _a, _b;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -294,7 +399,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MainComponent = (function () {
+var MainComponent = /** @class */ (function () {
     function MainComponent(http) {
         this.http = http;
     }
@@ -332,18 +437,18 @@ var MainComponent = (function () {
             }
         }).subscribe();
     };
+    MainComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-main',
+            template: __webpack_require__("../../../../../src/app/main/main.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/main/main.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], MainComponent);
     return MainComponent;
+    var _a;
 }());
-MainComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-main',
-        template: __webpack_require__("../../../../../src/app/main/main.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/main/main.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], MainComponent);
 
-var _a;
 //# sourceMappingURL=main.component.js.map
 
 /***/ }),
@@ -369,7 +474,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!show\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!show\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"show\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"show\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!show\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
+module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!show\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!show\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!show\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"show\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"show\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!show\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -395,7 +500,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var NavbarComponent = (function () {
+var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(http) {
         this.http = http;
     }
@@ -420,18 +525,18 @@ var NavbarComponent = (function () {
         return this.http.get('/logout', { headers: headers })
             .map(function (res) { }).subscribe();
     };
+    NavbarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-navbar',
+            template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], NavbarComponent);
     return NavbarComponent;
+    var _a;
 }());
-NavbarComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-navbar',
-        template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], NavbarComponent);
 
-var _a;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -482,7 +587,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PostComponent = (function () {
+var PostComponent = /** @class */ (function () {
     function PostComponent(http) {
         this.http = http;
     }
@@ -511,18 +616,18 @@ var PostComponent = (function () {
             }
         }).subscribe();
     };
+    PostComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-post',
+            template: __webpack_require__("../../../../../src/app/post/post.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], PostComponent);
     return PostComponent;
+    var _a;
 }());
-PostComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-post',
-        template: __webpack_require__("../../../../../src/app/post/post.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], PostComponent);
 
-var _a;
 //# sourceMappingURL=post.component.js.map
 
 /***/ }),
@@ -573,7 +678,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProfileComponent = (function () {
+var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(http) {
         this.http = http;
     }
@@ -597,18 +702,18 @@ var ProfileComponent = (function () {
             }
         }).subscribe();
     };
+    ProfileComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-profile',
+            template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], ProfileComponent);
     return ProfileComponent;
+    var _a;
 }());
-ProfileComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-profile',
-        template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], ProfileComponent);
 
-var _a;
 //# sourceMappingURL=profile.component.js.map
 
 /***/ }),
@@ -660,7 +765,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupComponent = (function () {
+var SignupComponent = /** @class */ (function () {
     function SignupComponent(http, router, _sanitizer) {
         this.http = http;
         this.router = router;
@@ -715,19 +820,103 @@ var SignupComponent = (function () {
             }
         }).subscribe();
     };
+    SignupComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-signup',
+            template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
+    ], SignupComponent);
     return SignupComponent;
+    var _a, _b, _c;
 }());
-SignupComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-signup',
-        template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
-], SignupComponent);
 
-var _a, _b, _c;
 //# sourceMappingURL=signup.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/speech-recognition.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SpeechRecognitionService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SpeechRecognitionService = /** @class */ (function () {
+    function SpeechRecognitionService(zone) {
+        this.zone = zone;
+    }
+    SpeechRecognitionService.prototype.record = function () {
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].create(function (observer) {
+            var language = $("#language").val();
+            var webkitSpeechRecognition = window.webkitSpeechRecognition;
+            _this.speechRecognition = new webkitSpeechRecognition();
+            _this.speechRecognition.continuous = true;
+            //this.speechRecognition.interimResults = true;
+            _this.speechRecognition.lang = language;
+            _this.speechRecognition.maxAlternatives = 20;
+            _this.speechRecognition.onresult = function (speech) {
+                var term = "";
+                if (speech.results) {
+                    var result = speech.results[speech.resultIndex];
+                    var transcript = result[0].transcript;
+                    if (result.isFinal) {
+                        if (result[0].confidence < 0.3) {
+                            console.log("Unrecognized result - Please try again");
+                        }
+                        else {
+                            term = __WEBPACK_IMPORTED_MODULE_2_lodash__["trim"](transcript);
+                            console.log("Did you said? -> " + term + " , If not then say something else...");
+                        }
+                    }
+                }
+                _this.zone.run(function () {
+                    observer.next(term);
+                });
+            };
+            _this.speechRecognition.onerror = function (error) {
+                observer.error(error);
+            };
+            _this.speechRecognition.onend = function () {
+                observer.complete();
+            };
+            _this.speechRecognition.start();
+            console.log("Say something - We are listening !!!");
+        });
+    };
+    SpeechRecognitionService.prototype.DestroySpeechObject = function () {
+        if (this.speechRecognition)
+            this.speechRecognition.stop();
+    };
+    SpeechRecognitionService.prototype.stop = function () {
+        this.speechRecognition.stop();
+    };
+    SpeechRecognitionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
+    ], SpeechRecognitionService);
+    return SpeechRecognitionService;
+    var _a;
+}());
+
+//# sourceMappingURL=speech-recognition.service.js.map
 
 /***/ }),
 
@@ -740,7 +929,6 @@ var _a, _b, _c;
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false
 };
