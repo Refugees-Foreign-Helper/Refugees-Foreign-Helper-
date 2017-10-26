@@ -13,7 +13,7 @@ var port=process.env.PORT || 3000;
 
 app.use(CookieParser.parse);
 app.use(bodyParser.json());
-app.use(express.static(__dirname+'/front/'));
+app.use(express.static(__dirname+'/front/dist/'));
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(morgan('dev'));
