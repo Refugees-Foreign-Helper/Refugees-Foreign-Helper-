@@ -258,7 +258,7 @@ app.post('/postcomment',function(req,res){
    var Comment2='INSERT INTO comments (comment,username,roomID) VALUES (\''+Comment+'\',\''+username+'\',\''+roomId+'\')';
 
     connect.query(Comment2);
-    var allcomments='SELECT *,imag FROM comments,users WHERE comments.username=users.username AND comments.roomID=\''+roomId+'\'';
+    var allcomments='SELECT comments.username,comments.comment,users.imag FROM comments INNER JOIN users ON comments.username=users.username AND comments.roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
         // console.log('newtable',allcommentss)
         res.send(allcommentss)
