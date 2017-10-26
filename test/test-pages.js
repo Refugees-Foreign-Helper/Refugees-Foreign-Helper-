@@ -46,21 +46,21 @@ it('Main page content', function(done) {
 
 
 
-      it('it should GET all the rooms', function(done){
-         this.timeout(5000);
-            request('http://localhost:3000/profile',function(err,response,body){
-                expect(response.statusCode).to.equal(200);
-                expect(response.body).to.equal({});
-                expect(response.body.length).to.equal(undefined);
-                 done();
-            })
+      // it('it should GET all the rooms', function(done){
+      //    this.timeout(5000);
+      //       request('http://localhost:3000/profile',function(err,response,body){
+      //           expect(response.statusCode).to.equal(200);
+      //           expect(response.body).to.equal({});
+      //           expect(response.body.length).to.equal(undefined);
+      //            done();
+      //       })
            
-      });
+      // });
 
 
 
 
-
+// ----- test on the database ---------
 
    describe('Access to DataBase', function(){
    describe('#right Access', function(){
