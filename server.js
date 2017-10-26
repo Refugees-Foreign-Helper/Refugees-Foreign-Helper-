@@ -268,12 +268,7 @@ app.post('/postcomment',function(req,res){
 
 });
 
-// app.get('/',function (req,res) {
-//     var coco=req.cookies.info.split(',');
-//     console.log('username ',coco[1]);
-//     console.log('password ',coco[3]);
 
-// })
 
 
 
