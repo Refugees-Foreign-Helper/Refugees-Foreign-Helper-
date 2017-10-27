@@ -90,19 +90,22 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__post_post_component__ = __webpack_require__("../../../../../src/app/post/post.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__ = __webpack_require__("../../../../../src/app/speech-recognition.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_index__ = __webpack_require__("../../../../../src/app/login/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__post_post_component__ = __webpack_require__("../../../../../src/app/post/post.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__language_language_component__ = __webpack_require__("../../../../../src/app/language/language.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -116,14 +119,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 var appRoutes = [
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__login_index__["a" /* LoginComponent */] },
-    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */] },
-    { path: 'post', component: __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */] },
-    { path: 'navbar', component: __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */] }
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */] },
+    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */] },
+    { path: 'post', component: __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */] },
+    { path: 'navbar', component: __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */] },
+    { path: 'language', component: __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -131,13 +136,14 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__login_index__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -146,13 +152,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
             bootstrap: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */]
             ]
         })
     ], AppModule);
@@ -160,6 +166,105 @@ var AppModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                       placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" name=\"btnActivateSpeechSearchMovie\" id=\"btnActivateSpeechSearchMovie\" (click)=\"activateSpeechSearchMovie()\"\n                                [disabled]=\"!showSearchButton\">\n                            Enable Speech Search\n                        </button>\n                        <button\n                        (click)=\"stop()\">stop</button>\n                        <select id=\"language\">\n                 \n                        \t<option value='ar'>arabic</option>\n                        \t<option value='en-us'>English US</option>\n                        </select>\n                        \t\n                        \t\n                       \n                    </div>\n                    <br />\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/language/language.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LanguageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__ = __webpack_require__("../../../../../src/app/speech-recognition.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LanguageComponent = /** @class */ (function () {
+    function LanguageComponent(speechRecognitionService) {
+        this.speechRecognitionService = speechRecognitionService;
+        this.showSearchButton = true;
+        this.speechData = "";
+    }
+    LanguageComponent.prototype.ngOnInit = function () {
+        console.log("hello");
+    };
+    LanguageComponent.prototype.ngOnDestroy = function () {
+        this.speechRecognitionService.DestroySpeechObject();
+    };
+    LanguageComponent.prototype.activateSpeechSearchMovie = function () {
+        var _this = this;
+        this.showSearchButton = false;
+        this.speechRecognitionService.record()
+            .subscribe(
+        //listener
+        function (value) {
+            _this.speechData = value;
+            console.log(value);
+        }, 
+        //errror
+        function (err) {
+            console.log(err);
+            if (err.error == "no-speech") {
+                console.log("--restatring service--");
+                _this.activateSpeechSearchMovie();
+            }
+        }, 
+        //completion
+        function () {
+            _this.showSearchButton = true;
+            console.log("--complete--");
+            _this.activateSpeechSearchMovie();
+        });
+    };
+    LanguageComponent.prototype.stop = function () {
+        this.speechRecognitionService.stop();
+    };
+    LanguageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-language',
+            template: __webpack_require__("../../../../../src/app/language/language.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object])
+    ], LanguageComponent);
+    return LanguageComponent;
+    var _a;
+}());
+
+//# sourceMappingURL=language.component.js.map
 
 /***/ }),
 
@@ -269,7 +374,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-post></app-post>\n<div *ngFor=\"let post of posts ;index as i\">\n\n\n   <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n\n        <img src=\"{{post.imag}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{post.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{post.location}}  <br>\n          Description : {{post.discribtion}} <br>\n         Contact Info : {{post.contactInfo}} <br>\n        </p>\n        <img src=\"{{post.imag}}\" style=\"width:25%\" class=\"w3-margin-bottom\">\n\n      <!-- comment tag start hear  -->\n      <div *ngFor=\"let com of comments;index as j\" [hidden]=\"i != comID\">\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\">\n<div class=\"container\" >\n    <div class=\"row\"  style=\"height:5% , width:4%\">\n        <div class=\"col-sm-8\" >\n            <div class=\"panel panel-white post panel-shadow\">\n                <div class=\"post-heading\">\n                    <div class=\"pull-left image\">\n                        <img src={{com.imag}} class=\"img-circle avatar\" alt=\"user profile image\">\n                    </div>\n                    <div class=\"pull-left meta\">\n                        <div class=\"title h5\">\n                            <a href=\"#\"><b>{{com.username}}</b></a>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"post-description\"> \n                    <p>{{com.comment}}</p>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n</div>\n\n\n<!-- end for comment filed  -->\n\n\n        <input type=\"text\" name=\"type your comment\" id=\"{{i}}\" placeholder=\"write a comment here...\">\n        <button type=\"button\"\n        (click)=\"commentFun(i,post.id)\" \n        class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button>  \n</div>\n</div>"
+module.exports = "<app-post></app-post>\n<div *ngFor=\"let post of posts ;index as i\">\n\n\n   <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n\n        <img src=\"{{post.imag}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{post.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{post.location}}  <br>\n          Description : {{post.discribtion}} <br>\n         Contact Info : {{post.contactInfo}} <br>\n        </p>\n        <img src=\"{{post.image}}\" style=\"width:25%\" class=\"w3-margin-bottom\">\n\n      <!-- comment tag start hear  -->\n      <div *ngFor=\"let com of comments;index as j\" [hidden]=\"i != comID\">\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\">\n<div class=\"container\" >\n    <div class=\"row\"  style=\"height:5% , width:4%\">\n        <div class=\"col-sm-8\" >\n            <div class=\"panel panel-white post panel-shadow\">\n                <div class=\"post-heading\">\n                    <div class=\"pull-left image\">\n                        <img src={{com.imag}} class=\"img-circle avatar\" alt=\"user profile image\">\n                    </div>\n                    <div class=\"pull-left meta\">\n                        <div class=\"title h5\">\n                            <a href=\"#\"><b>{{com.username}}</b></a>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"post-description\"> \n                    <p>{{com.comment}}</p>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n</div>\n\n\n<!-- end for comment filed  -->\n\n\n        <input type=\"text\" name=\"type your comment\" id=\"{{i}}\" placeholder=\"write a comment here...\">\n        <button type=\"button\"\n        (click)=\"commentFun(i,post.id)\" \n        class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button>  \n</div>\n</div>"
 
 /***/ }),
 
@@ -307,6 +412,7 @@ var MainComponent = /** @class */ (function () {
             .map(function (res) {
             if (res) {
                 _this.posts = res.json();
+                console.log(_this.posts);
                 // console.log("response from post",res.json());
             }
             else {
@@ -368,7 +474,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!show\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!show\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"show\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"show\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!show\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
+module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!show\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!show\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!show\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"show\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"show\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!show\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -547,7 +653,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"w3-container w3-content\" style=\"max-width:1400px;margin-top:80px\">    \n  <!-- The Grid -->\n  <div class=\"w3-row\">\n    <!-- Left Column -->\n    <div class=\"w3-col m3\">\n      <!-- Profile -->\n      \n      <div class=\"w3-card-2 w3-round w3-white\">\n        <div class=\"w3-container\">\n         <h4 class=\"w3-center\">{{currentUser}}</h4>\n         <p class=\"w3-center\"><img src=\"{{profile}}\" class=\"w3-circle\" style=\"height:106px;width:106px\" alt=\"Avatar\"></p>\n         <hr>\n         <p><i class=\"fa fa-pencil fa-fw w3-margin-right w3-text-theme\"></i> {{nationality}}</p>\n         <p><i class=\"fa fa-home fa-fw w3-margin-right w3-text-theme\"></i> {{location}}</p>\n         <p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme\"></i> {{birthday}}</p>\n        </div>\n      </div>\n      <br>          \n      <!-- Alert Box -->\n      <div class=\"w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small\">\n        <span onclick=\"this.parentElement.style.display='none'\" class=\"w3-button w3-theme-l3 w3-display-topright\">\n          <i class=\"fa fa-remove\"></i>\n        </span>\n        <p><strong>Hey!</strong></p>\n        <p>Then you have no fear anymore. You're completely free.</p>\n      </div>\n    \n    <!-- End Left Column -->\n    </div>\n    \n    <!-- Middle Column -->\n    <div class=\"w3-col m7\">\n    \n      <div class=\"w3-row-padding\">\n        <div class=\"w3-col m12\">\n          <div class=\"w3-card-2 w3-round w3-white\">\n            <div class=\"w3-container w3-padding\">\n              <h6 class=\"w3-opacity\">Social Media template by w3.css</h6>\n              <p contenteditable=\"true\" class=\"w3-border w3-padding\">Status: Feeling Blue</p>\n              <button type=\"button\" class=\"w3-button w3-theme\"><i class=\"fa fa-pencil\"></i>  Post</button> \n            </div>\n          </div>\n        </div>\n      </div>\n      \n\n   <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n        Location : {{data.location}} <br>\n        Description : {{data.discribtion}} <br>\n        Contact Info : {{data.contactInfo}} <br>\n\n      </p> \n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  \n</div> -->\n\n      \n<!--       <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>Jane Doe</h4><br>\n        <hr class=\"w3-clear\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  --> \n\n      <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br> -->\n      <div *ngFor=\"let data of postdata\">\n        <img src=\"{{profile}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{data.location}} <br>\n          Description : {{data.discribtion}} <br>\n         Contact Info : {{data.contactInfo}} <br>\n        </p>\n        <img src=\"{{data.imag}}\" style=\"width:100%\" class=\"w3-margin-bottom\">\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div> \n      \n    <!-- End Middle Column -->\n    </div>\n    \n    <!-- Right Column -->\n   <!--  <div class=\"w3-col m2\">\n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Upcoming Events:</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Forest\" style=\"width:100%;\">\n          <p><strong>Holiday</strong></p>\n          <p>Friday 15:00</p>\n          <p><button class=\"w3-button w3-block w3-theme-l4\">Info</button></p>\n        </div>\n      </div>\n      <br>\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Friend Request</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png alt=\"Avatar\" style=\"width:50%\"><br>\n          <span>Jane Doe</span>\n          <div class=\"w3-row w3-opacity\">\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-green w3-section\" title=\"Accept\"><i class=\"fa fa-check\"></i></button>\n            </div>\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-red w3-section\" title=\"Decline\"><i class=\"fa fa-remove\"></i></button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <br> -->\n      \n   <!--    <div class=\"w3-card-2 w3-round w3-white w3-padding-16 w3-center\">\n        <p>ADS</p>\n      </div>\n      <br> -->\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-padding-32 w3-center\">\n        <p><i class=\"fa fa-bug w3-xxlarge\"></i></p>\n      </div>\n      \n    <!-- End Right Column -->\n   <!--  </div> -->\n    \n  <!-- End Grid -->\n  </div>\n  \n<!-- End Page Container -->\n</div>\n<br>"
+module.exports = "<div class=\"w3-container w3-content\" style=\"max-width:1400px;margin-top:80px\">    \n  <!-- The Grid -->\n  <div class=\"w3-row\">\n    <!-- Left Column -->\n    <div class=\"w3-col m3\">\n      <!-- Profile -->\n      \n      <div class=\"w3-card-2 w3-round w3-white\">\n        <div class=\"w3-container\">\n         <h4 class=\"w3-center\">{{currentUser}}</h4>\n         <p class=\"w3-center\"><img src=\"{{profile}}\" class=\"w3-circle\" style=\"height:106px;width:106px\" alt=\"Avatar\"></p>\n         <hr>\n         <p><i class=\"fa fa-pencil fa-fw w3-margin-right w3-text-theme\"></i> {{nationality}}</p>\n         <p><i class=\"fa fa-home fa-fw w3-margin-right w3-text-theme\"></i> {{location}}</p>\n         <p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme\"></i> {{birthday}}</p>\n        </div>\n      </div>\n      <br>          \n      <!-- Alert Box -->\n      <div class=\"w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small\">\n        <span onclick=\"this.parentElement.style.display='none'\" class=\"w3-button w3-theme-l3 w3-display-topright\">\n          <i class=\"fa fa-remove\"></i>\n        </span>\n        <p><strong>Hey!</strong></p>\n        <p>Then you have no fear anymore. You're completely free.</p>\n      </div>\n    \n    <!-- End Left Column -->\n    </div>\n    \n    <!-- Middle Column -->\n    <div class=\"w3-col m7\">\n    \n      <div class=\"w3-row-padding\">\n        <div class=\"w3-col m12\">\n          <div class=\"w3-card-2 w3-round w3-white\">\n            <div class=\"w3-container w3-padding\">\n              <h6 class=\"w3-opacity\">Social Media template by w3.css</h6>\n              <p contenteditable=\"true\" class=\"w3-border w3-padding\">Status: Feeling Blue</p>\n              <button type=\"button\" class=\"w3-button w3-theme\"><i class=\"fa fa-pencil\"></i>  Post</button> \n            </div>\n          </div>\n        </div>\n      </div>\n      \n\n   <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n        Location : {{data.location}} <br>\n        Description : {{data.discribtion}} <br>\n        Contact Info : {{data.contactInfo}} <br>\n\n      </p> \n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  \n</div> -->\n\n      \n<!--       <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>Jane Doe</h4><br>\n        <hr class=\"w3-clear\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  --> \n\n      <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br> -->\n      <div *ngFor=\"let data of postdata\">\n        <img src=\"{{profile}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{data.location}} <br>\n          Description : {{data.discribtion}} <br>\n         Contact Info : {{data.contactInfo}} <br>\n        </p>\n        <img src=\"{{data.image}}\" style=\"width:100%\" class=\"w3-margin-bottom\">\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div> \n      \n    <!-- End Middle Column -->\n    </div>\n    \n    <!-- Right Column -->\n   <!--  <div class=\"w3-col m2\">\n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Upcoming Events:</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Forest\" style=\"width:100%;\">\n          <p><strong>Holiday</strong></p>\n          <p>Friday 15:00</p>\n          <p><button class=\"w3-button w3-block w3-theme-l4\">Info</button></p>\n        </div>\n      </div>\n      <br>\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Friend Request</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png alt=\"Avatar\" style=\"width:50%\"><br>\n          <span>Jane Doe</span>\n          <div class=\"w3-row w3-opacity\">\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-green w3-section\" title=\"Accept\"><i class=\"fa fa-check\"></i></button>\n            </div>\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-red w3-section\" title=\"Decline\"><i class=\"fa fa-remove\"></i></button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <br> -->\n      \n   <!--    <div class=\"w3-card-2 w3-round w3-white w3-padding-16 w3-center\">\n        <p>ADS</p>\n      </div>\n      <br> -->\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-padding-32 w3-center\">\n        <p><i class=\"fa fa-bug w3-xxlarge\"></i></p>\n      </div>\n      \n    <!-- End Right Column -->\n   <!--  </div> -->\n    \n  <!-- End Grid -->\n  </div>\n  \n<!-- End Page Container -->\n</div>\n<br>"
 
 /***/ }),
 
@@ -727,6 +833,90 @@ var SignupComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=signup.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/speech-recognition.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SpeechRecognitionService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SpeechRecognitionService = /** @class */ (function () {
+    function SpeechRecognitionService(zone) {
+        this.zone = zone;
+    }
+    SpeechRecognitionService.prototype.record = function () {
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].create(function (observer) {
+            var language = $("#language").val();
+            var webkitSpeechRecognition = window.webkitSpeechRecognition;
+            _this.speechRecognition = new webkitSpeechRecognition();
+            _this.speechRecognition.continuous = true;
+            //this.speechRecognition.interimResults = true;
+            _this.speechRecognition.lang = language;
+            _this.speechRecognition.maxAlternatives = 20;
+            _this.speechRecognition.onresult = function (speech) {
+                var term = "";
+                if (speech.results) {
+                    var result = speech.results[speech.resultIndex];
+                    var transcript = result[0].transcript;
+                    if (result.isFinal) {
+                        if (result[0].confidence < 0.3) {
+                            console.log("Unrecognized result - Please try again");
+                        }
+                        else {
+                            term = __WEBPACK_IMPORTED_MODULE_2_lodash__["trim"](transcript);
+                            console.log("Did you said? -> " + term + " , If not then say something else...");
+                        }
+                    }
+                }
+                _this.zone.run(function () {
+                    observer.next(term);
+                });
+            };
+            _this.speechRecognition.onerror = function (error) {
+                observer.error(error);
+            };
+            _this.speechRecognition.onend = function () {
+                observer.complete();
+            };
+            _this.speechRecognition.start();
+            console.log("Say something - We are listening !!!");
+        });
+    };
+    SpeechRecognitionService.prototype.DestroySpeechObject = function () {
+        if (this.speechRecognition)
+            this.speechRecognition.stop();
+    };
+    SpeechRecognitionService.prototype.stop = function () {
+        this.speechRecognition.stop();
+    };
+    SpeechRecognitionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
+    ], SpeechRecognitionService);
+    return SpeechRecognitionService;
+    var _a;
+}());
+
+//# sourceMappingURL=speech-recognition.service.js.map
 
 /***/ }),
 

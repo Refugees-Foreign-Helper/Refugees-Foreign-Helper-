@@ -7,6 +7,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SpeechRecognitionService } from './speech-recognition.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { PostComponent } from './post/post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LanguageComponent } from './language/language.component';
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
   {path:'main', component:MainComponent},
   {path:'post', component:PostComponent},
   {path:'navbar', component:NavbarComponent},
-  {path:'profile', component:ProfileComponent}
+  {path:'profile', component:ProfileComponent},
+  {path:'language', component:LanguageComponent}
 
 ];
 
@@ -37,6 +40,7 @@ const appRoutes: Routes = [
     PostComponent,
     NavbarComponent,
     ProfileComponent,
+    LanguageComponent,
   //  BootstrapCompComponent
   ],
   imports: [
@@ -48,7 +52,7 @@ const appRoutes: Routes = [
     appRoutes,
      { enableTracing: true })
   ],
-  providers: [],
+  providers: [SpeechRecognitionService],
   bootstrap: [
   AppComponent, 
   MainComponent,
