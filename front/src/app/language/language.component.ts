@@ -18,11 +18,11 @@ export class LanguageComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        console.log("hello")
+        console.log("areej and hanan")
     }
 
     ngOnDestroy() {
-        this.speechRecognitionService.DestroySpeechObject();
+        this.speechRecognitionService.stop();
     }
 
     activateSpeechSearchMovie(): void {
@@ -37,15 +37,15 @@ export class LanguageComponent implements OnInit, OnDestroy {
             //errror
             (err) => {
                 console.log(err);
-                if (err.error == "no-speech") {
-                    console.log("--restatring service--");
+                if (err.error == "there is no speech untile now") {
+                    console.log("--restatring --");
                     this.activateSpeechSearchMovie();
                 }
             },
             //completion
             () => {
                 this.showSearchButton = true;
-                console.log("--complete--");
+                console.log("--finish--");
                 this.activateSpeechSearchMovie();
             });
     }
