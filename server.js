@@ -53,7 +53,7 @@ connect.connect(function () {
 
 // FOREIGN KEY (usernmae) REFERENCES users(id) ,\
 
-   var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),imag longtext,discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
+   var roomTable = 'CREATE TABLE IF NOT EXISTS rooms(id INT AUTO_INCREMENT PRIMARY KEY,location varchar(60),image longtext,discribtion varchar(255),contactInfo varchar(100),userID int,userName varchar(60),FOREIGN KEY (userID) REFERENCES users(id))';
 
    connect.query(userTable);
     connect.query(commentTable);
@@ -200,7 +200,7 @@ app.post('/post',function(req,res) {
     var Image = req.body.image
    // console.log('username',user.username,user.id)
    console.log('hhhhhhh',user.id,user.username)
-    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName,imag) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\',\''+Image+'\')';
+    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName,image) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\',\''+Image+'\')';
 
    connect.query(post);
     res.send(username);
@@ -210,7 +210,7 @@ app.post('/post',function(req,res) {
 //-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
-    var rooms = 'SELECT rooms.id,rooms.location,rooms.imag,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms INNER JOIN users';
+    var rooms = 'SELECT rooms.id,rooms.location,rooms.image,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms,users';
     connect.query(rooms,function (err,allposts) {
         console.log('allposts',allposts)
         res.send(allposts);
