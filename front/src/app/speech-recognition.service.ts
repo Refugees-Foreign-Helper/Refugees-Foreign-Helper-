@@ -27,8 +27,6 @@ export class SpeechRecognitionService {
             this.speechRecognition.lang = language;
             this.speechRecognition.continuous = true;
             this.speechRecognition.maxAlternatives = 20;
-
-
             this.speechRecognition.onresult = speech => {
                 // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
                 // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
@@ -44,7 +42,7 @@ export class SpeechRecognitionService {
                     // SpeechRecognitionResult {0: SpeechRecognitionAlternative, 1: SpeechRecognitionAlternative,... up to 19  isFinal: true}
                     // 0:SpeechRecognitionAlternative {transcript: "Isabella", confidence: 0}
 
-                    // console.log("result" , result , speech.results, speech.resultIndex);
+                    console.log("result" , speech.results, speech.resultIndex);
                     var nearWord = result[0].transcript; //the original word alternative
                     if (result.isFinal) {
                         if (result[0].confidence < 0.3) {
@@ -66,9 +64,9 @@ export class SpeechRecognitionService {
             console.log("Say something - I am giving up on you");
 
 
-            this.speechRecognition.onend = () => {
-                observer.complete();
-            };
+            // this.speechRecognition.onend = () => {
+            //     observer.complete();
+            // };
 
             this.speechRecognition.onerror = error => {
                 observer.error(error);

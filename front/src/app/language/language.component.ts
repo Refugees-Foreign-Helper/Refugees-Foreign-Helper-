@@ -12,8 +12,8 @@ export class LanguageComponent implements OnInit, OnDestroy {
 	showSearchButton: boolean;
     speechData: string;
     language;
+    show=false;
     constructor(private speechRecognitionService: SpeechRecognitionService) {
-        this.showSearchButton = true;
         this.speechData = "";
     }
 
@@ -22,11 +22,12 @@ export class LanguageComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+         this.show = !this.show;
         this.speechRecognitionService.stop();
     }
 
     activateSpeechSearchMovie(): void {
-        this.showSearchButton = false;        
+        this.show = !this.show;        
         this.speechRecognitionService.record()
             .subscribe(
             //listener
@@ -38,20 +39,13 @@ export class LanguageComponent implements OnInit, OnDestroy {
             (err) => {
                 console.log(err);
                 if (err.error == "there is no speech untile now") {
-                    console.log("--restatring --");
                     this.activateSpeechSearchMovie();
                 }
             },
             //completion
             () => {
-                this.showSearchButton = true;
-                console.log("--finish--");
                 this.activateSpeechSearchMovie();
             });
-    }
-
-    stop(){
-    	this.speechRecognitionService.stop();
     }
 
 }
