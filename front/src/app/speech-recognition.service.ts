@@ -4,6 +4,7 @@ import * as _ from "lodash";
 declare var jquery:any;
 declare var $ :any;
 
+// to run SpeechRecognition in 'TypeScript' we created interface
 interface IWindow extends Window {
     webkitSpeechRecognition: any;
     SpeechRecognition: any;
@@ -19,51 +20,62 @@ export class SpeechRecognitionService {
 
         return Observable.create(observer => {
            let language=$("#language").val();
-
+            //Speech recognition interfaces are currently prefixed on Chrome, so we'll need to prefix interface names appropriately so we used "webkitSpeechRecognition"
             const { webkitSpeechRecognition }: IWindow = <IWindow>window;
             this.speechRecognition = new webkitSpeechRecognition();
-            this.speechRecognition.continuous = true;
-            //this.speechRecognition.interimResults = true;
+            // seting the attibutes 
             this.speechRecognition.lang = language;
+            this.speechRecognition.continuous = true;
             this.speechRecognition.maxAlternatives = 20;
 
+
             this.speechRecognition.onresult = speech => {
-                let term: string = "";
+                // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+                // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+                // It has a getter so it can be accessed like an array
+                // The first [0] returns the SpeechRecognitionResult at position 0.
+                // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+                // These also have getters so they can be accessed like arrays.
+                // The second [0] returns the SpeechRecognitionAlternative at position 0.
+                // We then return the transcript property of the SpeechRecognitionAlternative object
+                let word: string = "";
                 if (speech.results) {
                     var result = speech.results[speech.resultIndex];
-                    var transcript = result[0].transcript;
+                    // SpeechRecognitionResult {0: SpeechRecognitionAlternative, 1: SpeechRecognitionAlternative,... up to 19  isFinal: true}
+                    // 0:SpeechRecognitionAlternative {transcript: "Isabella", confidence: 0}
+
+                    // console.log("result" , result , speech.results, speech.resultIndex);
+                    var nearWord = result[0].transcript; //the original word alternative
                     if (result.isFinal) {
                         if (result[0].confidence < 0.3) {
-                            console.log("Unrecognized result - Please try again");
+                            console.log("sorry!! this result kind of bad data");
                         }
                         else {
-                            term = _.trim(transcript);
-                            console.log("Did you said? -> " + term + " , If not then say something else...");
+                            //we used trim here to Removes whitespace from the beginning and end of the 'nearword'.
+                            word = _.trim(nearWord);
+                            console.log("Did you mean? -> " + word + " , If not try say something else...");
                         }
                     }
                 }
                 this.zone.run(() => {
-                    observer.next(term);
+                    observer.next(word);
                 });
+            };
+
+            this.speechRecognition.start();
+            console.log("Say something - I am giving up on you");
+
+
+            this.speechRecognition.onend = () => {
+                observer.complete();
             };
 
             this.speechRecognition.onerror = error => {
                 observer.error(error);
             };
 
-            this.speechRecognition.onend = () => {
-                observer.complete();
-            };
-
-            this.speechRecognition.start();
-            console.log("Say something - We are listening !!!");
         });
-    }
-
-    DestroySpeechObject() {
-        if (this.speechRecognition)
-            this.speechRecognition.stop();
-    }
+    }  
 
     stop(){
         this.speechRecognition.stop();

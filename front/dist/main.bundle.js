@@ -219,10 +219,10 @@ var LanguageComponent = /** @class */ (function () {
         this.speechData = "";
     }
     LanguageComponent.prototype.ngOnInit = function () {
-        console.log("hello");
+        console.log("areej and hanan");
     };
     LanguageComponent.prototype.ngOnDestroy = function () {
-        this.speechRecognitionService.DestroySpeechObject();
+        this.speechRecognitionService.stop();
     };
     LanguageComponent.prototype.activateSpeechSearchMovie = function () {
         var _this = this;
@@ -237,15 +237,15 @@ var LanguageComponent = /** @class */ (function () {
         //errror
         function (err) {
             console.log(err);
-            if (err.error == "no-speech") {
-                console.log("--restatring service--");
+            if (err.error == "there is no speech untile now") {
+                console.log("--restatring --");
                 _this.activateSpeechSearchMovie();
             }
         }, 
         //completion
         function () {
             _this.showSearchButton = true;
-            console.log("--complete--");
+            console.log("--finish--");
             _this.activateSpeechSearchMovie();
         });
     };
@@ -866,44 +866,53 @@ var SpeechRecognitionService = /** @class */ (function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].create(function (observer) {
             var language = $("#language").val();
+            //Speech recognition interfaces are currently prefixed on Chrome, so we'll need to prefix interface names appropriately so we used "webkitSpeechRecognition"
             var webkitSpeechRecognition = window.webkitSpeechRecognition;
             _this.speechRecognition = new webkitSpeechRecognition();
-            _this.speechRecognition.continuous = true;
-            //this.speechRecognition.interimResults = true;
+            // seting the attibutes 
             _this.speechRecognition.lang = language;
+            _this.speechRecognition.continuous = true;
             _this.speechRecognition.maxAlternatives = 20;
             _this.speechRecognition.onresult = function (speech) {
-                var term = "";
+                // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+                // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+                // It has a getter so it can be accessed like an array
+                // The first [0] returns the SpeechRecognitionResult at position 0.
+                // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+                // These also have getters so they can be accessed like arrays.
+                // The second [0] returns the SpeechRecognitionAlternative at position 0.
+                // We then return the transcript property of the SpeechRecognitionAlternative object
+                var word = "";
                 if (speech.results) {
                     var result = speech.results[speech.resultIndex];
-                    var transcript = result[0].transcript;
+                    // SpeechRecognitionResult {0: SpeechRecognitionAlternative, 1: SpeechRecognitionAlternative,... up to 19  isFinal: true}
+                    // 0:SpeechRecognitionAlternative {transcript: "Isabella", confidence: 0}
+                    // console.log("result" , result , speech.results, speech.resultIndex);
+                    var nearWord = result[0].transcript; //the original word alternative
                     if (result.isFinal) {
                         if (result[0].confidence < 0.3) {
-                            console.log("Unrecognized result - Please try again");
+                            console.log("sorry!! this result kind of bad data");
                         }
                         else {
-                            term = __WEBPACK_IMPORTED_MODULE_2_lodash__["trim"](transcript);
-                            console.log("Did you said? -> " + term + " , If not then say something else...");
+                            //we used trim here to Removes whitespace from the beginning and end of the 'nearword'.
+                            word = __WEBPACK_IMPORTED_MODULE_2_lodash__["trim"](nearWord);
+                            console.log("Did you mean? -> " + word + " , If not try say something else...");
                         }
                     }
                 }
                 _this.zone.run(function () {
-                    observer.next(term);
+                    observer.next(word);
                 });
+            };
+            _this.speechRecognition.start();
+            console.log("Say something - I am giving up on you");
+            _this.speechRecognition.onend = function () {
+                observer.complete();
             };
             _this.speechRecognition.onerror = function (error) {
                 observer.error(error);
             };
-            _this.speechRecognition.onend = function () {
-                observer.complete();
-            };
-            _this.speechRecognition.start();
-            console.log("Say something - We are listening !!!");
         });
-    };
-    SpeechRecognitionService.prototype.DestroySpeechObject = function () {
-        if (this.speechRecognition)
-            this.speechRecognition.stop();
     };
     SpeechRecognitionService.prototype.stop = function () {
         this.speechRecognition.stop();
