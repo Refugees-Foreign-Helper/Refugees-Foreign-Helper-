@@ -3,24 +3,13 @@ import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 import { ProfileComponent } from './profile.component';
 
-// describe('ProfileComponent', () => {
-//   let component: ProfileComponent;
-//   let fixture: ComponentFixture<ProfileComponent>;
+describe('ProfileComponent', () => {
+  let component= ProfileComponent;
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ ProfileComponent ]
-//     })
-//     .compileComponents();
-//   }));
-
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ProfileComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-// });
+  it('should have constructor', () => {
+    expect(component.constructor).toBeTruthy();
+  });
+});

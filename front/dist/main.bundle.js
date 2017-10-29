@@ -55,27 +55,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var AppComponent = /** @class */ (function () {
+var AppComponent = (function () {
     function AppComponent() {
     }
-    AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-root',
-            template: __webpack_require__("../../../../../src/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-        })
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-root',
+        template: __webpack_require__("../../../../../src/app/app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+    })
+], AppComponent);
 
-// export class AppComponent implements AfterViewInit{
-// 	@ViewChild(LoginComponent)
-// 	private login:LoginComponent;
-// 	test = this.login.x;
-// 	ngAfterViewInit(){
-// 		console.log("hiiiiiiiiiiį" ,this.login.x);
-// 	}
-// }
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -130,40 +122,40 @@ var appRoutes = [
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */] },
     { path: 'language', component: __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */] }
 ];
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
-            ],
-            providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
-            bootstrap: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */]
-            ]
-        })
-    ], AppModule);
     return AppModule;
 }());
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__login_index__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__language_language_component__["a" /* LanguageComponent */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
+        ],
+        providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
+        bootstrap: [
+            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__main_main_component__["a" /* MainComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__post_post_component__["a" /* PostComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */]
+        ]
+    })
+], AppModule);
 
 //# sourceMappingURL=app.module.js.map
 
@@ -190,7 +182,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/language/language.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                       placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" name=\"btnActivateSpeechSearchMovie\" id=\"btnActivateSpeechSearchMovie\" (click)=\"activateSpeechSearchMovie()\"\n                                [disabled]=\"!showSearchButton\">\n                            Enable Speech Search\n                        </button>\n                        <button\n                        (click)=\"stop()\">stop</button>\n                        <select id=\"language\">\n                 \n                        \t<option value='ar'>arabic</option>\n                        \t<option value='en-us'>English US</option>\n                        </select>\n                        \t\n                        \t\n                       \n                    </div>\n                    <br />\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" \n                        name=\"btnActivateSpeechSearchMovie\" \n                        id=\"btnActivateSpeechSearchMovie\" \n                        (click)=\"activateSpeechSearchMovie()\"\n                        [hidden]=\"show\">\n                        Start\n                    </button>\n                    <button class=\"btn btn-danger\" \n                    (click)=\"ngOnDestroy()\"\n                    [hidden]=\"!show\">\n                    Stop\n                </button>\n                <select id=\"language\">\n                   <option value='ar'>arabic</option>\n                   <option value='en-us'>English US</option>\n               </select>\n           </div>\n           <br />\n       </div>\n   </div>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -212,21 +204,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var LanguageComponent = /** @class */ (function () {
+var LanguageComponent = (function () {
     function LanguageComponent(speechRecognitionService) {
         this.speechRecognitionService = speechRecognitionService;
-        this.showSearchButton = true;
+        this.show = false;
         this.speechData = "";
     }
     LanguageComponent.prototype.ngOnInit = function () {
         console.log("areej and hanan");
     };
     LanguageComponent.prototype.ngOnDestroy = function () {
+        this.show = !this.show;
         this.speechRecognitionService.stop();
     };
     LanguageComponent.prototype.activateSpeechSearchMovie = function () {
         var _this = this;
-        this.showSearchButton = false;
+        this.show = !this.show;
         this.speechRecognitionService.record()
             .subscribe(
         //listener
@@ -238,32 +231,26 @@ var LanguageComponent = /** @class */ (function () {
         function (err) {
             console.log(err);
             if (err.error == "there is no speech untile now") {
-                console.log("--restatring --");
                 _this.activateSpeechSearchMovie();
             }
         }, 
         //completion
         function () {
-            _this.showSearchButton = true;
-            console.log("--finish--");
             _this.activateSpeechSearchMovie();
         });
     };
-    LanguageComponent.prototype.stop = function () {
-        this.speechRecognitionService.stop();
-    };
-    LanguageComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-language',
-            template: __webpack_require__("../../../../../src/app/language/language.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object])
-    ], LanguageComponent);
     return LanguageComponent;
-    var _a;
 }());
+LanguageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-language',
+        template: __webpack_require__("../../../../../src/app/language/language.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object])
+], LanguageComponent);
 
+var _a;
 //# sourceMappingURL=language.component.js.map
 
 /***/ }),
@@ -292,6 +279,7 @@ module.exports = "<form>\nUser name:<input [(ngModel)]=\"username\" id = \"usern
 "use strict";
 /* unused harmony export toggle */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* unused harmony export test */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
@@ -312,7 +300,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var toggle = true;
-var LoginComponent = /** @class */ (function () {
+var LoginComponent = (function () {
     function LoginComponent(http, router) {
         this.http = http;
         this.router = router;
@@ -327,8 +315,8 @@ var LoginComponent = /** @class */ (function () {
             .map(function (res) {
             if (res) {
                 //console.log("rearea",res)
-                toggle = false;
-                console.log("showHidda", toggle);
+                test();
+                // console.log("showHidda",toggle);
                 _this.router.navigateByUrl('/main');
             }
             else {
@@ -337,18 +325,22 @@ var LoginComponent = /** @class */ (function () {
             }
         }).subscribe();
     };
-    LoginComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-login',
-            template: __webpack_require__("../../../../../src/app/login/login.component.html")
-        }),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
-    ], LoginComponent);
     return LoginComponent;
-    var _a, _b;
 }());
+LoginComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-login',
+        template: __webpack_require__("../../../../../src/app/login/login.component.html")
+    }),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], LoginComponent);
 
+function test() {
+    toggle = !toggle;
+    return toggle;
+}
+var _a, _b;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -399,7 +391,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MainComponent = /** @class */ (function () {
+var MainComponent = (function () {
     function MainComponent(http) {
         this.http = http;
     }
@@ -437,18 +429,18 @@ var MainComponent = /** @class */ (function () {
             }
         }).subscribe();
     };
-    MainComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-main',
-            template: __webpack_require__("../../../../../src/app/main/main.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/main/main.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], MainComponent);
     return MainComponent;
-    var _a;
 }());
+MainComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-main',
+        template: __webpack_require__("../../../../../src/app/main/main.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/main/main.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], MainComponent);
 
+var _a;
 //# sourceMappingURL=main.component.js.map
 
 /***/ }),
@@ -500,7 +492,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var NavbarComponent = /** @class */ (function () {
+var NavbarComponent = (function () {
     function NavbarComponent(http) {
         this.http = http;
     }
@@ -525,18 +517,18 @@ var NavbarComponent = /** @class */ (function () {
         return this.http.get('/logout', { headers: headers })
             .map(function (res) { }).subscribe();
     };
-    NavbarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-navbar',
-            template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], NavbarComponent);
     return NavbarComponent;
-    var _a;
 }());
+NavbarComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-navbar',
+        template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], NavbarComponent);
 
+var _a;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -587,7 +579,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PostComponent = /** @class */ (function () {
+var PostComponent = (function () {
     function PostComponent(http) {
         this.http = http;
     }
@@ -616,18 +608,18 @@ var PostComponent = /** @class */ (function () {
             }
         }).subscribe();
     };
-    PostComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-post',
-            template: __webpack_require__("../../../../../src/app/post/post.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], PostComponent);
     return PostComponent;
-    var _a;
 }());
+PostComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-post',
+        template: __webpack_require__("../../../../../src/app/post/post.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], PostComponent);
 
+var _a;
 //# sourceMappingURL=post.component.js.map
 
 /***/ }),
@@ -678,7 +670,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProfileComponent = /** @class */ (function () {
+var ProfileComponent = (function () {
     function ProfileComponent(http) {
         this.http = http;
     }
@@ -702,18 +694,18 @@ var ProfileComponent = /** @class */ (function () {
             }
         }).subscribe();
     };
-    ProfileComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-profile',
-            template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], ProfileComponent);
     return ProfileComponent;
-    var _a;
 }());
+ProfileComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-profile',
+        template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], ProfileComponent);
 
+var _a;
 //# sourceMappingURL=profile.component.js.map
 
 /***/ }),
@@ -765,7 +757,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupComponent = /** @class */ (function () {
+var SignupComponent = (function () {
     function SignupComponent(http, router, _sanitizer) {
         this.http = http;
         this.router = router;
@@ -820,18 +812,18 @@ var SignupComponent = /** @class */ (function () {
             }
         }).subscribe();
     };
-    SignupComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-signup',
-            template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
-    ], SignupComponent);
     return SignupComponent;
-    var _a, _b, _c;
 }());
+SignupComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-signup',
+        template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
+], SignupComponent);
 
+var _a, _b, _c;
 //# sourceMappingURL=signup.component.js.map
 
 /***/ }),
@@ -858,7 +850,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SpeechRecognitionService = /** @class */ (function () {
+var SpeechRecognitionService = (function () {
     function SpeechRecognitionService(zone) {
         this.zone = zone;
     }
@@ -887,7 +879,7 @@ var SpeechRecognitionService = /** @class */ (function () {
                     var result = speech.results[speech.resultIndex];
                     // SpeechRecognitionResult {0: SpeechRecognitionAlternative, 1: SpeechRecognitionAlternative,... up to 19  isFinal: true}
                     // 0:SpeechRecognitionAlternative {transcript: "Isabella", confidence: 0}
-                    // console.log("result" , result , speech.results, speech.resultIndex);
+                    console.log("result", speech.results, speech.resultIndex);
                     var nearWord = result[0].transcript; //the original word alternative
                     if (result.isFinal) {
                         if (result[0].confidence < 0.3) {
@@ -906,9 +898,9 @@ var SpeechRecognitionService = /** @class */ (function () {
             };
             _this.speechRecognition.start();
             console.log("Say something - I am giving up on you");
-            _this.speechRecognition.onend = function () {
-                observer.complete();
-            };
+            // this.speechRecognition.onend = () => {
+            //     observer.complete();
+            // };
             _this.speechRecognition.onerror = function (error) {
                 observer.error(error);
             };
@@ -917,14 +909,14 @@ var SpeechRecognitionService = /** @class */ (function () {
     SpeechRecognitionService.prototype.stop = function () {
         this.speechRecognition.stop();
     };
-    SpeechRecognitionService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
-    ], SpeechRecognitionService);
     return SpeechRecognitionService;
-    var _a;
 }());
+SpeechRecognitionService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
+], SpeechRecognitionService);
 
+var _a;
 //# sourceMappingURL=speech-recognition.service.js.map
 
 /***/ }),
@@ -938,6 +930,7 @@ var SpeechRecognitionService = /** @class */ (function () {
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false
 };

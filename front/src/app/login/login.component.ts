@@ -13,6 +13,7 @@ export let toggle = true;
 })
 @Injectable()
 export class LoginComponent implements OnInit {
+	
 	ngOnInit(){
 
 	}
@@ -31,8 +32,8 @@ export class LoginComponent implements OnInit {
 		.map((res) => {
 			if(res){
 				//console.log("rearea",res)
-				toggle=false;
-				console.log("showHidda",toggle);
+				test();
+				// console.log("showHidda",toggle);
 				this.router.navigateByUrl('/main');
 			}else{
 				alert('wrong password or username stupid!!!')
@@ -44,8 +45,11 @@ export class LoginComponent implements OnInit {
 		
 	}
 
-	// test(){
-	// 	return x;
-	// }
+	
 
+}
+
+export function test(){
+	toggle = !toggle;
+	return toggle;
 }
