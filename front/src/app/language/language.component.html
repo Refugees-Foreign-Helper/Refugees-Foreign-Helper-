@@ -12,31 +12,33 @@
                             <div class="form-group">
                                 <label></label>
                                 <input type="text" class="form-control border-input" name="txtSpeechSearchMovieName" id="txtSpeechSearchMovieName" value=""
-                                       placeholder="say something!!!" [(ngModel)]="speechData">
+                                placeholder="say something!!!" [(ngModel)]="speechData">
                             </div>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
                     <br />
                     <div class="text-center">
-                        <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearchMovie" id="btnActivateSpeechSearchMovie" (click)="activateSpeechSearchMovie()"
-                                [disabled]="!showSearchButton">
-                            Enable Speech Search
-                        </button>
-                        <button
-                        (click)="stop()">stop</button>
-                        <select id="language">
-                 
-                        	<option value='ar'>arabic</option>
-                        	<option value='en-us'>English US</option>
-                        </select>
-                        	
-                        	
-                       
-                    </div>
-                    <br />
-                </div>
-            </div>
-        </div>
-    </div>
+                        <button class="btn btn-info btn-fill btn-wd" 
+                        name="btnActivateSpeechSearchMovie" 
+                        id="btnActivateSpeechSearchMovie" 
+                        (click)="activateSpeechSearchMovie()"
+                        [hidden]="show">
+                        Start
+                    </button>
+                    <button class="btn btn-danger" 
+                    (click)="ngOnDestroy()"
+                    [hidden]="!show">
+                    Stop
+                </button>
+                <select id="language">
+                   <option value='ar'>arabic</option>
+                   <option value='en-us'>English US</option>
+               </select>
+           </div>
+           <br />
+       </div>
+   </div>
+</div>
+</div>
 </div>

@@ -11,17 +11,3 @@ export class AppComponent {
 
 }
 
-// export class AppComponent implements AfterViewInit{
-
-// 	@ViewChild(LoginComponent)
-// 	private login:LoginComponent;
-// 	test = this.login.x;
-
-// 	ngAfterViewInit(){
-
-// 		console.log("hiiiiiiiiiiį" ,this.login.x);
-
-// 	}
-	
-
-// }
