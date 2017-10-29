@@ -1,8 +1,8 @@
 // import { AfterViewInit, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import {toggle} from '../login/login.component';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {test} from '../login/login.component'
 
 
 @Component({

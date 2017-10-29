@@ -68,14 +68,6 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 
-// export class AppComponent implements AfterViewInit{
-// 	@ViewChild(LoginComponent)
-// 	private login:LoginComponent;
-// 	test = this.login.x;
-// 	ngAfterViewInit(){
-// 		console.log("hiiiiiiiiiiį" ,this.login.x);
-// 	}
-// }
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -287,6 +279,7 @@ module.exports = "<form>\nUser name:<input [(ngModel)]=\"username\" id = \"usern
 "use strict";
 /* unused harmony export toggle */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* unused harmony export test */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
@@ -322,8 +315,8 @@ var LoginComponent = (function () {
             .map(function (res) {
             if (res) {
                 //console.log("rearea",res)
-                toggle = false;
-                console.log("showHidda", toggle);
+                test();
+                // console.log("showHidda",toggle);
                 _this.router.navigateByUrl('/main');
             }
             else {
@@ -343,6 +336,10 @@ LoginComponent = __decorate([
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], LoginComponent);
 
+function test() {
+    toggle = !toggle;
+    return toggle;
+}
 var _a, _b;
 //# sourceMappingURL=login.component.js.map
 

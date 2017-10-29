@@ -25,7 +25,7 @@ constructor(private http: Http) { }
   contactInfo;
   image;
   url;
-  ima(event){
+  public ima(event){
   if (event.target.files && event.target.files[0]) {
     var reader = new FileReader();
 
