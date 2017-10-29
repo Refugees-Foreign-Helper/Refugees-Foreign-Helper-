@@ -69,18 +69,14 @@ connect.connect(function () {
 // ----------------------sign up----------------------------------------
 app.post('/signup',function (req,res) {
     var password='';
-    // console.log(req.body.username+'')
     var username= req.body.username;
     var Image=req.body.image;
-    // var password=md5(req.body.password);
     bcrypt.hash(req.body.password,3,function (err,hash) {
     password=hash;
     })
     var Nationallity=req.body.nationality;
     var Birthday=req.body.birthday;
     var location=req.body.location;
-    // var Image = req.body.image
-    console.log('b-day',Birthday)
     var signup = 'SELECT * FROM users WHERE username=\''+username+'\'';
 
    
@@ -103,15 +99,15 @@ app.post('/signup',function (req,res) {
 });
 
 // ---------------------login-----------------------------------------
+var users=[];
 var flag = false;
 var x;
-var user = ''; //store the current user in it 
 app.post('/login',function(req,res){
+
     var username= req.body.username;
     var password1;
     var results;
     var cookies = req.cookies;
-     console.log('hanan',username,user.id)
     var createSession = function(req, res, newUser) {
         return req.session.regenerate(function() {
            //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
@@ -120,20 +116,15 @@ app.post('/login',function(req,res){
            bcrypt.hash(req.body.password,3,function (err,hash) {
             console.log(hash)
              x={'infog':['u',username,'p',hash]}
-             // console.log('this is xxxxx',x)
-             // password1=hash;
+
               })
-
-           
-
-            user = newUser;
             req.session.user = newUser;
-            console.log('user123',newUser)
-            res.send(x);
+            users.push(req.session.user.username)
+            console.log('after login   ',req.session.user.username)
+            res.send('true');
         });
     };
 
-  // var password= md5(req.body.password);
 
    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
         results=result;
@@ -155,6 +146,7 @@ function compare() {
         console.log(true)
         flag = !flag;
          createSession(req,res,results[0]);
+
     }else{
         console.log(false)
     }
@@ -180,6 +172,7 @@ function compare() {
 //--------------------logout-----------------------------------
 //Logout function destroys the open session.
 app.get('/logout',function (req,res) {
+    users.splice(users.indexOf(req.session.user.username),1)
     flag = !flag
     req.session.destroy();
     res.clearCookie('info');
@@ -187,32 +180,34 @@ app.get('/logout',function (req,res) {
 });
 
 app.get('/show',function(req,res){
-    console.log('flag',flag)
+  // console.log(flag)
+  // console.log(users)
     res.send(flag)
 })
 
 //----------------create and save inside roomtable---------------
 app.post('/post',function(req,res) {
-    var username=user.username;
+            console.log('in post    ',req.session.user.username)
+
+
     var location = req.body.location;
     var discribtion = req.body.discribtion;
     var contactInfo = req.body.contactInfo;
     var Image = req.body.image
-   // console.log('username',user.username,user.id)
-   console.log('hhhhhhh',user.id,user.username)
-    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName,image) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+user.id+'\',\''+user.username+'\',\''+Image+'\')';
+    var post = 'INSERT INTO rooms (location,discribtion,contactInfo,userID,userName,image) VALUES (\''+location+'\',\''+discribtion+'\',\''+contactInfo+'\',\''+req.session.user.id+'\',\''+req.session.user.username+'\',\''+Image+'\')';
 
    connect.query(post);
-    res.send(username);
+    res.send(req.session.user.username);
 
 });
 
 //-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
+            console.log('in main    ',req.session.user.username)
+
     var rooms = 'SELECT rooms.id,rooms.location,rooms.image,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms,users';
     connect.query(rooms,function (err,allposts) {
-        console.log('allposts',allposts)
         res.send(allposts);
     });
 
@@ -221,14 +216,16 @@ app.get('/main',function(req,res) {
 //-----return all roomdata to the client side in the profile page for one user-------
 
 app.get('/profile',function(req,res) {
+            console.log('in profile    ',req.session.user.username)
+
     console.log('hanan test',req.body.length)
-   var userroom = 'SELECT * FROM rooms WHERE userName=\''+user.username+'\'';
-   var userinfo= 'SELECT * FROM users WHERE userName=\''+user.username+'\'';
+   var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.session.user.username+'\'';
+   var userinfo= 'SELECT * FROM users WHERE userName=\''+req.session.user.username+'\'';
    var userinformation1;
-   console.log(user.username)
+
    connect.query(userinfo,function(err,userinfomation){
        userinfomation1=userinfomation
-       console.log(userinfomation1)
+
    })
    connect.query(userroom,function (err,info) {
        var total=[];
@@ -250,31 +247,24 @@ app.post('/deleteroom',function(req,res){
 
 // --------------post comment and send all the comment-------------------------
 app.post('/postcomment',function(req,res){
-    var username= user.username;
+            console.log('in postcomment    ',req.session.user.username)
+
+
     var roomId= req.body.roomid;
     var Comment=req.body.commet;
-    console.log('room id',roomId,Comment,username)
 
 
-   var Comment2='INSERT INTO comments (comment,username,roomID) VALUES (\''+Comment+'\',\''+username+'\',\''+roomId+'\')';
+
+   var Comment2='INSERT INTO comments (comment,username,roomID) VALUES (\''+Comment+'\',\''+req.session.user.username+'\',\''+roomId+'\')';
 
     connect.query(Comment2);
     var allcomments='SELECT comments.username,comments.comment,users.imag FROM comments INNER JOIN users ON comments.username=users.username AND comments.roomID=\''+roomId+'\'';
     connect.query(allcomments,function(err,allcommentss){
-        // console.log('newtable',allcommentss)
         res.send(allcommentss)
     });
     
 
 });
-
-
-
-
-
-//----- how to delete in sql---------
-// DELETE FROM table_name
-// WHERE condition;
 
 
 
