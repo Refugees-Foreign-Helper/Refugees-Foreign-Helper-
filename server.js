@@ -27,9 +27,9 @@ app.use(session({
 
 var connect = mysql.createConnection({
     host: 'sql12.freesqldatabase.com',
-    user:'sql12199746',
-    password:'hbpfE6sY22',
-    database:'sql12199746'
+    user:'sql12202148',
+    password:'luJSkvai4e',
+    database:'sql12202148'
 });
 // --------------------------Data base side----------------------------------------
 // ---------------------create tables and connection--------------------------------
@@ -112,8 +112,9 @@ app.post('/login',function(req,res){
 
 
    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
-        
+        console.log('hhhh',result)
         if(result[0]!==undefined){
+          console.log('reslt[0]',result[0])
           results=result;
           compare();  
         }else{
@@ -273,7 +274,7 @@ app.post('/postcomment',function(req,res){
    var Comment2='INSERT INTO comments (comment,username,roomID) VALUES (\''+Comment+'\',\''+req.session.user.username+'\',\''+roomId+'\')';
 
     connect.query(Comment2);
-    var allcomments='SELECT comments.username,comments.comment,users.imag FROM comments INNER JOIN users ON comments.username=users.username AND comments.roomID=\''+roomId+'\'';
+    var allcomments='SELECT comments.username,comments.comment,users.imag FROM comments INNER JOIN users ON comments.username=users.username AND comments.roomID=\''+roomId+'\' ORDER BY comments.id';
     connect.query(allcomments,function(err,allcommentss){
         res.send(allcommentss)
     });
