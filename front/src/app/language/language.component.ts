@@ -34,7 +34,7 @@ export class LanguageComponent implements OnInit, OnDestroy {
         return this.http.post('/translate', {text : text, languageFrom : languageFrom, languageTo : languageTo}, {headers: headers})
         .map((res) => {
             if(res){
-
+              console.log(res.json())
             }else{
                 
             }
