@@ -288,13 +288,13 @@ app.post('/translate',function(req,response){
 
   console.log('translate ',req.body)
 
-translate(req.body.text, {from:'en', to: req.body.languageTo+'' })
+translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo+'' })
    .then(res => {
        console.log(res.text);
        //=> I speak English
        //console.log(res.from.language.iso);
        //=> nl
-       response.send(res.text)
+       response.send(JSON.stringify(res.text))
    })
    .catch(err => {
        console.error(err);
@@ -316,6 +316,7 @@ translate(req.body.text, {from:'en', to: req.body.languageTo+'' })
 //     traverse(node, 0);
 //     return maxDepth;
 // };
+
 
 
 // -------------------------------------------------------------------------------
