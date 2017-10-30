@@ -294,7 +294,7 @@ translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo
        //=> I speak English
        //console.log(res.from.language.iso);
        //=> nl
-       response.send(res.text)
+       response.send(JSON.stringify(res.text))
    })
    .catch(err => {
        console.error(err);
