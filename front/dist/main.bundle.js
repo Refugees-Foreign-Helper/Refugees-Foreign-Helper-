@@ -48,12 +48,14 @@ module.exports = "<!-- <a routerLink='login'\nrouterLinkActive=\"active\">login 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 var AppComponent = (function () {
     function AppComponent() {
@@ -64,7 +66,8 @@ AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]]
     })
 ], AppComponent);
 
@@ -158,6 +161,44 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/data.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DataService = (function () {
+    function DataService() {
+        this.FlagSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](false);
+        this.currentFlag = this.FlagSource.asObservable();
+    }
+    DataService.prototype.changeFlag = function (flag) {
+        this.FlagSource.next(flag);
+    };
+    return DataService;
+}());
+DataService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], DataService);
+
+//# sourceMappingURL=data.service.js.map
 
 /***/ }),
 
@@ -269,7 +310,7 @@ var _a;
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form>\nUser name:<input [(ngModel)]=\"username\" id = \"username\" type=\"username\" name=\"username\">\t<br>\n<br>\nPassword :<input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">\t<br>\t\n<button (click)=\"login()\"> Login </button>\n</form>\n\n\n\n\n"
+module.exports = "<!-- <form>\nUser name:<input [(ngModel)]=\"username\" id = \"username\" type=\"username\" name=\"username\">\t<br>\n<br>\nPassword :<input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">\t<br>\t\n<button (click)=\"login()\"> Login </button>\n</form>\n\n\n\n\n -->"
 
 /***/ }),
 
@@ -279,12 +320,13 @@ module.exports = "<form>\nUser name:<input [(ngModel)]=\"username\" id = \"usern
 "use strict";
 /* unused harmony export toggle */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
-/* unused harmony export test */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -295,27 +337,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+ //1
 
 
 
 
 var toggle = true;
 var LoginComponent = (function () {
-    function LoginComponent(http, router) {
+    // login;
+    function LoginComponent(http, router, data, logs) {
         this.http = http;
         this.router = router;
+        this.data = data;
+        this.logs = logs;
+        // this.login = this.logs.login;
+        // this.login = log.login();
     }
     LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data.currentFlag.subscribe(function (flag) { return _this.flag = flag; }); //2
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.post('/login', { password: this.password, username: this.username }, { headers: headers })
             .map(function (res) {
             if (res) {
+                _this.data.changeFlag(true);
                 //console.log("rearea",res)
-                test();
                 // console.log("showHidda",toggle);
                 _this.router.navigateByUrl('/main');
             }
@@ -330,17 +380,15 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-login',
-        template: __webpack_require__("../../../../../src/app/login/login.component.html")
-    }),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
+        template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+        providers: [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]] //2
+    })
+    // @Injectable()
+    ,
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__navbar_navbar_component__["a" /* NavbarComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__navbar_navbar_component__["a" /* NavbarComponent */]) === "function" && _d || Object])
 ], LoginComponent);
 
-function test() {
-    toggle = !toggle;
-    return toggle;
-}
-var _a, _b;
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -466,7 +514,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!show\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!show\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!show\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"show\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"show\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!show\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
+module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!flag\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"flag\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"flag\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!flag\"\n        routerLink='/login'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n{{flag}}\n<form [hidden]= \"flag\">\nUser name:<input [(ngModel)]=\"username\" id = \"username\" type=\"username\" name=\"username\">  <br>\n<br>\nPassword :<input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">  <br>  \n<button (click)=\"login()\"> Login </button>\n</form>\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -479,6 +527,9 @@ module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -492,26 +543,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+ //1
+
+
 var NavbarComponent = (function () {
-    function NavbarComponent(http) {
+    function NavbarComponent(http, data, router, signup) {
         this.http = http;
+        this.data = data;
+        this.router = router;
+        this.signup = signup;
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setInterval(function () {
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-            headers.append('Content-Type', 'application/json');
-            return _this.http.get('/show', { headers: headers })
-                .map(function (res) {
-                if (res) {
-                    _this.show = res.json();
-                }
-                else {
-                }
-            }).subscribe();
-        }, 5000);
+        this.data.currentFlag.subscribe(function (flag) { return _this.flag = flag; }); //4
+        // 	setInterval(() => {
+        //    let headers = new Headers();
+        //  headers.append('Content-Type', 'application/json');
+        //   return this.http.get('/show',{headers: headers})
+        //   .map((res) => {
+        //     if(res){
+        //        this.show = res.json();
+        //     }else{
+        //     }
+        //   }).subscribe();
+        // }, 5000);
+    };
+    NavbarComponent.prototype.login = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/login', { password: this.password, username: this.username }, { headers: headers })
+            .map(function (res) {
+            if (res) {
+                _this.data.changeFlag(!_this.flag);
+                console.log(_this.flag, 'hghgfghfgh');
+                _this.router.navigateByUrl('/main');
+            }
+            else {
+                alert('wrong password or username stupid!!!');
+                _this.router.navigateByUrl('/');
+            }
+        }).subscribe();
     };
     NavbarComponent.prototype.logout = function () {
+        this.data.changeFlag(!this.flag); //5
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get('/logout', { headers: headers })
@@ -523,12 +598,13 @@ NavbarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-navbar',
         template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]] //2
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]) === "function" && _d || Object])
 ], NavbarComponent);
 
-var _a;
+var _a, _b, _c, _d;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),

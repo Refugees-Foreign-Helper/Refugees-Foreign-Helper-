@@ -9,17 +9,17 @@
       <a class="navbar-brand" href="#">Batee5</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a [hidden]= "!show" href="#"
+      <li class="active"><a [hidden]= "!flag" href="#"
         routerLink='/main'
         routerLinkActive="active"
         (click) = "main"
       	>Home</a></li>
       <li><a href="#"  
-        [hidden]= "!show" 
+        [hidden]= "!flag" 
       	routerLink="/profile" 
       	routerLinkActive="active" >Profile</a></li>
           <li><a href="#"  
-        [hidden]= "!show" 
+        [hidden]= "!flag" 
         routerLink="/language" 
         routerLinkActive="active" >Language</a></li>
    
@@ -28,23 +28,31 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"
-        [hidden]= "show"
+        [hidden]= "flag"
         routerLink='/signup'
         routerLinkActive="active"
       	><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"
-            [hidden]= "show"
+            [hidden]= "flag"
       	    routerLink="login"
             routerLinkActive="active"><span class="glyphicon glyphicon-log-in" 
       	></span> Login</a>
       </li>
          <li><a href="#"
           (click)="logout()"
-        [hidden]= "!show"
+        [hidden]= "!flag"
         routerLink='/login'
         routerLinkActive="active"
         ><span class="glyphicon glyphicon-user"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
+{{flag}}
+<form [hidden]= "flag">
+User name:<input [(ngModel)]="username" id = "username" type="username" name="username">  <br>
+<br>
+Password :<input [(ngModel)]="password" id = "password" type="password" name="password">  <br>  
+<button (click)="login()"> Login </button>
+</form>
+
 <router-outlet></router-outlet>
