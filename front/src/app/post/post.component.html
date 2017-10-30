@@ -17,7 +17,7 @@
          <br>
          Description: <input [(ngModel)]="description" name="Description" type="text">  <br><br>
          Contact info: <input [(ngModel)]="contactInfo" name="ContactInfo" type="text"> <br>
-         Image:<input [(ngModel)]="image" type="file" id="myFile">
+         Image:<input [(ngModel)]="image" type="file" id="image" (change)="ima($event)">
         </div>
         <div class="modal-footer">
         <button (click)="submit()" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>

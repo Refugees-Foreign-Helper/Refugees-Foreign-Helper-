@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
@@ -16,14 +17,32 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 constructor(private http: Http) { }
+  
+  
+
   description;
   location;
-  image;
   contactInfo;
+  image;
+  url;
+  public ima(event){
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = (event:any) => {
+      this.url = event.target.result;
+    }
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+ this.url = reader["__zone_symbol__originalInstance"] ;
+
+  }
+
   submit(){
   let headers = new Headers();
    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://127.0.0.1:3000/post', {location : this.location , description: this.description, image:this.image, contactInfo:this.contactInfo}
+    return this.http.post('/post', {location : this.location , discribtion: this.description, image:this.url, contactInfo:this.contactInfo}
      ,{headers: headers})
     .map((res) => {
       if(res){

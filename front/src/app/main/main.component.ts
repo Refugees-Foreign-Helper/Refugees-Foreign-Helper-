@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   moduleId: module.id,
@@ -12,21 +14,51 @@ import 'rxjs/add/operator/map';
 
 
 export class MainComponent implements OnInit {
-	posts=[{location : "paris",description : "jafar",contactInfo : "areej zfft" },
-	{location : "paris",description : "jafar",contactInfo : "areej zfft" },
-	{location : "paris",description : "jafar",contactInfo : "areej zfft" }
-	];
+	posts;
+  comment;
+  comments;
+  id;
+  comID;
+  flag;
   ngOnInit() {
-  	  let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-  	return this.http.get('http://127.0.0.1:3000/main',{headers: headers}).map((res) => {
-  		//console.log(res);
-  		//this.posts = res;
-  	})
+  	//setInterval(() => {
+     let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.get('/main',{headers: headers})
+    .map((res) => {
+      if(res){
+         this.posts = res.json();
+         console.log(this.posts)
+      // console.log("response from post",res.json());
+      }else{
+        
+      }
+    }).subscribe();
+ // }, 5000);
+  }
+
+  commentFun(postIndex,roomId){
+    this.comment=$("#"+postIndex).val();
+    this.id=roomId;
+    this.comID=postIndex;
+    console.log(this.comment)
+    let headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+    return this.http.post('/postcomment',{commet:this.comment,roomid:this.id},{headers: headers})
+    .map((res) => {
+      if(res){
+        this.comments=res.json()
+        
+      }else{
+        
+      }
+    }).subscribe(); 
   }
   constructor(private http : Http) {}
 
- 
+
+
+
 }
 
 

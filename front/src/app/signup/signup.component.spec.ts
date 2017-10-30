@@ -1,37 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, async } from '@angular/core/testing';
 import { SignupComponent } from './signup.component';
+import { DebugElement }    from '@angular/core';
+import { By }              from '@angular/platform-browser';
 
 describe('SignupComponent', () => {
-  let component: SignupComponent;
-  let fixture: ComponentFixture<SignupComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SignupComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SignupComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
+  let component= SignupComponent;
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
- // it('should have a defined component', () => {
- //      expect(component).toBeDefined();
- //  });
+  it('should have constructor', () => {
+    expect(component.constructor).toBeTruthy();
+  });
 });
-
-// describe("A spy, when configured to fake a return value", function() {
-//   var username = "alaa";
-//   it("tracks that the spy was called", function() {
-//     expect(SignupComponent).toEqual("alaa");;
-//   });
-
-// }

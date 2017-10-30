@@ -1,6 +1,37 @@
 <form>
-User name:<input [(ngModel)]="username" id = "username" type="username" name="username">	<br>
+  Username:<input [(ngModel)]="username"  id = "username" type="username" name="username">	<br>
 <br>
-Password :<input [(ngModel)]="password" id = "password" type="password" name="password">	<br>	
+  Password :<input [(ngModel)]="password" id = "password" type="password" name="password">	<br>
+<br>
+  Birthday :
+  <select name="months" id="month">
+  <option value="JAN">January</option>
+  <option value="FEB">February</option>
+  <option value="MAR">March</option>
+  <option value="APR">April</option>
+  <option value="MAY">May</option>
+  <option value="Jun">June</option>
+  <option value="Jul">July</option>
+    <option value="AUG">August</option>
+    <option value="SEP">Septemper</option>
+    <option value="OCT">October</option>
+    <option value="NOV">November</option>
+    <option value="DEC">December</option>
+  </select>
+  <select  id= "day" >
+  	<option *ngFor="let day of days">{{day}}</option>
+  </select>
+  <select id="year" >
+  	<option *ngFor="let year of years" [value]="year">{{year}}</option>
+  </select>
+<br>
+<br>
+
+   Nationality :<input [(ngModel)]="nationality" id = "nationality" type="text" name="nationality">	<br><br>	
+   Location :<input [(ngModel)]="location" id = "location" type="text" name="location">	<br>	
+   Upload your photo:<input  type="file" id="image" (change)="ima($event)">
+
 <button (click)="signup()"> Signup </button>
 </form>
+
+
