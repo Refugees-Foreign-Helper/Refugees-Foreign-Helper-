@@ -19,7 +19,7 @@ export class SpeechRecognitionService {
 	    record(): Observable<string> {
 
         return Observable.create(observer => {
-           let language=$("#language").val();
+           let language=$("#languageFrom").val();
             //Speech recognition interfaces are currently prefixed on Chrome, so we'll need to prefix interface names appropriately so we used "webkitSpeechRecognition"
             const { webkitSpeechRecognition }: IWindow = <IWindow>window;
             this.speechRecognition = new webkitSpeechRecognition();

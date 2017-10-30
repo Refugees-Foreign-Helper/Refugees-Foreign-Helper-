@@ -223,7 +223,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/language/language.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" \n                        name=\"btnActivateSpeechSearchMovie\" \n                        id=\"btnActivateSpeechSearchMovie\" \n                        (click)=\"activateSpeechSearchMovie()\"\n                        [hidden]=\"show\">\n                        Start\n                    </button>\n                    <button class=\"btn btn-danger\" \n                    (click)=\"ngOnDestroy()\"\n                    [hidden]=\"!show\">\n                    Stop\n                </button>\n                <select id=\"language\">\n                   <option value='ar'>arabic</option>\n                   <option value='en-us'>English US</option>\n               </select>\n           </div>\n           <br />\n       </div>\n   </div>\n</div>\n</div>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-lg-12 col-md-12\">\n            <div class=\"card\">\n                <div class=\"header\">\n                    <h4 class=\"title\">&nbsp;&nbsp; Let's Make Communication Easier</h4>\n                </div>\n                <div class=\"content\">\n                    <div class=\"row\">\n                        <div class=\"col-md-2\"></div>\n                        <div class=\"col-md-8\">\n                            <div class=\"form-group\">\n                                <label></label>\n                                <input type=\"text\" class=\"form-control border-input\" name=\"txtSpeechSearchMovieName\" id=\"txtSpeechSearchMovieName\" value=\"\"\n                                placeholder=\"say something!!!\" [(ngModel)]=\"speechData\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-2\"></div>\n                    </div>\n                    <br />\n                    <div class=\"text-center\">\n                        <button class=\"btn btn-info btn-fill btn-wd\" \n                        name=\"btnActivateSpeechSearchMovie\" \n                        id=\"btnActivateSpeechSearchMovie\" \n                        (click)=\"activateSpeechSearchMovie()\"\n                        [hidden]=\"show\">\n                        Start\n                    </button>\n                    <button class=\"btn btn-danger\" \n                    (click)=\"ngOnDestroy()\"\n                    [hidden]=\"!show\">\n                    Stop\n                </button>\n                From:\n                <select id=\"languageFrom\">\n                   <option value='ar'>arabic</option>\n                   <option value='en-us'>English US</option>\n               </select>\n                To:\n               <select id=\"languageTo\">\n                   <option value='ar'>arabic</option>\n                   <option value='en-us'>English US</option>\n               </select>\n           </div>\n           <br />\n       </div>\n   </div>\n</div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -234,6 +234,9 @@ module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n    
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LanguageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__ = __webpack_require__("../../../../../src/app/speech-recognition.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -245,9 +248,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var LanguageComponent = (function () {
-    function LanguageComponent(speechRecognitionService) {
+    function LanguageComponent(speechRecognitionService, http) {
         this.speechRecognitionService = speechRecognitionService;
+        this.http = http;
         this.show = false;
         this.speechData = "";
     }
@@ -257,6 +263,18 @@ var LanguageComponent = (function () {
     LanguageComponent.prototype.ngOnDestroy = function () {
         this.show = !this.show;
         this.speechRecognitionService.stop();
+        var languageTo = $("#languageTo").val();
+        var languageFrom = $("#languageFrom").val();
+        var text = $("#txtSpeechSearchMovieName").val();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/translate', { text: text, languageFrom: languageFrom, languageTo: languageTo }, { headers: headers })
+            .map(function (res) {
+            if (res) {
+            }
+            else {
+            }
+        }).subscribe();
     };
     LanguageComponent.prototype.activateSpeechSearchMovie = function () {
         var _this = this;
@@ -288,10 +306,10 @@ LanguageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/language/language.component.html"),
         styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], LanguageComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=language.component.js.map
 
 /***/ }),
@@ -933,7 +951,7 @@ var SpeechRecognitionService = (function () {
     SpeechRecognitionService.prototype.record = function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].create(function (observer) {
-            var language = $("#language").val();
+            var language = $("#languageFrom").val();
             //Speech recognition interfaces are currently prefixed on Chrome, so we'll need to prefix interface names appropriately so we used "webkitSpeechRecognition"
             var webkitSpeechRecognition = window.webkitSpeechRecognition;
             _this.speechRecognition = new webkitSpeechRecognition();
