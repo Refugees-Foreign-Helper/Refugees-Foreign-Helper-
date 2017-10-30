@@ -285,9 +285,10 @@ app.post('/postcomment',function(req,res){
 //---------languge-----------------------------
 app.post('/translate',function(req,response){
   var value=req.body;
-  console.log('translate',req.body)
 
-translate('how are you?', {from:'en', to: 'ar' })
+  console.log('translate ',req.body)
+
+translate(req.body.text, {from:'en', to: req.body.languageTo+'' })
    .then(res => {
        console.log(res.text);
        //=> I speak English
@@ -300,6 +301,21 @@ translate('how are you?', {from:'en', to: 'ar' })
    });
 })
 
+
+// BinarySearchTree.prototype.getDepth = function() {
+//     var node = this.root;
+//     var maxDepth = 0;
+//     var traverse = function(node, depth) {
+//         if (!node) return null;
+//         if (node) {
+//             maxDepth = depth > maxDepth ? depth : maxDepth;
+//             traverse(node.left, depth + 1);
+//             traverse(node.right, depth + 1);
+//         }
+//     };
+//     traverse(node, 0);
+//     return maxDepth;
+// };
 
 
 // -------------------------------------------------------------------------------
