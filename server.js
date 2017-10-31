@@ -105,22 +105,16 @@ var flag='false';
 var x;
 app.post('/login',function(req,res){
 
-    var username= req.body.username;
-    var password1;
     var results;
 
-
-
-   connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
-        console.log('hhhh',result)
+   connect.query('SELECT * FROM users WHERE username=\''+req.body.username+'\'', function (err,result) {
+        // console.log('hhhh',result)
         if(result[0]!==undefined){
-          console.log('reslt[0]',result[0])
           results=result;
           compare();  
         }else{
           flag=false;
           res.send(flag)
-          // console.log('in else ',flag)
             
         }
         
@@ -133,32 +127,22 @@ function compare() {
             console.log(err)
         }
     if(match){
+      console.log('this user is correct')
         flag = 'true';
         console.log('flag now is  true')
          createSession(req,res,results[0]);
 
     }else{
-        console.log('flag now is  false in else')
+      console.log('this user is very bad')
+      console.log('flag now is  false in else')
 
         flag='false';
+        res.send(flag)
     }
     
    })
 
 }
-    // var login = 'SELECT * FROM users WHERE username=\''+username+'\'AND password=\''+password1+'\'';
-
-   // connect.query(login,function(err,checkeduser){
-        
-
-       // if(checkeduser.length<1){//user not exists
-
-       // }else{
-           //createSession(req,res,checkeduser[0]);
-            
-       // }
-    // });
-
 
         var createSession = function(req, responce, newUser) {
         return req.session.regenerate(function() {
@@ -167,24 +151,21 @@ function compare() {
 
            bcrypt.hash(req.body.password,3,function (err,hash) {
             console.log(hash)
-             x={'infog':['u',username,'p',hash]}
+             // x={'infog':['u',username,'p',hash]}
 
               })
             req.session.user = newUser;
             users.push(req.session.user.username)
-            console.log('after login   ',req.session.user.username)
-            console.log('true from server')
-            console.log('flag is ',flag);
-                console.log('hhhhh',flag)
+            // console.log('after login   ',req.session.user.username)
+            // console.log('true from server')
+            // console.log('flag is ',flag);
+            //     console.log('hhhhh',flag)
         res.send(flag)
                 
 
         });
 
     };
-
-    // res.send(flag)
-
 });
 
 //--------------------logout-----------------------------------
@@ -198,14 +179,12 @@ app.get('/logout',function (req,res) {
 });
 
 app.get('/show',function(req,res){
-  console.log('/show      ',flag)
-  // console.log(users)
     res.send(flag)
 })
 
 //----------------create and save inside roomtable---------------
 app.post('/post',function(req,res) {
-            console.log('in post    ',req.session.user.username)
+            console.log('in post    ',req.session.user.username,req.session.user.id)
 
 
     var location = req.body.location;
@@ -222,19 +201,18 @@ app.post('/post',function(req,res) {
 //-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
-    var rooms = 'SELECT rooms.id,rooms.location,rooms.image,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms,users';
-    connect.query(rooms,function (err,allposts) {
-        res.send(allposts);
-    });
+    var rooms = 'SELECT rooms.id,rooms.location,rooms.image,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM users INNER JOIN rooms ON rooms.userID = users.id';
+    connect.query(rooms,function (err,result) {
+    res.send(result)
+          
+    })
 
 });
 
 //-----return all roomdata to the client side in the profile page for one user-------
 
 app.get('/profile',function(req,res) {
-            console.log('in profile    ',req.session.user.username)
 
-    console.log('hanan test',req.body.length)
    var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.session.user.username+'\'';
    var userinfo= 'SELECT * FROM users WHERE userName=\''+req.session.user.username+'\'';
    var userinformation1;
@@ -263,7 +241,6 @@ app.post('/deleteroom',function(req,res){
 
 // --------------post comment and send all the comment-------------------------
 app.post('/postcomment',function(req,res){
-            console.log('in postcomment    ',req.session.user.username)
 
 
     var roomId= req.body.roomid;
@@ -286,8 +263,6 @@ app.post('/postcomment',function(req,res){
 app.post('/translate',function(req,response){
   var value=req.body;
 
-  console.log('translate ',req.body)
-
 translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo+'' })
    .then(res => {
        console.log(res.text);
@@ -302,20 +277,7 @@ translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo
 })
 
 
-// BinarySearchTree.prototype.getDepth = function() {
-//     var node = this.root;
-//     var maxDepth = 0;
-//     var traverse = function(node, depth) {
-//         if (!node) return null;
-//         if (node) {
-//             maxDepth = depth > maxDepth ? depth : maxDepth;
-//             traverse(node.left, depth + 1);
-//             traverse(node.right, depth + 1);
-//         }
-//     };
-//     traverse(node, 0);
-//     return maxDepth;
-// };
+
 
 
 
