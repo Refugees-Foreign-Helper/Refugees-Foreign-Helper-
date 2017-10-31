@@ -7,6 +7,7 @@ var session = require('express-session');
 var bcrypt=require('bcrypt');
 var setCookie = require('set-cookie');
 var CookieParser = require('restify-cookies');
+var translate = require('google-translate-api');
 
 // var path = require('path');
 var port=process.env.PORT || 3000;
@@ -100,38 +101,26 @@ app.post('/signup',function (req,res) {
 
 // ---------------------login-----------------------------------------
 var users=[];
-var flag = false;
+var flag='false';
 var x;
 app.post('/login',function(req,res){
 
     var username= req.body.username;
     var password1;
     var results;
-    var cookies = req.cookies;
-    var createSession = function(req, res, newUser) {
-        return req.session.regenerate(function() {
-           //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
-           
 
-           bcrypt.hash(req.body.password,3,function (err,hash) {
-            console.log(hash)
-             x={'infog':['u',username,'p',hash]}
-
-              })
-            req.session.user = newUser;
-            users.push(req.session.user.username)
-            console.log('after login   ',req.session.user.username)
-            res.send('true');
-        });
-    };
 
 
    connect.query('SELECT * FROM users WHERE username=\''+username+'\'', function (err,result) {
-        results=result;
+        
         if(result[0]!==undefined){
+          results=result;
           compare();  
         }else{
-            console.log('not found')
+          flag=false;
+          res.send(flag)
+          // console.log('in else ',flag)
+            
         }
         
     });
@@ -143,12 +132,14 @@ function compare() {
             console.log(err)
         }
     if(match){
-        console.log(true)
-        flag = !flag;
+        flag = 'true';
+        console.log('flag now is  true')
          createSession(req,res,results[0]);
 
     }else{
-        console.log(false)
+        console.log('flag now is  false in else')
+
+        flag='false';
     }
     
    })
@@ -166,21 +157,47 @@ function compare() {
             
        // }
     // });
-    
+
+
+        var createSession = function(req, responce, newUser) {
+        return req.session.regenerate(function() {
+           //newuser>>>> { id: 2, username: 'hananmajali', password: 'hananmajali' }
+           
+
+           bcrypt.hash(req.body.password,3,function (err,hash) {
+            console.log(hash)
+             x={'infog':['u',username,'p',hash]}
+
+              })
+            req.session.user = newUser;
+            users.push(req.session.user.username)
+            console.log('after login   ',req.session.user.username)
+            console.log('true from server')
+            console.log('flag is ',flag);
+                console.log('hhhhh',flag)
+        res.send(flag)
+                
+
+        });
+
+    };
+
+    // res.send(flag)
+
 });
 
 //--------------------logout-----------------------------------
 //Logout function destroys the open session.
 app.get('/logout',function (req,res) {
     users.splice(users.indexOf(req.session.user.username),1)
-    flag = !flag
+    flag = 'false';
     req.session.destroy();
     res.clearCookie('info');
-    res.end();
+    res.send(flag);
 });
 
 app.get('/show',function(req,res){
-  // console.log(flag)
+  console.log('/show      ',flag)
   // console.log(users)
     res.send(flag)
 })
@@ -204,8 +221,6 @@ app.post('/post',function(req,res) {
 //-----return all roomdata to the client side in the main page for all users-------
 
 app.get('/main',function(req,res) {
-            console.log('in main    ',req.session.user.username)
-
     var rooms = 'SELECT rooms.id,rooms.location,rooms.image,rooms.discribtion,rooms.contactInfo,rooms.userName,users.imag FROM rooms,users';
     connect.query(rooms,function (err,allposts) {
         res.send(allposts);
@@ -265,6 +280,24 @@ app.post('/postcomment',function(req,res){
     
 
 });
+
+//---------languge-----------------------------
+app.post('/translate',function(req,response){
+  var value=req.body;
+  console.log('translate',req.body)
+
+translate('how are you?', {from:'en', to: 'ar' })
+   .then(res => {
+       console.log(res.text);
+       //=> I speak English
+       //console.log(res.from.language.iso);
+       //=> nl
+       response.send(res.text)
+   })
+   .catch(err => {
+       console.error(err);
+   });
+})
 
 
 
