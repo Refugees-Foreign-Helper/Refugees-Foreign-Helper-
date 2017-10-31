@@ -6,9 +6,9 @@ declare var jquery:any;
 declare var $ :any;
 
 @Component({
-  selector: 'app-language',
-  templateUrl: './language.component.html',
-  styleUrls: ['./language.component.css']
+    selector: 'app-language',
+    templateUrl: './language.component.html',
+    styleUrls: ['./language.component.css']
 })
 export class LanguageComponent implements OnInit, OnDestroy {
 	showSearchButton: boolean;
@@ -16,6 +16,8 @@ export class LanguageComponent implements OnInit, OnDestroy {
     language;
     show=false;
     translate;
+    languageTo;
+    languageFrom;
     constructor(private speechRecognitionService: SpeechRecognitionService, private http : Http) {
         this.speechData = "";
     }
@@ -27,19 +29,19 @@ export class LanguageComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.show = !this.show;
         this.speechRecognitionService.stop();
-        let languageTo=$("#languageTo").val();
-        let languageFrom= $("#languageFrom").val();
+        this.languageTo=$("#languageTo").val();
+        this.languageFrom= $("#languageFrom").val();
         let text = $("#txtSpeechSearchMovieName").val();
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/translate', {text : text, languageFrom : languageFrom, languageTo : languageTo}, {headers: headers})
+        return this.http.post('/translate', {text : text, languageFrom : this.languageFrom, languageTo : this.languageTo}, {headers: headers})
         .map((res) => {
             if(res){
-              this.translate = res.json()
-              console.log(this.translate)
-              this.textToSpeech()
+                this.translate = res.json()
+                console.log(this.translate)
+                this.textToSpeech()
             }else{
-                
+
             }
         }).subscribe();    
 
@@ -49,7 +51,7 @@ export class LanguageComponent implements OnInit, OnDestroy {
     activateSpeechSearchMovie(): void {
         this.show = !this.show;        
         this.speechRecognitionService.record()
-            .subscribe(
+        .subscribe(
             //listener
             (value) => {
                 this.speechData = value;
@@ -69,29 +71,10 @@ export class LanguageComponent implements OnInit, OnDestroy {
     }
 
     textToSpeech() {
-        // let languageTo=$("#languageTo").val();
-        // let text = this.translate
-        // text = encodeURIComponent(text);
-        // let url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' +
-        // text +
-        // '&tl='+ languageTo +'&client=tw-ob';
-        // console.log(url);
-        // console.log(text);
-        // $('.speech')
-        // .attr('src', url)
-        // .get(0)
-        // .play();
-
-       
-   let text = $('input[name="text"]').val();
-    text = encodeURIComponent(text);
-   let url =
-        'https://translate.google.com/translate_tts?ie=UTF-8&q=' +
-        text +
-        '&tl=ar&client=tw-ob';
-    console.log(url);
-    console.log(text);
-    $('audio').get(0).play();
+        let msg = new SpeechSynthesisUtterance(this.translate);
+        msg.lang=this.languageTo.toLowerCase();
+        window.speechSynthesis.speak(msg);
     }
 
 }
+

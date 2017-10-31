@@ -20,19 +20,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.data.currentFlag.subscribe(flag=>this.flag=flag) //4
-  // 	setInterval(() => {
-  //    let headers = new Headers();
-  //  headers.append('Content-Type', 'application/json');
-  //   return this.http.get('/show',{headers: headers})
-  //   .map((res) => {
-  //     if(res){
-  //        this.show = res.json();
-  //     }else{
-        
-  //     }
-  //   }).subscribe();
-  // }, 5000);
-  }
+    }
 password;
 username;
 toggle;
@@ -42,9 +30,8 @@ toggle;
     headers.append('Content-Type', 'application/json');
     return this.http.post('/login', {password : this.password , username : this.username}, {headers: headers})
     .map((res) => {
-      if(res){
+      if(res['_body'] == 'true'){
         this.data.changeFlag(!this.flag);
-        console.log(this.flag, 'hghgfghfgh');
         this.router.navigateByUrl('/main');
       }else{
         alert('wrong password or username stupid!!!')

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+declare var jquery:any;
+declare var $ :any;
+
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +18,7 @@ export class ProfileComponent implements OnInit {
   birthday;
   postdata;
   profile;
+  status;
   constructor(private http : Http) { }
 
   ngOnInit() {
@@ -41,6 +45,25 @@ export class ProfileComponent implements OnInit {
       }
     }).subscribe();
   }
+
+  getStatus(){
+    this.status=$('#status').val();
+  }
+
+  user(username){
+    console.log("areej 7ywana")
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.post('/UserProfile',{user:username},{headers: headers})
+      .map((res) => {
+        if(res){
+          
+          
+        }else{
+
+        }
+      }).subscribe(); 
+    }
 
 
 
