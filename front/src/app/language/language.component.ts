@@ -15,6 +15,7 @@ export class LanguageComponent implements OnInit, OnDestroy {
     speechData: string;
     language;
     show=false;
+    translate;
     constructor(private speechRecognitionService: SpeechRecognitionService, private http : Http) {
         this.speechData = "";
     }
@@ -34,11 +35,15 @@ export class LanguageComponent implements OnInit, OnDestroy {
         return this.http.post('/translate', {text : text, languageFrom : languageFrom, languageTo : languageTo}, {headers: headers})
         .map((res) => {
             if(res){
-              console.log(res.json())
+              this.translate = res.json()
+              console.log(this.translate)
+              this.textToSpeech()
             }else{
                 
             }
-        }).subscribe();        
+        }).subscribe();    
+
+
     }
 
     activateSpeechSearchMovie(): void {
@@ -61,6 +66,32 @@ export class LanguageComponent implements OnInit, OnDestroy {
             () => {
                 this.activateSpeechSearchMovie();
             });
+    }
+
+    textToSpeech() {
+        // let languageTo=$("#languageTo").val();
+        // let text = this.translate
+        // text = encodeURIComponent(text);
+        // let url = 'https://translate.google.com/translate_tts?ie=UTF-8&q=' +
+        // text +
+        // '&tl='+ languageTo +'&client=tw-ob';
+        // console.log(url);
+        // console.log(text);
+        // $('.speech')
+        // .attr('src', url)
+        // .get(0)
+        // .play();
+
+       
+   let text = $('input[name="text"]').val();
+    text = encodeURIComponent(text);
+   let url =
+        'https://translate.google.com/translate_tts?ie=UTF-8&q=' +
+        text +
+        '&tl=ar&client=tw-ob';
+    console.log(url);
+    console.log(text);
+    $('audio').get(0).play();
     }
 
 }
