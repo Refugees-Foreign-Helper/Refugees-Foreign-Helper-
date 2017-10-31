@@ -288,7 +288,7 @@ app.post('/translate',function(req,response){
 
   console.log('translate ',req.body)
 
-translate(req.body, {from:'en', to: 'ar' })
+translate(req.body.text, {from:'en', to: req.body.languageTo+'' })
    .then(res => {
        console.log(res.text);
        //=> I speak English
