@@ -11,18 +11,19 @@ import { SpeechRecognitionService } from './speech-recognition.service';
 
 //Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/index';
+// import { LoginComponent } from './login/index';
 import { MainComponent } from './main/main.component';
 import { SignupComponent } from './signup/signup.component';
 import { PostComponent } from './post/post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LanguageComponent } from './language/language.component';
+import { TestComponent } from './test/test.component';
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
-  { path: 'login',  component: LoginComponent },
+  { path: 'login',  component: NavbarComponent },
   {path:'main', component:MainComponent},
   {path:'post', component:PostComponent},
   {path:'navbar', component:NavbarComponent},
@@ -34,13 +35,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    // LoginComponent,
     MainComponent,
     SignupComponent,
     PostComponent,
     NavbarComponent,
     ProfileComponent,
     LanguageComponent,
+    TestComponent,
   //  BootstrapCompComponent
   ],
   imports: [

@@ -13,7 +13,7 @@
 // 	selector: 'app-login',
 // 	moduleId: module.id,
 // 	templateUrl: './login.component.html',
-//     providers:[DataService] //2
+   
 // })
 // // @Injectable()
 // export class LoginComponent implements OnInit {
