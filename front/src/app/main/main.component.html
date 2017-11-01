@@ -6,7 +6,10 @@
 
         <img src="{{post.imag}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
-        <h4>{{post.userName}}</h4><br>
+        <h4 (click) = "user(post.userName)" 
+        routerLink="/profile" 
+        routerLinkActive="active"
+        >{{post.userName}}</h4><br>
         <hr class="w3-clear">
         <p>
           Location : {{post.location}}  <br>
