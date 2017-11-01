@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     return this.http.get('/profile',{headers: headers})
     .map((res) => {
       if(res){  
-
+console.log(res)
          this.userData = res.json();
          this.postdata = this.userData[0];
          this.currentUser=this.userData[1][0].username;
@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
          this.location=this.userData[1][0].Location;
          this.birthday = this.userData[1][0].Birthday;
          this.profile=this.userData[1][0].imag;
+         this.status=this.userData[1][0].status;
 
 
          // console.log("ttttttt",this.nationality);
@@ -47,7 +48,13 @@ export class ProfileComponent implements OnInit {
   }
 
   getStatus(){
+    let set=$('#status').val();
     this.status=$('#status').val();
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.put('/status',{status:set},{headers: headers})
+      .map((res) => {}).subscribe(); 
+
   }
 
   user(username){
