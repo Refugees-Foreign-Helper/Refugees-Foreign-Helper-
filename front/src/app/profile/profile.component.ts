@@ -54,10 +54,10 @@ export class ProfileComponent implements OnInit {
     console.log("areej 7ywana")
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      return this.http.post('/UserProfile',{user:username},{headers: headers})
+      return this.http.post('/Userprofile',{username:username},{headers: headers})
       .map((res) => {
         if(res){
-          
+          console.log(res)
           
         }else{
 

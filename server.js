@@ -41,6 +41,7 @@ connect.connect(function () {
     password varchar(255),\
     Nationallity varchar(60),\
     Birthday varchar(60) ,\
+    status varchar(255) ,\
     imag longtext,\
     Location varchar(60))';
 
@@ -231,6 +232,28 @@ app.get('/profile',function(req,res) {
    });
 
 });
+
+//-------------------clicked on specific name to take me to that profile---------
+app.get('/Userprofile',function(req,res) {
+
+   var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.session.user.username+'\'';
+   var userinfo= 'SELECT * FROM users WHERE userName=\''+req.session.user.username+'\'';
+   var userinformation1;
+
+   connect.query(userinfo,function(err,userinfomation){
+       userinfomation1=userinfomation
+
+   })
+   connect.query(userroom,function (err,info) {
+       var total=[];
+       var str = info
+
+       total.push(str);
+       total.push(userinfomation1)
+       res.send(total);
+   });
+
+});
 // -----------------delete room -----------------------------------------------
 app.post('/deleteroom',function(req,res){
     var roomId=req.body.id // I will recieve it from client side
@@ -276,6 +299,12 @@ translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo
    });
 })
 
+//------------status of the users in their profiles------------
+app.post('/status',function(req,res){
+
+  var Status='INSERT INTO users (status) VALUES (\''+req.body.status+'\')';
+  connect.query(Status);
+})
 
 
 

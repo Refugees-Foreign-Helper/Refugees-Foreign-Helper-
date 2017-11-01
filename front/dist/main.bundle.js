@@ -699,9 +699,10 @@ var ProfileComponent = (function () {
         console.log("areej 7ywana");
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/UserProfile', { user: username }, { headers: headers })
+        return this.http.post('/Userprofile', { username: username }, { headers: headers })
             .map(function (res) {
             if (res) {
+                console.log(res);
             }
             else {
             }
