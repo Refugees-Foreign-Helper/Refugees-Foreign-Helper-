@@ -234,7 +234,7 @@ app.get('/profile',function(req,res) {
 });
 
 //-------------------clicked on specific name to take me to that profile---------
-app.get('/Userprofile',function(req,res) {
+app.post('/Userprofile',function(req,res) {
 
    var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.session.user.username+'\'';
    var userinfo= 'SELECT * FROM users WHERE userName=\''+req.session.user.username+'\'';
