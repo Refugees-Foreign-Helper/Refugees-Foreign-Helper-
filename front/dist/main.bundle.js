@@ -679,6 +679,7 @@ var ProfileComponent = (function () {
         return this.http.get('/profile', { headers: headers })
             .map(function (res) {
             if (res) {
+                console.log(res);
                 _this.userData = res.json();
                 _this.postdata = _this.userData[0];
                 _this.currentUser = _this.userData[1][0].username;
@@ -686,6 +687,7 @@ var ProfileComponent = (function () {
                 _this.location = _this.userData[1][0].Location;
                 _this.birthday = _this.userData[1][0].Birthday;
                 _this.profile = _this.userData[1][0].imag;
+                _this.status = _this.userData[1][0].status;
                 // console.log("ttttttt",this.nationality);
             }
             else {
@@ -693,7 +695,12 @@ var ProfileComponent = (function () {
         }).subscribe();
     };
     ProfileComponent.prototype.getStatus = function () {
+        var set = $('#status').val();
         this.status = $('#status').val();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.put('/status', { status: set }, { headers: headers })
+            .map(function (res) { }).subscribe();
     };
     ProfileComponent.prototype.user = function (username) {
         console.log("areej 7ywana");

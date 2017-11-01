@@ -302,7 +302,7 @@ translate(req.body.text, {from:req.body.languageFrom+'', to: req.body.languageTo
 //------------status of the users in their profiles------------
 app.put('/status',function(req,res){
 
-  var Status='UPDATE  users SET status=\''+req.body.status+'\' WHERE username=\''+req.body.user.username+'\'';
+  var Status='UPDATE  users SET status=\''+req.body.status+'\' WHERE username=\''+req.session.user.username+'\'';
   connect.query(Status);
 })
 
