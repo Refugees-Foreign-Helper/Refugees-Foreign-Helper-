@@ -41,6 +41,21 @@
         routerLink='/signup'
         routerLinkActive="active"
       	><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+        <div class="container">
+                <div class="row" [hidden] = "!flag">
+
+                  <div class="search">
+                    <input type="text" id="search" class="form-control input-sm" maxlength="64" placeholder="Search" />
+                    <button type="submit" class="btn btn-primary btn-sm" 
+                    routerLink='/Userprofile'
+                    routerLinkActive="active"
+                    >Search</button>
+                  </div>
+                </div>
+              </div>
+              
+
          <li><a href="#"
           (click)="logout()"
         [hidden]= "!flag"
