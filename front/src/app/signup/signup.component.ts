@@ -65,8 +65,8 @@ export class SignupComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/signup', {password : this.password , username : this.username, birthday:this.date, nationality:this.nationality, location:this.location, image:this.url}, {headers: headers})
     .map((res) => {
-      if(res){
-        this.router.navigateByUrl('/login');
+      if(res['_body']==='true'){
+        this.router.navigateByUrl('/');
       }else{
         alert('account is already exist !!')
         this.router.navigateByUrl('/');
