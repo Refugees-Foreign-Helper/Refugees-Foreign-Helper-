@@ -251,7 +251,7 @@ var ChatComponent = (function () {
             var lastTypingTime;
             var $currentInput = $usernameInput.focus();
             // let socket = io();
-            var socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__["connect"]('http://localhost:3000');
+            var socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__["connect"]('/');
             function addParticipantsMessage(data) {
                 var message = '';
                 if (data.numUsers === 1) {

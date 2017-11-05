@@ -49,7 +49,7 @@ let x=this;
   let $currentInput = $usernameInput.focus();
 
   // let socket = io();
- let socket = io.connect('https://localhost:3000');
+ let socket = io.connect('/');
 
   function addParticipantsMessage (data) {
     let message = '';
