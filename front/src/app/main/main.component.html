@@ -1,23 +1,35 @@
 <app-post></app-post>
-<div *ngFor="let post of posts ;index as i">
+
+<div *ngFor="let post of posts ;index as i" >
 
 
-   <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
 
-        <img src="{{post.imag}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
-        <h4 (click) = "user(post.userName)" 
+   <div  class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+
+<div  class="row">
+
+        <div class="col-sm-1"><img src="{{post.imag}}" alt="Avatar"  style="width:70px;height:70px;border-radius: 50px;"></div>
+
+        <div class="col-sm-1"><h4 (click) = "user(post.userName)" 
         routerLink="/profile" 
         routerLinkActive="active"
-        >{{post.userName}}</h4><br>
+        >{{post.userName}}</h4></div>
+
+
+
+        <div class="col-sm-10"><span class="w3-right w3-opacity">32 min</span></div>
+        </div><br>
+
         <hr class="w3-clear">
         <p>
           Location : {{post.location}}  <br>
           Description : {{post.discribtion}} <br>
          Contact Info : {{post.contactInfo}} <br>
         </p>
-        <img src="{{post.image}}" style="width:25%" class="w3-margin-bottom">
 
+
+        <img src="{{post.image}}"  style="width: 98%;height: 78%">
+        <br><br>
       <!-- comment tag start hear  -->
       <div *ngFor="let com of comments;index as j" [hidden]="i != comID">
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
@@ -48,10 +60,11 @@
 
 <!-- end for comment filed  -->
 
-
-        <input type="text" name="type your comment" id="{{i}}" placeholder="write a comment here...">
+    <!-- <div style="width: 60%;height: 40px;"> -->
+        <input  type="text" name="type your comment" id="{{i}}" placeholder="write a comment here..." style="width: 80%;height: 40px;">
         <button type="button"
         (click)="commentFun(i,post.id)" 
-        class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>  
+        class="w3-button w3-theme-d2"><i class="fa fa-comment"></i>  Comment</button>  <br><br>
+        <!-- </div> -->
 </div>
 </div>

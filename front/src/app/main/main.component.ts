@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { ProfileComponent } from "../profile/profile.component"
 declare var jquery:any;
 declare var $ :any;
 
@@ -10,23 +9,21 @@ declare var $ :any;
   moduleId: module.id,
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
-  providers:[ProfileComponent]
+  styleUrls: ['./main.component.css']
 })
 
 
 export class MainComponent implements OnInit {
-  constructor(private http : Http ,public userProfile : ProfileComponent) {}
+  constructor(private http : Http) {}
   posts;
   comment;
   comments;
   id;
   comID;
   flag;
-  user = this.userProfile.user;
+
 
   ngOnInit() {
-    //setInterval(() => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
       return this.http.get('/main',{headers: headers})
@@ -36,7 +33,6 @@ export class MainComponent implements OnInit {
           console.log(this.posts)
         }
       }).subscribe();
-      // }, 5000);
     }
 
     commentFun(postIndex,roomId){
@@ -56,22 +52,6 @@ export class MainComponent implements OnInit {
         }
       }).subscribe(); 
     }
-    // user(username){
-    //   let headers = new Headers();
-    //   headers.append('Content-Type', 'application/json');
-    //   return this.http.post('/UserProfile',{user:username},{headers: headers})
-    //   .map((res) => {
-    //     if(res){
-          
-          
-    //     }else{
-
-    //     }
-    //   }).subscribe(); 
-    // }
-
-
-
 
   }
 
