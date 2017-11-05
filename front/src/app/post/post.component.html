@@ -7,17 +7,21 @@
     <div class="modal-dialog"> -->
     
       <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-content" style="margin: 18px;">
+        <div class="modal-header" style="background-color: gray;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">ADD room</h4>
         </div>
         <div class="modal-body">
-         Location: <input [(ngModel)]="location" name="Location" type="text">  <br>
+         <div class="input-group">
+<span class="input-group-addon">Location: </span><input [(ngModel)]="location" name="Location" type="text"></div><br>
          <br>
-         Description: <input [(ngModel)]="description" name="Description" type="text">  <br><br>
-         Contact info: <input [(ngModel)]="contactInfo" name="ContactInfo" type="text"> <br>
-         Image:<input [(ngModel)]="image" type="file" id="image" (change)="ima($event)">
+         <div class="input-group">
+<span class="input-group-addon">Description: </span><input [(ngModel)]="description" name="Description" type="text"></div>  <br>
+         <div class="input-group">
+<span class="input-group-addon">Contact info: </span><input [(ngModel)]="contactInfo" name="ContactInfo" type="text"></div> <br>
+         <div class="input-group">
+<span class="input-group-addon">Image:</span><input [(ngModel)]="image" type="file" id="image" (change)="ima($event)"></div>
         </div>
         <div class="modal-footer">
         <button (click)="submit()" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>

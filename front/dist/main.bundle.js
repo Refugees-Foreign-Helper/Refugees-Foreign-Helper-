@@ -57,19 +57,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
+    AppComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-root',
+            template: __webpack_require__("../../../../../src/app/app.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-root',
-        template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]]
-    })
-], AppComponent);
 
 //# sourceMappingURL=app.component.js.map
 
@@ -127,41 +127,42 @@ var appRoutes = [
     { path: 'language', component: __WEBPACK_IMPORTED_MODULE_12__language_language_component__["a" /* LanguageComponent */] },
     { path: 'Userprofile', component: __WEBPACK_IMPORTED_MODULE_13__user_profile_user_profile_component__["a" /* UserProfileComponent */] }
 ];
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                // LoginComponent,
+                __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__language_language_component__["a" /* LanguageComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__test_test_component__["a" /* TestComponent */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
+            ],
+            providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
+            bootstrap: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */]
+            ]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-            // LoginComponent,
-            __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__language_language_component__["a" /* LanguageComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__user_profile_user_profile_component__["a" /* UserProfileComponent */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
-        ],
-        providers: [__WEBPACK_IMPORTED_MODULE_5__speech_recognition_service__["a" /* SpeechRecognitionService */]],
-        bootstrap: [
-            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__main_main_component__["a" /* MainComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */]
-        ]
-    })
-], AppModule);
+
 
 //# sourceMappingURL=app.module.js.map
 
@@ -186,7 +187,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var DataService = (function () {
+var DataService = /** @class */ (function () {
     function DataService() {
         this.FlagSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](false);
         this.currentFlag = this.FlagSource.asObservable();
@@ -194,12 +195,12 @@ var DataService = (function () {
     DataService.prototype.changeFlag = function (flag) {
         this.FlagSource.next(flag);
     };
+    DataService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], DataService);
     return DataService;
 }());
-DataService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [])
-], DataService);
 
 //# sourceMappingURL=data.service.js.map
 
@@ -253,7 +254,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LanguageComponent = (function () {
+var LanguageComponent = /** @class */ (function () {
     function LanguageComponent(speechRecognitionService, http) {
         this.speechRecognitionService = speechRecognitionService;
         this.http = http;
@@ -310,18 +311,18 @@ var LanguageComponent = (function () {
         msg.lang = this.languageTo.toLowerCase();
         window.speechSynthesis.speak(msg);
     };
+    LanguageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-language',
+            template: __webpack_require__("../../../../../src/app/language/language.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
+    ], LanguageComponent);
     return LanguageComponent;
+    var _a, _b;
 }());
-LanguageComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-language',
-        template: __webpack_require__("../../../../../src/app/language/language.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/language/language.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__speech_recognition_service__["a" /* SpeechRecognitionService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
-], LanguageComponent);
 
-var _a, _b;
 //# sourceMappingURL=language.component.js.map
 
 /***/ }),
@@ -334,7 +335,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".panel-shadow {\n    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;\n}\n.panel-white {\n  border: 1px solid #dddddd;\n}\n.panel-white  .panel-heading {\n  color: #333;\n  background-color: #fff;\n  border-color: #ddd;\n}\n.panel-white  .panel-footer {\n  background-color: #fff;\n  border-color: #ddd;\n}\n\n.post .post-heading {\n  height: 20px;\n  padding: 20px 15px;\n}\n.post .post-heading .avatar {\n  width: 60px;\n  height: 60px;\n  display: block;\n  margin-right: 15px;\n}\n.post .post-heading .meta .title {\n  margin-bottom: 0;\n}\n.post .post-heading .meta .title a {\n  color: black;\n}\n.post .post-heading .meta .title a:hover {\n  color: #aaaaaa;\n}\n.post .post-heading .meta .time {\n  margin-top: 8px;\n  color: #999;\n}\n.post .post-image .image {\n  width: 100%;\n  height: auto;\n}\n.post .post-description {\n  padding: 15px;\n}\n.post .post-description p {\n  font-size: 14px;\n}\n.post .post-description .stats {\n  margin-top: 20px;\n}\n.post .post-description .stats .stat-item {\n  display: inline-block;\n  margin-right: 15px;\n}\n.post .post-description .stats .stat-item .icon {\n  margin-right: 8px;\n}", ""]);
+exports.push([module.i, "body{\nbackground-color: gray;\n}\n\n.panel-shadow {\n    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;\n}\n.panel-white {\n  border: 1px solid #dddddd;\n}\n.panel-white  .panel-heading {\n  color: #333;\n  background-color: #fff;\n  border-color: #ddd;\n}\n.panel-white  .panel-footer {\n  background-color: #fff;\n  border-color: #ddd;\n}\n\n.post .post-heading {\n  height: 20px;\n  padding: 20px 15px;\n}\n.post .post-heading .avatar {\n  width: 60px;\n  height: 60px;\n  display: block;\n  margin-right: 15px;\n}\n.post .post-heading .meta .title {\n  margin-bottom: 0;\n}\n.post .post-heading .meta .title a {\n  color: black;\n}\n.post .post-heading .meta .title a:hover {\n  color: #aaaaaa;\n}\n.post .post-heading .meta .time {\n  margin-top: 8px;\n  color: #999;\n}\n.post .post-image .image {\n  width: 100%;\n  height: auto;\n}\n.post .post-description {\n  padding: 15px;\n}\n.post .post-description p {\n  font-size: 14px;\n}\n.post .post-description .stats {\n  margin-top: 20px;\n}\n.post .post-description .stats .stat-item {\n  display: inline-block;\n  margin-right: 15px;\n}\n.post .post-description .stats .stat-item .icon {\n  margin-right: 8px;\n}", ""]);
 
 // exports
 
@@ -347,7 +348,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-post></app-post>\n<div *ngFor=\"let post of posts ;index as i\">\n\n\n   <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n\n        <img src=\"{{post.imag}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{post.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{post.location}}  <br>\n          Description : {{post.discribtion}} <br>\n         Contact Info : {{post.contactInfo}} <br>\n        </p>\n        <img src=\"{{post.image}}\" style=\"width:25%\" class=\"w3-margin-bottom\">\n\n      <!-- comment tag start hear  -->\n      <div *ngFor=\"let com of comments;index as j\" [hidden]=\"i != comID\">\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\">\n<div class=\"container\" >\n    <div class=\"row\"  style=\"height:5% , width:4%\">\n        <div class=\"col-sm-8\" >\n            <div class=\"panel panel-white post panel-shadow\">\n                <div class=\"post-heading\">\n                    <div class=\"pull-left image\">\n                        <img src={{com.imag}} class=\"img-circle avatar\" alt=\"user profile image\">\n                    </div>\n                    <div class=\"pull-left meta\">\n                        <div class=\"title h5\">\n                            <a href=\"#\"><b>{{com.username}}</b></a>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"post-description\"> \n                    <p>{{com.comment}}</p>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n</div>\n\n\n<!-- end for comment filed  -->\n\n\n        <input type=\"text\" name=\"type your comment\" id=\"{{i}}\" placeholder=\"write a comment here...\">\n        <button type=\"button\"\n        (click)=\"commentFun(i,post.id)\" \n        class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button>  \n</div>\n</div>\n"
+
 
 /***/ }),
 
@@ -372,8 +373,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MainComponent = (function () {
-    function MainComponent(http) {
+
         this.http = http;
     }
     MainComponent.prototype.ngOnInit = function () {
@@ -405,18 +405,19 @@ var MainComponent = (function () {
             }
         }).subscribe();
     };
+    MainComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-main',
+            template: __webpack_require__("../../../../../src/app/main/main.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/main/main.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__profile_profile_component__["a" /* ProfileComponent */]]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__profile_profile_component__["a" /* ProfileComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__profile_profile_component__["a" /* ProfileComponent */]) === "function" && _b || Object])
+    ], MainComponent);
     return MainComponent;
+    var _a, _b;
 }());
-MainComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-main',
-        template: __webpack_require__("../../../../../src/app/main/main.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/main/main.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], MainComponent);
 
-var _a;
 //# sourceMappingURL=main.component.js.map
 
 /***/ }),
@@ -442,7 +443,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">Batee5</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\"><a [hidden]= \"!flag\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li><a href=\"#\"\n        [hidden]= \"flag\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n      <li><a href=\"#\"\n            [hidden]= \"flag\"\n      \t    routerLink=\"login\"\n            routerLinkActive=\"active\"><span class=\"glyphicon glyphicon-log-in\" \n      \t></span> Login</a>\n      </li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!flag\"\n        routerLink='/'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<form [hidden]= \"flag\">\nUser name:<input [(ngModel)]=\"username\" id = \"username\" type=\"username\" name=\"username\">  <br>\n<br>\nPassword :<input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">  <br>  \n<button (click)=\"login()\"> Login </button>\n</form>\n\n<router-outlet></router-outlet>"
+module.exports = " \n\n\n\n\n <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\n <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/lib/w3-theme-blue-grey.css\">\n<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n<nav class=\"navbar navbar-inverse  navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <!-- <div class=\"navbar-header\"> -->\n      <!-- <a class=\"navbar-brand\" href=\"#\">Batee5</a> -->\n    <!-- </div> -->\n    <ul class=\"nav navbar-right\">\n      <li class=\"active\"><a [hidden]= \"!flag\" href=\"#\"\n        routerLink='/main'\n        routerLinkActive=\"active\"\n        (click) = \"main\"\n      \t>Home</a></li>\n      <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n      \trouterLink=\"/profile\" \n      \trouterLinkActive=\"active\" >Profile</a></li>\n          <li><a href=\"#\"  \n        [hidden]= \"!flag\" \n        routerLink=\"/language\" \n        routerLinkActive=\"active\" >Language</a></li>\n   \n\n      <!-- <li><a href=\"#\">Page 2</a></li> -->\n    </ul>\n    <ul class=\"nav navbar-left\">\n      <li data-toggle=\"modal\" data-target=\"#myModal\"><a href=\"#\"\n        [hidden]= \"flag\"\n        routerLink='/signup'\n        routerLinkActive=\"active\"\n      \t><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\n         <li><a href=\"#\"\n          (click)=\"logout()\"\n        [hidden]= \"!flag\"\n        routerLink='/'\n        routerLinkActive=\"active\"\n        ><span class=\"glyphicon glyphicon-user\"></span> Logout</a></li>\n    </ul>\n  </div>\n</nav>\n<br><br>\n<br><br>\n<form [hidden]= \"flag\"><div class=\"input-group\">\n<span class=\"input-group-addon\">\nUser name:</span><input [(ngModel)]=\"username\" id = \"username\" type=\"username\" name=\"username\"></div>  <br>\n\n<div class=\"input-group\">\n<span class=\"input-group-addon\">Password :</span><input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\"></div>   <br> \n<button class=\"btn btn-defualt\"(click)=\"login()\"> Login </button>\n</form>\n\n\n<!-- <div class=\"input-group\">\n<span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span><input id=\"Suser\" type=\"text\" class=\"input form-control w3-animate-zoom\" placeholder=\"Username\"><br>\n</div> -->\n\n<style type=\"text/css\">\nbody{\n  background-color: gray;\n}\nnav a{\n  color: white;\n}\nnav a:hover{\n  color: blue;\n}\n</style>\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -474,7 +475,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  //1
 
 
-var NavbarComponent = (function () {
+var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(http, data, router, signup) {
         this.http = http;
         this.data = data;
@@ -508,19 +509,19 @@ var NavbarComponent = (function () {
         return this.http.get('/logout', { headers: headers })
             .map(function (res) { }).subscribe();
     };
+    NavbarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-navbar',
+            template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]] //2
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]) === "function" && _d || Object])
+    ], NavbarComponent);
     return NavbarComponent;
+    var _a, _b, _c, _d;
 }());
-NavbarComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-navbar',
-        template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]] //2
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__signup_signup_component__["a" /* SignupComponent */]) === "function" && _d || Object])
-], NavbarComponent);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -546,7 +547,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/post/post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"container\"> -->\n  <!-- Trigger the modal with a button -->\n <!--  <button type=\"button\" class=\"btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#myModal\">Post</button> -->\n\n  <!-- Modal -->\n <!--  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\n    <div class=\"modal-dialog\"> -->\n    \n      <!-- Modal content-->\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">ADD room</h4>\n        </div>\n        <div class=\"modal-body\">\n         Location: <input [(ngModel)]=\"location\" name=\"Location\" type=\"text\">  <br>\n         <br>\n         Description: <input [(ngModel)]=\"description\" name=\"Description\" type=\"text\">  <br><br>\n         Contact info: <input [(ngModel)]=\"contactInfo\" name=\"ContactInfo\" type=\"text\"> <br>\n         Image:<input [(ngModel)]=\"image\" type=\"file\" id=\"image\" (change)=\"ima($event)\">\n        </div>\n        <div class=\"modal-footer\">\n        <button (click)=\"submit()\" type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Submit</button>\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n        </div>\n      </div>\n      \n  <!--   </div>\n  </div>\n</div>\n\n -->\n"
+module.exports = "<!-- <div class=\"container\"> -->\n  <!-- Trigger the modal with a button -->\n <!--  <button type=\"button\" class=\"btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#myModal\">Post</button> -->\n\n  <!-- Modal -->\n <!--  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\n    <div class=\"modal-dialog\"> -->\n    \n      <!-- Modal content-->\n      <div class=\"modal-content\" style=\"margin: 18px;\">\n        <div class=\"modal-header\" style=\"background-color: gray;\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">ADD room</h4>\n        </div>\n        <div class=\"modal-body\">\n         <div class=\"input-group\">\n<span class=\"input-group-addon\">Location: </span><input [(ngModel)]=\"location\" name=\"Location\" type=\"text\"></div><br>\n         <br>\n         <div class=\"input-group\">\n<span class=\"input-group-addon\">Description: </span><input [(ngModel)]=\"description\" name=\"Description\" type=\"text\"></div>  <br>\n         <div class=\"input-group\">\n<span class=\"input-group-addon\">Contact info: </span><input [(ngModel)]=\"contactInfo\" name=\"ContactInfo\" type=\"text\"></div> <br>\n         <div class=\"input-group\">\n<span class=\"input-group-addon\">Image:</span><input [(ngModel)]=\"image\" type=\"file\" id=\"image\" (change)=\"ima($event)\"></div>\n        </div>\n        <div class=\"modal-footer\">\n        <button (click)=\"submit()\" type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Submit</button>\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n        </div>\n      </div>\n      \n  <!--   </div>\n  </div>\n</div>\n\n -->\n"
 
 /***/ }),
 
@@ -571,7 +572,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PostComponent = (function () {
+var PostComponent = /** @class */ (function () {
     function PostComponent(http) {
         this.http = http;
     }
@@ -600,18 +601,18 @@ var PostComponent = (function () {
             }
         }).subscribe();
     };
+    PostComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-post',
+            template: __webpack_require__("../../../../../src/app/post/post.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], PostComponent);
     return PostComponent;
+    var _a;
 }());
-PostComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-post',
-        template: __webpack_require__("../../../../../src/app/post/post.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/post/post.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], PostComponent);
 
-var _a;
 //# sourceMappingURL=post.component.js.map
 
 /***/ }),
@@ -637,7 +638,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"w3-container w3-content\" style=\"max-width:1400px;margin-top:80px\">    \n  <!-- The Grid -->\n  <div class=\"w3-row\">\n    <!-- Left Column -->\n    <div class=\"w3-col m3\">\n      <!-- Profile -->\n      \n      <div class=\"w3-card-2 w3-round w3-white\">\n        <div class=\"w3-container\">\n         <h4 class=\"w3-center\">{{currentUser}}</h4>\n         <p class=\"w3-center\"><img src=\"{{profile}}\" class=\"w3-circle\" style=\"height:106px;width:106px\" alt=\"Avatar\"></p>\n         <hr>\n         <p><i class=\"fa fa-pencil fa-fw w3-margin-right w3-text-theme\"></i> {{nationality}}</p>\n         <p><i class=\"fa fa-home fa-fw w3-margin-right w3-text-theme\"></i> {{location}}</p>\n         <p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme\"></i> {{birthday}}</p>\n        </div>\n      </div>\n      <br>          \n      <!-- Alert Box -->\n      <div class=\"w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small\">\n        <span onclick=\"this.parentElement.style.display='none'\" class=\"w3-button w3-theme-l3 w3-display-topright\">\n          <i class=\"fa fa-remove\"></i>\n        </span>\n        <p><strong>Hey!</strong></p>\n        <p>{{status}}</p>\n      </div>\n    \n    <!-- End Left Column -->\n    </div>\n    \n    <!-- Middle Column -->\n    <div class=\"w3-col m7\">\n    \n      <div class=\"w3-row-padding\">\n        <div class=\"w3-col m12\">\n          <div class=\"w3-card-2 w3-round w3-white\">\n            <div class=\"w3-container w3-padding\">\n              <h6 class=\"w3-opacity\">Social Media template by w3.css</h6>\n              <input contenteditable=\"true\" class=\"w3-border w3-padding\" id=\"status\">\n              <button type=\"button\" class=\"w3-button w3-theme\" (click)=\"getStatus()\"><i class=\"fa fa-pencil\"></i>  Post</button> \n            </div>\n          </div>\n        </div>\n      </div>\n      \n\n   <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n        Location : {{data.location}} <br>\n        Description : {{data.discribtion}} <br>\n        Contact Info : {{data.contactInfo}} <br>\n\n      </p> \n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  \n</div> -->\n\n      \n<!--       <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>Jane Doe</h4><br>\n        <hr class=\"w3-clear\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  --> \n\n      <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br> -->\n      <div *ngFor=\"let data of postdata\">\n        <img src=\"{{profile}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{data.location}} <br>\n          Description : {{data.discribtion}} <br>\n         Contact Info : {{data.contactInfo}} <br>\n        </p>\n        <img src=\"{{data.image}}\" style=\"width:100%\" class=\"w3-margin-bottom\">\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div> \n      \n    <!-- End Middle Column -->\n    </div>\n    \n    <!-- Right Column -->\n   <!--  <div class=\"w3-col m2\">\n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Upcoming Events:</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Forest\" style=\"width:100%;\">\n          <p><strong>Holiday</strong></p>\n          <p>Friday 15:00</p>\n          <p><button class=\"w3-button w3-block w3-theme-l4\">Info</button></p>\n        </div>\n      </div>\n      <br>\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Friend Request</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png alt=\"Avatar\" style=\"width:50%\"><br>\n          <span>Jane Doe</span>\n          <div class=\"w3-row w3-opacity\">\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-green w3-section\" title=\"Accept\"><i class=\"fa fa-check\"></i></button>\n            </div>\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-red w3-section\" title=\"Decline\"><i class=\"fa fa-remove\"></i></button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <br> -->\n      \n   <!--    <div class=\"w3-card-2 w3-round w3-white w3-padding-16 w3-center\">\n        <p>ADS</p>\n      </div>\n      <br> -->\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-padding-32 w3-center\">\n        <p><i class=\"fa fa-bug w3-xxlarge\"></i></p>\n      </div>\n      \n    <!-- End Right Column -->\n   <!--  </div> -->\n    \n  <!-- End Grid -->\n  </div>\n  \n<!-- End Page Container -->\n</div>\n<br>"
+module.exports = "<div class=\"w3-container w3-content\" style=\"max-width:1400px;margin-top:80px\">    \n  <!-- The Grid -->\n  <div class=\"w3-row\">\n    <!-- Left Column -->\n    <div style=\" padding: 20px;\" class=\"w3-col m3\">\n      <!-- Profile -->\n      \n      <!-- <div class=\"w3-card-2 w3-round w3-white\"> -->\n        <div class=\"w3-container\">\n         <h4 class=\"w3-center\">{{currentUser}}</h4>\n         <p class=\"w3-center\"><img src=\"{{profile}}\" class=\"w3-circle\" style=\"height:106px;width:106px\" alt=\"Avatar\"></p>\n         <hr>\n         <p><i class=\"fa fa-pencil fa-fw w3-margin-right w3-text-theme\"></i> {{nationality}}</p>\n         <p><i class=\"fa fa-home fa-fw w3-margin-right w3-text-theme\"></i> {{location}}</p>\n         <p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme\"></i> {{birthday}}</p>\n        </div>\n      <!-- </div> -->\n      <br>          \n      <!-- Alert Box -->\n      <div class=\"w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small\">\n        <span onclick=\"this.parentElement.style.display='none'\" class=\"w3-button w3-theme-l3 w3-display-topright\">\n          <i class=\"fa fa-remove\"></i>\n        </span>\n        <p><strong>Hey!</strong></p>\n        <p>{{status}}</p>\n      </div>\n    \n    <!-- End Left Column -->\n    </div>\n    \n    <!-- Middle Column -->\n    <div class=\"w3-col m7\">\n    \n      <div class=\"w3-row-padding\">\n        <div class=\"w3-col m12\">\n          <div class=\"w3-card-2 w3-round w3-white\">\n            <div class=\"w3-container w3-padding\">\n              <h6 class=\"w3-opacity\">Social Media template by w3.css</h6>\n              <input contenteditable=\"true\" class=\"w3-border w3-padding\" id=\"status\">\n              <button type=\"button\" class=\"w3-button w3-theme\" (click)=\"getStatus()\"><i class=\"fa fa-pencil\"></i>  Post</button> \n            </div>\n          </div>\n        </div>\n      </div>\n      \n\n   <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n        Location : {{data.location}} <br>\n        Description : {{data.discribtion}} <br>\n        Contact Info : {{data.contactInfo}} <br>\n\n      </p> \n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  \n</div> -->\n\n      \n<!--       <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>Jane Doe</h4><br>\n        <hr class=\"w3-clear\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  --> \n\n      <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br> -->\n      <div *ngFor=\"let data of postdata\">\n        <img src=\"{{profile}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{data.location}} <br>\n          Description : {{data.discribtion}} <br>\n         Contact Info : {{data.contactInfo}} <br>\n        </p>\n        <img src=\"{{data.image}}\" style=\"width:100%\" class=\"w3-margin-bottom\">\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div> \n      \n    <!-- End Middle Column -->\n    </div>\n    \n    <!-- Right Column -->\n   <!--  <div class=\"w3-col m2\">\n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Upcoming Events:</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Forest\" style=\"width:100%;\">\n          <p><strong>Holiday</strong></p>\n          <p>Friday 15:00</p>\n          <p><button class=\"w3-button w3-block w3-theme-l4\">Info</button></p>\n        </div>\n      </div>\n      <br>\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Friend Request</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png alt=\"Avatar\" style=\"width:50%\"><br>\n          <span>Jane Doe</span>\n          <div class=\"w3-row w3-opacity\">\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-green w3-section\" title=\"Accept\"><i class=\"fa fa-check\"></i></button>\n            </div>\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-red w3-section\" title=\"Decline\"><i class=\"fa fa-remove\"></i></button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <br> -->\n      \n   <!--    <div class=\"w3-card-2 w3-round w3-white w3-padding-16 w3-center\">\n        <p>ADS</p>\n      </div>\n      <br> -->\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-padding-32 w3-center\">\n        <p><i class=\"fa fa-bug w3-xxlarge\"></i></p>\n      </div>\n      \n    <!-- End Right Column -->\n   <!--  </div> -->\n    \n  <!-- End Grid -->\n  </div>\n  \n<!-- End Page Container -->\n</div>\n<br>"
 
 /***/ }),
 
@@ -662,7 +663,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProfileComponent = (function () {
+var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(http) {
         this.http = http;
     }
@@ -694,18 +695,11 @@ var ProfileComponent = (function () {
         return this.http.put('/status', { status: set }, { headers: headers })
             .map(function (res) { }).subscribe();
     };
-    return ProfileComponent;
-}());
-ProfileComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-profile',
-        template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], ProfileComponent);
 
-var _a;
+    return ProfileComponent;
+    var _a;
+}());
+
 //# sourceMappingURL=profile.component.js.map
 
 /***/ }),
@@ -731,7 +725,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  Username:<input [(ngModel)]=\"username\"  id = \"username\" type=\"username\" name=\"username\">\t<br>\n<br>\n  Password :<input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">\t<br>\n<br>\n  Birthday :\n  <select name=\"months\" id=\"month\">\n  <option value=\"JAN\">January</option>\n  <option value=\"FEB\">February</option>\n  <option value=\"MAR\">March</option>\n  <option value=\"APR\">April</option>\n  <option value=\"MAY\">May</option>\n  <option value=\"Jun\">June</option>\n  <option value=\"Jul\">July</option>\n    <option value=\"AUG\">August</option>\n    <option value=\"SEP\">Septemper</option>\n    <option value=\"OCT\">October</option>\n    <option value=\"NOV\">November</option>\n    <option value=\"DEC\">December</option>\n  </select>\n  <select  id= \"day\" >\n  \t<option *ngFor=\"let day of days\">{{day}}</option>\n  </select>\n  <select id=\"year\" >\n  \t<option *ngFor=\"let year of years\" [value]=\"year\">{{year}}</option>\n  </select>\n<br>\n<br>\n\n   Nationality :<input [(ngModel)]=\"nationality\" id = \"nationality\" type=\"text\" name=\"nationality\">\t<br><br>\t\n   Location :<input [(ngModel)]=\"location\" id = \"location\" type=\"text\" name=\"location\">\t<br>\t\n   Upload your photo:<input  type=\"file\" id=\"image\" (change)=\"ima($event)\">\n\n<button (click)=\"signup()\"> Signup </button>\n</form>\n\n\n"
+module.exports = "  <div class=\"modal fade w3-animate-zoom in\" id=\"myModal\" role=\"dialog\">\n    <div class=\"modal-dialog w3-animate-zoom\"  style=\"display: block; padding-right: 15px;\">>\n    \n      <!-- Modal content-->\n      <div class=\"modal-content w3-animate-zoom\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">Modal Header</h4>\n        </div>\n        <div class=\"modal-body w3-animate-zoom\">\n         \n\n<div class=\"input-group\"><span class=\"input-group-addon\">Username:</span><input [(ngModel)]=\"username\"  id = \"username\" type=\"username\" name=\"username\">  <br>\n</div><br>\n  <div class=\"input-group\"><span class=\"input-group-addon\">Password :</span><input [(ngModel)]=\"password\" id = \"password\" type=\"password\" name=\"password\">  </div><br>\n\n\n<div class=\"input-group\"><span class=\"input-group-addon\">Nationality:</span><input [(ngModel)]=\"nationality\" id = \"nationality\" type=\"text\" name=\"nationality\"></div> <br> \n   <div class=\"input-group\"><span class=\"input-group-addon\">Location  :</span><input [(ngModel)]=\"location\" id = \"location\" type=\"text\" name=\"location\"> <br> </div><br>\n\n\n<div class=\"input-group\"><span class=\"input-group-addon\">Upload your photo:\n  <input class='btn btn-default btn-file' type=\"file\" id=\"image\" (change)=\"ima($event)\"/>\n  </span>\n</div>\n\n<br>\n\n  <div class=\"input-group\"><span class=\"input-group-addon\">Birthday :\n  <select name=\"months\" id=\"month\">\n  <option value=\"JAN\">January</option>\n  <option value=\"FEB\">February</option>\n  <option value=\"MAR\">March</option>\n  <option value=\"APR\">April</option>\n  <option value=\"MAY\">May</option>\n  <option value=\"Jun\">June</option>\n  <option value=\"Jul\">July</option>\n    <option value=\"AUG\">August</option>\n    <option value=\"SEP\">Septemper</option>\n    <option value=\"OCT\">October</option>\n    <option value=\"NOV\">November</option>\n    <option value=\"DEC\">December</option>\n  </select>\n  <select  id= \"day\" >\n    <option *ngFor=\"let day of days\">{{day}}</option>\n  </select>\n  <select id=\"year\" >\n    <option *ngFor=\"let year of years\" [value]=\"year\">{{year}}</option>\n  </select>\n</span></div>\n\n        </div>\n        <div class=\"modal-footer\">\n\n\n          <button type=\"button\" class=\"navbar-left btn btn-success w3-animate-zoom\" data-dismiss=\"modal\" (click)=\"signup()\"> Signup </button>\n\n\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n\n        </div>\n      </div>\n      \n    </div>\n  </div>\n\n\n\n\n\n<form>\n  \n</form>\n\n\n"
 
 /***/ }),
 
@@ -757,7 +751,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupComponent = (function () {
+var SignupComponent = /** @class */ (function () {
     function SignupComponent(http, router, _sanitizer) {
         this.http = http;
         this.router = router;
@@ -803,8 +797,8 @@ var SignupComponent = (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('/signup', { password: this.password, username: this.username, birthday: this.date, nationality: this.nationality, location: this.location, image: this.url }, { headers: headers })
             .map(function (res) {
-            if (res) {
-                _this.router.navigateByUrl('/login');
+            if (res['_body'] === 'true') {
+                _this.router.navigateByUrl('/');
             }
             else {
                 alert('account is already exist !!');
@@ -812,18 +806,18 @@ var SignupComponent = (function () {
             }
         }).subscribe();
     };
+    SignupComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-signup',
+            template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
+    ], SignupComponent);
     return SignupComponent;
+    var _a, _b, _c;
 }());
-SignupComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-signup',
-        template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["b" /* DomSanitizer */]) === "function" && _c || Object])
-], SignupComponent);
 
-var _a, _b, _c;
 //# sourceMappingURL=signup.component.js.map
 
 /***/ }),
@@ -850,7 +844,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SpeechRecognitionService = (function () {
+var SpeechRecognitionService = /** @class */ (function () {
     function SpeechRecognitionService(zone) {
         this.zone = zone;
     }
@@ -909,14 +903,14 @@ var SpeechRecognitionService = (function () {
     SpeechRecognitionService.prototype.stop = function () {
         this.speechRecognition.stop();
     };
+    SpeechRecognitionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
+    ], SpeechRecognitionService);
     return SpeechRecognitionService;
+    var _a;
 }());
-SpeechRecognitionService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* NgZone */]) === "function" && _a || Object])
-], SpeechRecognitionService);
 
-var _a;
 //# sourceMappingURL=speech-recognition.service.js.map
 
 /***/ }),
@@ -967,12 +961,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var UserProfileComponent = (function () {
-    function UserProfileComponent(http, router) {
-        this.http = http;
-        this.router = router;
     }
     UserProfileComponent.prototype.ngOnInit = function () {
         // $.ajax({
@@ -995,16 +983,7 @@ var UserProfileComponent = (function () {
         //         }
         // })
     };
-    return UserProfileComponent;
-}());
-UserProfileComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-user-profile',
-        template: __webpack_require__("../../../../../src/app/user-profile/user-profile.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/user-profile/user-profile.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
-], UserProfileComponent);
+
 
 var _a, _b;
 //# sourceMappingURL=user-profile.component.js.map
@@ -1020,7 +999,6 @@ var _a, _b;
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false
 };
