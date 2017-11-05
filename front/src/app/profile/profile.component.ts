@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     return this.http.get('/profile',{headers: headers})
     .map((res) => {
       if(res){  
-console.log(res)
          this.userData = res.json();
          this.postdata = this.userData[0];
          this.currentUser=this.userData[1][0].username;
@@ -36,11 +35,6 @@ console.log(res)
          this.birthday = this.userData[1][0].Birthday;
          this.profile=this.userData[1][0].imag;
          this.status=this.userData[1][0].status;
-
-
-         // console.log("ttttttt",this.nationality);
-
-   
       }else{
         
       }
@@ -57,20 +51,7 @@ console.log(res)
 
   }
 
-  user(username){
-    console.log("areej 7ywana")
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      return this.http.post('/Userprofile',{username:username},{headers: headers})
-      .map((res) => {
-        if(res){
-          console.log(res)
-          
-        }else{
 
-        }
-      }).subscribe(); 
-    }
 
 
 
