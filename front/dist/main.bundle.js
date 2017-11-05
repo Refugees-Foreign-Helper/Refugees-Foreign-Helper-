@@ -93,7 +93,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__language_language_component__ = __webpack_require__("../../../../../src/app/language/language.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__test_test_component__ = __webpack_require__("../../../../../src/app/test/test.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__user_profile_user_profile_component__ = __webpack_require__("../../../../../src/app/user-profile/user-profile.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -124,7 +124,8 @@ var appRoutes = [
     { path: 'post', component: __WEBPACK_IMPORTED_MODULE_9__post_post_component__["a" /* PostComponent */] },
     { path: 'navbar', component: __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */] },
-    { path: 'language', component: __WEBPACK_IMPORTED_MODULE_12__language_language_component__["a" /* LanguageComponent */] }
+    { path: 'language', component: __WEBPACK_IMPORTED_MODULE_12__language_language_component__["a" /* LanguageComponent */] },
+    { path: 'Userprofile', component: __WEBPACK_IMPORTED_MODULE_13__user_profile_user_profile_component__["a" /* UserProfileComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -161,6 +162,7 @@ var AppModule = /** @class */ (function () {
     ], AppModule);
     return AppModule;
 }());
+
 
 //# sourceMappingURL=app.module.js.map
 
@@ -346,7 +348,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-post></app-post>\n\n<div *ngFor=\"let post of posts ;index as i\" >\n\n\n   <div  class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n\n<div  class=\"row\">\n\n        <div class=\"col-sm-1\"><img src=\"{{post.imag}}\" alt=\"Avatar\"  style=\"width:70px;height:70px;border-radius: 50px;\"></div>\n\n        <div class=\"col-sm-1\"><h4 (click) = \"user(post.userName)\" \n        routerLink=\"/profile\" \n        routerLinkActive=\"active\"\n        >{{post.userName}}</h4></div>\n\n\n\n        <div class=\"col-sm-10\"><span class=\"w3-right w3-opacity\">32 min</span></div>\n        </div><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{post.location}}  <br>\n          Description : {{post.discribtion}} <br>\n         Contact Info : {{post.contactInfo}} <br>\n        </p>\n\n\n        <img src=\"{{post.image}}\"  style=\"width: 98%;height: 78%\">\n        <br><br>\n      <!-- comment tag start hear  -->\n      <div *ngFor=\"let com of comments;index as j\" [hidden]=\"i != comID\">\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\">\n<div class=\"container\" >\n    <div class=\"row\"  style=\"height:5% , width:4%\">\n        <div class=\"col-sm-8\" >\n            <div class=\"panel panel-white post panel-shadow\">\n                <div class=\"post-heading\">\n                    <div class=\"pull-left image\">\n                        <img src={{com.imag}} class=\"img-circle avatar\" alt=\"user profile image\">\n                    </div>\n                    <div class=\"pull-left meta\">\n                        <div class=\"title h5\">\n                            <a href=\"#\"><b>{{com.username}}</b></a>\n                        </div>\n                    </div>\n                </div> \n                <div class=\"post-description\"> \n                    <p>{{com.comment}}</p>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n</div>\n\n\n<!-- end for comment filed  -->\n\n    <!-- <div style=\"width: 60%;height: 40px;\"> -->\n        <input  type=\"text\" name=\"type your comment\" id=\"{{i}}\" placeholder=\"write a comment here...\" style=\"width: 80%;height: 40px;\">\n        <button type=\"button\"\n        (click)=\"commentFun(i,post.id)\" \n        class=\"w3-button w3-theme-d2\"><i class=\"fa fa-comment\"></i>  Comment</button>  <br><br>\n        <!-- </div> -->\n</div>\n</div>"
+
 
 /***/ }),
 
@@ -359,7 +361,6 @@ module.exports = "<app-post></app-post>\n\n<div *ngFor=\"let post of posts ;inde
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -373,15 +374,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MainComponent = /** @class */ (function () {
-    function MainComponent(http, userProfile) {
         this.http = http;
-        this.userProfile = userProfile;
-        this.user = this.userProfile.user;
     }
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //setInterval(() => {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get('/main', { headers: headers })
@@ -391,7 +387,6 @@ var MainComponent = /** @class */ (function () {
                 console.log(_this.posts);
             }
         }).subscribe();
-        // }, 5000);
     };
     MainComponent.prototype.commentFun = function (postIndex, roomId) {
         var _this = this;
@@ -679,7 +674,6 @@ var ProfileComponent = /** @class */ (function () {
         return this.http.get('/profile', { headers: headers })
             .map(function (res) {
             if (res) {
-                console.log(res);
                 _this.userData = res.json();
                 _this.postdata = _this.userData[0];
                 _this.currentUser = _this.userData[1][0].username;
@@ -688,7 +682,6 @@ var ProfileComponent = /** @class */ (function () {
                 _this.birthday = _this.userData[1][0].Birthday;
                 _this.profile = _this.userData[1][0].imag;
                 _this.status = _this.userData[1][0].status;
-                // console.log("ttttttt",this.nationality);
             }
             else {
             }
@@ -702,27 +695,7 @@ var ProfileComponent = /** @class */ (function () {
         return this.http.put('/status', { status: set }, { headers: headers })
             .map(function (res) { }).subscribe();
     };
-    ProfileComponent.prototype.user = function (username) {
-        console.log("areej 7ywana");
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('/Userprofile', { username: username }, { headers: headers })
-            .map(function (res) {
-            if (res) {
-                console.log(res);
-            }
-            else {
-            }
-        }).subscribe();
-    };
-    ProfileComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-profile',
-            template: __webpack_require__("../../../../../src/app/profile/profile.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/profile/profile.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], ProfileComponent);
+
     return ProfileComponent;
     var _a;
 }());
@@ -942,7 +915,7 @@ var SpeechRecognitionService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/test/test.component.css":
+/***/ "../../../../../src/app/user-profile/user-profile.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -960,19 +933,23 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/test/test.component.html":
+/***/ "../../../../../src/app/user-profile/user-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  test works!\n</p>\n"
+module.exports = "<div class=\"w3-container w3-content\" style=\"max-width:1400px;margin-top:80px\">    \n  <!-- The Grid -->\n  <div class=\"w3-row\">\n    <!-- Left Column -->\n    <div class=\"w3-col m3\">\n      <!-- Profile -->\n      \n      <div class=\"w3-card-2 w3-round w3-white\">\n        <div class=\"w3-container\">\n         <h4 class=\"w3-center\">{{currentUser}}</h4>\n         <p class=\"w3-center\"><img src=\"{{profile}}\" class=\"w3-circle\" style=\"height:106px;width:106px\" alt=\"Avatar\"></p>\n         <hr>\n         <p><i class=\"fa fa-pencil fa-fw w3-margin-right w3-text-theme\"></i> {{nationality}}</p>\n         <p><i class=\"fa fa-home fa-fw w3-margin-right w3-text-theme\"></i> {{location}}</p>\n         <p><i class=\"fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme\"></i> {{birthday}}</p>\n        </div>\n      </div>\n      <br>          \n      <!-- Alert Box -->\n      <div class=\"w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small\">\n        <span onclick=\"this.parentElement.style.display='none'\" class=\"w3-button w3-theme-l3 w3-display-topright\">\n          <i class=\"fa fa-remove\"></i>\n        </span>\n        <p><strong>Hey!</strong></p>\n        <p>{{status}}</p>\n      </div>\n    \n    <!-- End Left Column -->\n    </div>\n    \n    <!-- Middle Column -->\n    <div class=\"w3-col m7\">\n    \n      <div class=\"w3-row-padding\">\n        <div class=\"w3-col m12\">\n          <div class=\"w3-card-2 w3-round w3-white\">\n            <div class=\"w3-container w3-padding\">\n              <h6 class=\"w3-opacity\">Social Media template by w3.css</h6>\n              <input contenteditable=\"true\" class=\"w3-border w3-padding\" id=\"status\">\n              <button type=\"button\" class=\"w3-button w3-theme\" (click)=\"getStatus()\"><i class=\"fa fa-pencil\"></i>  Post</button> \n            </div>\n          </div>\n        </div>\n      </div>\n      \n\n   <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n        Location : {{data.location}} <br>\n        Description : {{data.discribtion}} <br>\n        Contact Info : {{data.contactInfo}} <br>\n\n      </p> \n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  \n</div> -->\n\n      \n<!--       <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br>\n        <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">16 min</span>\n        <h4>Jane Doe</h4><br>\n        <hr class=\"w3-clear\">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div>  --> \n\n      <!-- <div class=\"w3-container w3-card-2 w3-white w3-round w3-margin\"><br> -->\n      <div *ngFor=\"let data of postdata\">\n        <img src=\"{{profile}}\" alt=\"Avatar\" class=\"w3-left w3-circle w3-margin-right\" style=\"width:60px\">\n        <span class=\"w3-right w3-opacity\">32 min</span>\n        <h4>{{data.userName}}</h4><br>\n        <hr class=\"w3-clear\">\n        <p>\n          Location : {{data.location}} <br>\n          Description : {{data.discribtion}} <br>\n         Contact Info : {{data.contactInfo}} <br>\n        </p>\n        <img src=\"{{data.image}}\" style=\"width:100%\" class=\"w3-margin-bottom\">\n        <button type=\"button\" class=\"w3-button w3-theme-d1 w3-margin-bottom\"><i class=\"fa fa-thumbs-up\"></i>  Like</button> \n        <button type=\"button\" class=\"w3-button w3-theme-d2 w3-margin-bottom\"><i class=\"fa fa-comment\"></i>  Comment</button> \n      </div> \n      \n    <!-- End Middle Column -->\n    </div>\n    \n    <!-- Right Column -->\n   <!--  <div class=\"w3-col m2\">\n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Upcoming Events:</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png\" alt=\"Forest\" style=\"width:100%;\">\n          <p><strong>Holiday</strong></p>\n          <p>Friday 15:00</p>\n          <p><button class=\"w3-button w3-block w3-theme-l4\">Info</button></p>\n        </div>\n      </div>\n      <br>\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-center\">\n        <div class=\"w3-container\">\n          <p>Friend Request</p>\n          <img src=\"https://upload.wikimedia.org/wikipedia/commons/e/ed/Conejo_astronomo.png alt=\"Avatar\" style=\"width:50%\"><br>\n          <span>Jane Doe</span>\n          <div class=\"w3-row w3-opacity\">\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-green w3-section\" title=\"Accept\"><i class=\"fa fa-check\"></i></button>\n            </div>\n            <div class=\"w3-half\">\n              <button class=\"w3-button w3-block w3-red w3-section\" title=\"Decline\"><i class=\"fa fa-remove\"></i></button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <br> -->\n      \n   <!--    <div class=\"w3-card-2 w3-round w3-white w3-padding-16 w3-center\">\n        <p>ADS</p>\n      </div>\n      <br> -->\n      \n      <div class=\"w3-card-2 w3-round w3-white w3-padding-32 w3-center\">\n        <p><i class=\"fa fa-bug w3-xxlarge\"></i></p>\n      </div>\n      \n    <!-- End Right Column -->\n   <!--  </div> -->\n    \n  <!-- End Grid -->\n  </div>\n  \n<!-- End Page Container -->\n</div>\n<br>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/test/test.component.ts":
+/***/ "../../../../../src/app/user-profile/user-profile.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TestComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -983,23 +960,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TestComponent = /** @class */ (function () {
-    function TestComponent() {
-    }
-    TestComponent.prototype.ngOnInit = function () {
-    };
-    TestComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-            selector: 'app-test',
-            template: __webpack_require__("../../../../../src/app/test/test.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/test/test.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], TestComponent);
-    return TestComponent;
-}());
 
-//# sourceMappingURL=test.component.js.map
+    }
+    UserProfileComponent.prototype.ngOnInit = function () {
+        // $.ajax({
+        //         url :"/Userprofile",
+        //         async : false,
+        //         data : {username:this.username},
+        //         type : "POST",
+        //         success:(data)=>{
+        //           console.log(data)
+        //               // console.log(res.json())
+        //           this.userData = data;
+        //          this.postdata = this.userData[0];
+        //          this.currentUser=this.userData[1][0].username;
+        //          this.nationality=this.userData[1][0].Nationallity;
+        //          this.location=this.userData[1][0].Location;
+        //          this.birthday = this.userData[1][0].Birthday;
+        //          this.profile=this.userData[1][0].imag;
+        //          this.status=this.userData[1][0].status;
+        //          console.log('out',this.currentUser,this.nationality)
+        //         }
+        // })
+    };
+
+
+var _a, _b;
+//# sourceMappingURL=user-profile.component.js.map
 
 /***/ }),
 

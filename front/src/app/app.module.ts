@@ -18,7 +18,7 @@ import { PostComponent } from './post/post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LanguageComponent } from './language/language.component';
-import { TestComponent } from './test/test.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
@@ -28,7 +28,8 @@ const appRoutes: Routes = [
   {path:'post', component:PostComponent},
   {path:'navbar', component:NavbarComponent},
   {path:'profile', component:ProfileComponent},
-  {path:'language', component:LanguageComponent}
+  {path:'language', component:LanguageComponent},
+  {path:'Userprofile', component:UserProfileComponent}
 
 ];
 
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProfileComponent,
     LanguageComponent,
-    TestComponent,
+    UserProfileComponent,
   //  BootstrapCompComponent
   ],
   imports: [
