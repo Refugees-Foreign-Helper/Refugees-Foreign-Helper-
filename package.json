@@ -45,6 +45,7 @@
     "restify-cookies": "^0.2.2",
     "serve-favicon": "^2.4.5",
     "set-cookie": "0.0.4",
+    "socket.io": "^2.0.4",
     "typescript": "^2.5.3"
   }
 }
