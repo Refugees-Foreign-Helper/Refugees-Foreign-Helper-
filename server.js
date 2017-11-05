@@ -89,12 +89,12 @@ app.post('/signup',function (req,res) {
            var data = 'INSERT INTO users (username,password,Nationallity,Birthday,location,imag) VALUES (\''+username+'\',\''+password+'\',\''+Nationallity+'\',\''+Birthday+'\',\''+location +'\',\''+Image+'\')';
 
            connect.query(data);
-            res.send(checkeduser);
+            res.send('true');
 
        }else{
 
 
-           res.send(checkeduser);
+           res.send('false');
 
        }
     });
@@ -236,8 +236,8 @@ app.get('/profile',function(req,res) {
 //-------------------clicked on specific name to take me to that profile---------
 app.post('/Userprofile',function(req,res) {
 
-   var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.session.user.username+'\'';
-   var userinfo= 'SELECT * FROM users WHERE userName=\''+req.session.user.username+'\'';
+   var userroom = 'SELECT * FROM rooms WHERE userName=\''+req.body.username+'\'';
+   var userinfo= 'SELECT * FROM users WHERE userName=\''+req.body.username+'\'';
    var userinformation1;
 
    connect.query(userinfo,function(err,userinfomation){
