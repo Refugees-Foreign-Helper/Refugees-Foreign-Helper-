@@ -1,27 +1,24 @@
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+<div class="w3-container w3-content">    
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
     <div class="w3-col m3">
       <!-- Profile -->
       
-      <div class="w3-card-2 w3-round w3-white">
+      <div class="w3-card-2 w3-round w3-white w3-animate-zoom" >
         <div class="w3-container">
-         <h4 class="w3-center">{{currentUser}}</h4>
-         <p class="w3-center"><img src="{{profile}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <b><h3 class="w3-center">{{currentUser}}</h3></b>
+         <p class="w3-center"><img src="{{profile}}" class="w3-circle" style="height:206px;width:206px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{nationality}}</p>
-         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{location}}</p>
-         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{birthday}}</p>
+         <b><p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{nationality}}</p></b>
+         <b><p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{location}}</p></b>
+         <b><p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{birthday}}</p></b>
         </div>
       </div>
       <br>          
       <!-- Alert Box -->
-      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-          <i class="fa fa-remove"></i>
-        </span>
-        <p><strong>Hey!</strong></p>
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small w3-animate-zoom">
+        <p><strong>Status</strong></p>
         <p>{{status}}</p>
       </div>
     
@@ -29,7 +26,7 @@
     </div>
     
     <!-- Middle Column -->
-   <!--  <div class="w3-col m7">
+   <!--  
     
       <div class="w3-row-padding">
         <div class="w3-col m12">
@@ -46,8 +43,10 @@
 
 
 <!-- user profile posts -->
-
-  <div *ngFor="let data of postdata ;index as i">
+<div class="w3-col m7 w3-animate-zoom">
+  <div class="w3-row-padding">
+    <div class="w3-col m12">
+  <div *ngFor="let data of postdata ;index as i" class="w3-animate-zoom">
 
 
    <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
@@ -61,7 +60,7 @@
           Description : {{data.discribtion}} <br>
          Contact Info : {{data.contactInfo}} <br>
         </p>
-        <img src="{{data.image}}" style="width:25%" class="w3-margin-bottom">
+        <img src="{{data.image}}" style="width: 78%;height: 48%" class="w3-margin-bottom">
 
       <!-- comment tag start here  -->
       <div *ngFor="let com of comments;index as j" [hidden]="i != comID">
@@ -89,6 +88,9 @@
     </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
 
 <!-- end for comment filed  -->
@@ -102,12 +104,6 @@
 </div>
 
  
-
-
-      
-      <div class="w3-card-2 w3-round w3-white w3-padding-32 w3-center">
-        <p><i class="fa fa-bug w3-xxlarge"></i></p>
-      </div>
       
     <!-- End Right Column -->
    <!--  </div> -->
