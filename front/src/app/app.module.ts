@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LanguageComponent } from './language/language.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChatComponent } from './chat/chat.component';
 //import { BootstrapCompComponent } from './bootstrap-comp/bootstrap-comp.component';
 
 const appRoutes: Routes = [
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   {path:'navbar', component:NavbarComponent},
   {path:'profile', component:ProfileComponent},
   {path:'language', component:LanguageComponent},
-  {path:'Userprofile', component:UserProfileComponent}
+  {path:'Userprofile', component:UserProfileComponent},
+  {path:'Chat', component:ChatComponent}
 
 ];
 
@@ -44,6 +46,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     LanguageComponent,
     UserProfileComponent,
+    ChatComponent,
   //  BootstrapCompComponent
   ],
   imports: [
