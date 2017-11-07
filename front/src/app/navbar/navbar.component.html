@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<nav class="navbar navbar-inverse  navbar-fixed-top">
+<nav class="navbar navbar-inverse  navbar-fixed-top w3-animate-zoom">
   <div class="container-fluid">
     <!-- <div class="navbar-header"> -->
       <!-- <a class="navbar-brand" href="#">Batee5</a> -->
@@ -17,19 +17,23 @@
       <li class="active"><a [hidden]= "!flag" href="#"
         routerLink='/main'
         routerLinkActive="active"
+        class="page w3-animate-zoom"
         (click) = "main"
       	>Home</a></li>
       <li><a href="#"  
         [hidden]= "!flag" 
+        class="page w3-animate-zoom"
       	routerLink="/profile" 
       	routerLinkActive="active" >Profile</a></li>
           <li><a href="#"  
         [hidden]= "!flag" 
         routerLink="/language" 
+        class="page w3-animate-zoom"
         routerLinkActive="active" >Language</a></li>
         <li><a href="#"  
         [hidden]= "!flag" 
         routerLink="/Chat" 
+        class="page w3-animate-zoom"
         routerLinkActive="active" >Chat</a></li>
    
 
@@ -39,27 +43,26 @@
       <li data-toggle="modal" data-target="#myModal"><a href="#"
         [hidden]= "flag"
         routerLink='/signup'
+        class="page w3-animate-zoom"
         routerLinkActive="active"
       	><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
-        <div class="container">
-                <div class="row" [hidden] = "!flag">
+        
 
-                  <div class="search">
-                    <input type="text" id="search" class="form-control input-sm" maxlength="64" placeholder="Search" />
-                    <button type="submit" class="btn btn-primary btn-sm" 
+                   <li><a><input [hidden] = "!flag" type="text" id="search" class="form-control input-sm w3-animate-zoom" maxlength="64" placeholder="Search" /></a></li>
+                    <li><a><button [hidden] = "!flag" type="submit" class="btn btn-primary btn-sm w3-animate-zoom" 
                     routerLink='/Userprofile'
                     routerLinkActive="active"
-                    >Search</button>
-                  </div>
-                </div>
-              </div>
+                    >Search</button></a></li>
+
+              
               
 
          <li><a href="#"
           (click)="logout()"
         [hidden]= "!flag"
         routerLink='/'
+        class="page w3-animate-zoom"
         routerLinkActive="active"
         ><span class="glyphicon glyphicon-user"></span> Logout</a></li>
     </ul>
@@ -67,30 +70,60 @@
 </nav>
 <br><br>
 <br><br>
-<form [hidden]= "flag"><div class="input-group">
+<form [hidden]= "flag">
+
+  <div id='logind' class='w3-animate-zoom'>
+
+  <div class="input-group">
 <span class="input-group-addon">
-User name:</span><input [(ngModel)]="username" id = "username" type="username" name="username"></div>  <br>
+username:</span><input [(ngModel)]="username" id = "username" type="username" name="username"></div>  <br>
 
 <div class="input-group">
 <span class="input-group-addon">Password :</span><input [(ngModel)]="password" id = "password" type="password" name="password"></div>   <br> 
 <button class="btn btn-defualt"(click)="login()"> Login </button>
-</form>
 
+</div>
+
+</form>
 
 <!-- <div class="input-group">
 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="Suser" type="text" class="input form-control w3-animate-zoom" placeholder="Username"><br>
 </div> -->
 
 <style type="text/css">
+#logind{
+  background-color: gray;
+  padding: 25px;
+  box-shadow: 1px 1px 2px black, 0 0 55px black, 0 0 5px black;
+  margin: 25px;
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: white;
+  border-style: dashed;
+}
 body{
   background-color: gray;
 }
-nav a{
+.page{
   color: white;
 }
-nav a:hover{
+.page:hover{
   color: blue;
+  box-shadow: 1px 1px 2px white, 0 0 55px white, 0 0 5px white;
+
 }
+nav{
+  box-shadow: 1px 1px 2px black, 0 0 55px black, 0 0 5px black;
+
+}
+#logind div{
+width: 80%;
+height: 80%;
+}
+
+
 </style>
 
 <router-outlet></router-outlet>
