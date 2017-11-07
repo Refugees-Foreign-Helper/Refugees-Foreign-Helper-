@@ -58,24 +58,19 @@ export class SpeechRecognitionService {
                 this.zone.run(() => {
                     observer.next(word);
                 });
-            };
-
-            this.speechRecognition.start();
-            console.log("Say something - I am giving up on you");
-
-
-            // this.speechRecognition.onend = () => {
-            //     observer.complete();
-            // };
+            }; 
 
             this.speechRecognition.onerror = error => {
                 observer.error(error);
             };
 
+            this.speechRecognition.start();
+            console.log("Say something - I am giving up on you");
+
         });
     }  
-
-    stop(){
-        this.speechRecognition.stop();
+    test(){
+         if (this.speechRecognition)
+            this.speechRecognition.stop();
     }
 }

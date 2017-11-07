@@ -251,7 +251,7 @@ var ChatComponent = (function () {
             var lastTypingTime;
             var $currentInput = $usernameInput.focus();
             // let socket = io();
-            var socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__["connect"]('http://localhost:3000');
+            var socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__["connect"]('/');
             function addParticipantsMessage(data) {
                 var message = '';
                 if (data.numUsers === 1) {
@@ -580,13 +580,6 @@ module.exports = "<div class=\"container-fluid\">\n    <div class=\"row\">\n    
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-// import { Component, OnInit, OnDestroy} from '@angular/core';
-// import { SpeechRecognitionService } from '../speech-recognition.service';
-// import { Http, Headers } from '@angular/http';
-// import * as io from "socket.io-client";
-// import 'rxjs/add/operator/map';
-// declare var jquery:any;
-// declare var $ :any;
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -596,90 +589,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// @Component({
-//     selector: 'app-language',
-//     templateUrl: './language.component.html',
-//     styleUrls: ['./language.component.css']
-// })
-// export class LanguageComponent implements OnInit, OnDestroy {
-//     showSearchButton: boolean;
-//     speechData: string;
-//     language;
-//     show=false;
-//     translate;
-//     languageTo;
-//     languageFrom;
-//     socket = io.connect('http://localhost:3000');
-//     constructor(private speechRecognitionService: SpeechRecognitionService, private http : Http) {
-//         this.speechData = "";
-//     }
-//     ngOnInit() {
-//          // let socket = io.connect('http://localhost:3000');
-//         console.log("areej and hanan>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-//              console.log('before speeked');
-// // this.socket.on('speaked',(data) => {
-// //     console.log('speaked ', data)
-// //         let msg = new SpeechSynthesisUtterance(data);
-// //         msg.lang=this.languageTo.toLowerCase();
-// //         window.speechSynthesis.speak(msg);
-// // });
-//     }
-//     ngOnDestroy() {
-//         this.socket.on('speaked',(data) => {
-//     console.log('speaked ', data)
-//         let msg = new SpeechSynthesisUtterance(data);
-//         msg.lang=this.languageTo.toLowerCase();
-//         window.speechSynthesis.speak(msg);
-//          // let socket = io.connect('http://localhost:3000');
-// console.log('after speaked ')
-//  console.log('destroy  here        ')
-//         this.show = !this.show;
-//         this.speechRecognitionService.stop();
-//         this.languageTo=$("#languageTo").val();
-//         this.languageFrom= $("#languageFrom").val();
-//         let text = $("#txtSpeechSearchMovieName").val();
-//         this.socket.emit('stop speaking',{text : text, languageFrom : this.languageFrom, languageTo : this.languageTo});
-//         let headers = new Headers();
-//         headers.append('Content-Type', 'application/json');
-//         return this.http.post('/translate', {text : text, languageFrom : this.languageFrom, languageTo : this.languageTo}, {headers: headers})
-//         .map((res) => {
-//             if(res){
-//                 this.translate = res.json()
-//                 console.log(this.translate)
-//                 // this.textToSpeech()
-//             }else{
-//             }
-//         }).subscribe();    
-//     }
-//     activateSpeechSearchMovie(): void {
-//         // socket.emit('speaking');
-//         this.show = !this.show;        
-//         this.speechRecognitionService.record()
-//         .subscribe(
-//             //listener
-//             (value) => {
-//                 this.speechData = value;
-//                 console.log(value);
-//             },
-//             //errror
-//             (err) => {
-//                 console.log(err);
-//                 if (err.error == "there is no speech untile now") {
-//                     this.activateSpeechSearchMovie();
-//                 }
-//             },
-//             //completion
-//             () => {
-//                 this.activateSpeechSearchMovie();
-//             });
-//     }
-//     // textToSpeech() {
-//     //     let msg = new SpeechSynthesisUtterance(this.translate);
-//     //     msg.lang=this.languageTo.toLowerCase();
-//     //     window.speechSynthesis.speak(msg);
-//     // }
-// }
-// // socket.emit('speaking');
 
 
 
@@ -697,7 +606,7 @@ var LanguageComponent = (function () {
     LanguageComponent.prototype.ngOnDestroy = function () {
         var _this = this;
         this.show = !this.show;
-        this.speechRecognitionService.stop();
+        this.speechRecognitionService.test();
         this.languageTo = $("#languageTo").val();
         this.languageFrom = $("#languageFrom").val();
         var text = $("#txtSpeechSearchMovieName").val();
@@ -1344,18 +1253,16 @@ var SpeechRecognitionService = (function () {
                     observer.next(word);
                 });
             };
-            _this.speechRecognition.start();
-            console.log("Say something - I am giving up on you");
-            // this.speechRecognition.onend = () => {
-            //     observer.complete();
-            // };
             _this.speechRecognition.onerror = function (error) {
                 observer.error(error);
             };
+            _this.speechRecognition.start();
+            console.log("Say something - I am giving up on you");
         });
     };
-    SpeechRecognitionService.prototype.stop = function () {
-        this.speechRecognition.stop();
+    SpeechRecognitionService.prototype.test = function () {
+        if (this.speechRecognition)
+            this.speechRecognition.stop();
     };
     return SpeechRecognitionService;
 }());

@@ -11,7 +11,7 @@ var CookieParser = require('restify-cookies');
 var translate = require('google-translate-api');
 
 
-var server = app.listen(3000);
+var server = app.listen(process.env.PORT || 3000);
 
 var io = require('socket.io').listen(server);  //pass a http.Server instance
 var server = http.createServer(app);
