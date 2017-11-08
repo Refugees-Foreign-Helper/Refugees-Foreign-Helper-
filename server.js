@@ -31,15 +31,19 @@ app.use(session({
   resave:false,
   saveUninitialized: true
 }));
-
+// Host: sql9.freesqldatabase.com
+// Database name: sql9203547
+// Database user: sql9203547
+// Database password: hhldFiMrKp
+// Port number: 3306
 
 
 
 var connect = mysql.createConnection({
-  host: 'sql12.freesqldatabase.com',
-  user:'sql12202148',
-  password:'luJSkvai4e',
-  database:'sql12202148'
+  host: 'sql9.freesqldatabase.com',
+  user:'sql9203547',
+  password:'hhldFiMrKp',
+  database:'sql9203547'
 });
 // --------------------------Data base side----------------------------------------
 // ---------------------create tables and connection--------------------------------
@@ -119,7 +123,7 @@ app.post('/login',function(req,res){
   var results;
 
   connect.query('SELECT * FROM users WHERE username=\''+req.body.username+'\'', function (err,result) {
-        // console.log('hhhh',result)
+        console.log('hhhh',result,req.body.username )
         if(result[0]!==undefined){
           results=result;
           compare();  
@@ -198,7 +202,7 @@ app.post('/post',function(req,res) {
   console.log('in post    ',req.session.user.username,req.session.user.id)
 
 
-  var lPocation = req.body.location;
+  var location = req.body.location;
   var discribtion = req.body.discribtion;
   var contactInfo = req.body.contactInfo;
   var Image = req.body.image
