@@ -12,11 +12,11 @@ interface IWindow extends Window {
 
 @Injectable()
 export class SpeechRecognitionService {
-	speechRecognition: any;
-	constructor(private zone: NgZone){
+    speechRecognition: any;
+    constructor(private zone: NgZone){
 
-	}
-	    record(): Observable<string> {
+    }
+        record(): Observable<string> {
 
         return Observable.create(observer => {
            let language=$("#languageFrom").val();
@@ -41,7 +41,6 @@ export class SpeechRecognitionService {
                     var result = speech.results[speech.resultIndex];
                     // SpeechRecognitionResult {0: SpeechRecognitionAlternative, 1: SpeechRecognitionAlternative,... up to 19  isFinal: true}
                     // 0:SpeechRecognitionAlternative {transcript: "Isabella", confidence: 0}
-
                     console.log("result" , speech.results, speech.resultIndex);
                     var nearWord = result[0].transcript; //the original word alternative
                     if (result.isFinal) {
@@ -58,24 +57,19 @@ export class SpeechRecognitionService {
                 this.zone.run(() => {
                     observer.next(word);
                 });
-            };
-
-            this.speechRecognition.start();
-            console.log("Say something - I am giving up on you");
-
-
-            // this.speechRecognition.onend = () => {
-            //     observer.complete();
-            // };
+            }; 
 
             this.speechRecognition.onerror = error => {
                 observer.error(error);
             };
 
+            this.speechRecognition.start();
+            console.log("Say something - I am giving up on you");
+
         });
     }  
-
-    stop(){
-        this.speechRecognition.stop();
+    test(){
+         if (this.speechRecognition)
+            this.speechRecognition.stop();
     }
 }

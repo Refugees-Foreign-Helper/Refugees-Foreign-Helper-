@@ -158,7 +158,7 @@ export class LanguageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.show = !this.show;
-        this.speechRecognitionService.stop();
+        this.speechRecognitionService.test();
         this.languageTo=$("#languageTo").val();
         this.languageFrom= $("#languageFrom").val();
         let text = $("#txtSpeechSearchMovieName").val();
